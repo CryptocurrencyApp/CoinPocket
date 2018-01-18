@@ -1,1 +1,1861 @@
-{}
+{
+  "assets": [
+    {
+      "brand": "XRP",
+      "amount": 10.0011
+    },
+    {
+      "brand": "BTC",
+      "amount": 0.0001
+    },
+    {
+      "brand": "BCH",
+      "amount": 0.1211
+    },
+    {
+      "brand": "XVG",
+      "amount": 40.9011
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "url": "https://twitter.com",
+      "comment": "その一",
+      "like": 1,
+      "created_at": "2018/01/19 20:00"
+    },
+    {
+      "id": 2,
+      "url": "https://apple.com",
+      "comment": "その二です\nよんでください\n\n\n\nよろしくお願いします",
+      "like": 0,
+      "created_at": "2018/01/19 19:00"
+    },
+    {
+      "id": 3,
+      "url": "https://yahoo.co.jp",
+      "comment": "その三",
+      "like": 100,
+      "created_at": "2018/01/12 20:00"
+    },
+    {
+      "id": 4,
+      "url": "https://github.com",
+      "comment": "その四",
+      "like": 10,
+      "created_at": "2018/01/14 2:00"
+    },
+    {
+      "id": 5,
+      "url": "https://google.com",
+      "comment": "その五",
+      "like": 2,
+      "created_at": "2018/01/19 20:30"
+    }
+  ],
+  "coinIds": [
+    {
+      "id": "bitcoin",
+      "name": "Bitcoin"
+    },
+    {
+      "id": "ethereum",
+      "name": "Ethereum"
+    },
+    {
+      "id": "ripple",
+      "name": "Ripple"
+    },
+    {
+      "id": "bitcoin-cash",
+      "name": "Bitcoin Cash"
+    },
+    {
+      "id": "cardano",
+      "name": "Cardano"
+    },
+    {
+      "id": "litecoin",
+      "name": "Litecoin"
+    },
+    {
+      "id": "nem",
+      "name": "NEM"
+    },
+    {
+      "id": "neo",
+      "name": "NEO"
+    },
+    {
+      "id": "stellar",
+      "name": "Stellar"
+    },
+    {
+      "id": "iota",
+      "name": "IOTA"
+    },
+    {
+      "id": "dash",
+      "name": "Dash"
+    },
+    {
+      "id": "eos",
+      "name": "EOS"
+    },
+    {
+      "id": "tron",
+      "name": "TRON"
+    },
+    {
+      "id": "monero",
+      "name": "Monero"
+    },
+    {
+      "id": "bitcoin-gold",
+      "name": "Bitcoin Gold"
+    },
+    {
+      "id": "icon",
+      "name": "ICON"
+    },
+    {
+      "id": "ethereum-classic",
+      "name": "Ethereum Classic"
+    },
+    {
+      "id": "qtum",
+      "name": "Qtum"
+    },
+    {
+      "id": "lisk",
+      "name": "Lisk"
+    },
+    {
+      "id": "raiblocks",
+      "name": "RaiBlocks"
+    },
+    {
+      "id": "omisego",
+      "name": "OmiseGO"
+    },
+    {
+      "id": "verge",
+      "name": "Verge"
+    },
+    {
+      "id": "siacoin",
+      "name": "Siacoin"
+    },
+    {
+      "id": "vechain",
+      "name": "VeChain"
+    },
+    {
+      "id": "tether",
+      "name": "Tether"
+    },
+    {
+      "id": "populous",
+      "name": "Populous"
+    },
+    {
+      "id": "zcash",
+      "name": "Zcash"
+    },
+    {
+      "id": "stratis",
+      "name": "Stratis"
+    },
+    {
+      "id": "ardor",
+      "name": "Ardor"
+    },
+    {
+      "id": "binance-coin",
+      "name": "Binance Coin"
+    },
+    {
+      "id": "bytecoin-bcn",
+      "name": "Bytecoin"
+    },
+    {
+      "id": "status",
+      "name": "Status"
+    },
+    {
+      "id": "steem",
+      "name": "Steem"
+    },
+    {
+      "id": "kucoin-shares",
+      "name": "KuCoin Shares"
+    },
+    {
+      "id": "bitshares",
+      "name": "BitShares"
+    },
+    {
+      "id": "maker",
+      "name": "Maker"
+    },
+    {
+      "id": "dogecoin",
+      "name": "Dogecoin"
+    },
+    {
+      "id": "waves",
+      "name": "Waves"
+    },
+    {
+      "id": "dentacoin",
+      "name": "Dentacoin"
+    },
+    {
+      "id": "0x",
+      "name": "0x"
+    },
+    {
+      "id": "smartcash",
+      "name": "SmartCash"
+    },
+    {
+      "id": "dragonchain",
+      "name": "Dragonchain"
+    },
+    {
+      "id": "electroneum",
+      "name": "Electroneum"
+    },
+    {
+      "id": "augur",
+      "name": "Augur"
+    },
+    {
+      "id": "veritaseum",
+      "name": "Veritaseum"
+    },
+    {
+      "id": "komodo",
+      "name": "Komodo"
+    },
+    {
+      "id": "digibyte",
+      "name": "DigiByte"
+    },
+    {
+      "id": "ark",
+      "name": "Ark"
+    },
+    {
+      "id": "qash",
+      "name": "QASH"
+    },
+    {
+      "id": "salt",
+      "name": "SALT"
+    },
+    {
+      "id": "basic-attention-token",
+      "name": "Basic Attention Token"
+    },
+    {
+      "id": "golem-network-tokens",
+      "name": "Golem"
+    },
+    {
+      "id": "wax",
+      "name": "WAX"
+    },
+    {
+      "id": "gas",
+      "name": "Gas"
+    },
+    {
+      "id": "walton",
+      "name": "Walton"
+    },
+    {
+      "id": "ethos",
+      "name": "Ethos"
+    },
+    {
+      "id": "decred",
+      "name": "Decred"
+    },
+    {
+      "id": "loopring",
+      "name": "Loopring"
+    },
+    {
+      "id": "dent",
+      "name": "Dent"
+    },
+    {
+      "id": "byteball",
+      "name": "Byteball Bytes"
+    },
+    {
+      "id": "pivx",
+      "name": "PIVX"
+    },
+    {
+      "id": "hshare",
+      "name": "Hshare"
+    },
+    {
+      "id": "funfair",
+      "name": "FunFair"
+    },
+    {
+      "id": "rchain",
+      "name": "RChain"
+    },
+    {
+      "id": "zclassic",
+      "name": "ZClassic"
+    },
+    {
+      "id": "kyber-network",
+      "name": "Kyber Network"
+    },
+    {
+      "id": "medibloc",
+      "name": "MediBloc"
+    },
+    {
+      "id": "power-ledger",
+      "name": "Power Ledger"
+    },
+    {
+      "id": "reddcoin",
+      "name": "ReddCoin"
+    },
+    {
+      "id": "request-network",
+      "name": "Request Network"
+    },
+    {
+      "id": "factom",
+      "name": "Factom"
+    },
+    {
+      "id": "aion",
+      "name": "Aion"
+    },
+    {
+      "id": "kin",
+      "name": "Kin"
+    },
+    {
+      "id": "experience-points",
+      "name": "Experience Points"
+    },
+    {
+      "id": "nexus",
+      "name": "Nexus"
+    },
+    {
+      "id": "digixdao",
+      "name": "DigixDAO"
+    },
+    {
+      "id": "monacoin",
+      "name": "MonaCoin"
+    },
+    {
+      "id": "enigma-project",
+      "name": "Enigma"
+    },
+    {
+      "id": "neblio",
+      "name": "Neblio"
+    },
+    {
+      "id": "aelf",
+      "name": "aelf"
+    },
+    {
+      "id": "syscoin",
+      "name": "Syscoin"
+    },
+    {
+      "id": "aeternity",
+      "name": "Aeternity"
+    },
+    {
+      "id": "bytom",
+      "name": "Bytom"
+    },
+    {
+      "id": "bitconnect",
+      "name": "BitConnect"
+    },
+    {
+      "id": "quantstamp",
+      "name": "Quantstamp"
+    },
+    {
+      "id": "substratum",
+      "name": "Substratum"
+    },
+    {
+      "id": "maidsafecoin",
+      "name": "MaidSafeCoin"
+    },
+    {
+      "id": "nxt",
+      "name": "Nxt"
+    },
+    {
+      "id": "gxshares",
+      "name": "GXShares"
+    },
+    {
+      "id": "nebulas-token",
+      "name": "Nebulas"
+    },
+    {
+      "id": "zcoin",
+      "name": "ZCoin"
+    },
+    {
+      "id": "gamecredits",
+      "name": "GameCredits"
+    },
+    {
+      "id": "bitcore",
+      "name": "Bitcore"
+    },
+    {
+      "id": "particl",
+      "name": "Particl"
+    },
+    {
+      "id": "digitalnote",
+      "name": "DigitalNote"
+    },
+    {
+      "id": "bancor",
+      "name": "Bancor"
+    },
+    {
+      "id": "tenx",
+      "name": "TenX"
+    },
+    {
+      "id": "emercoin",
+      "name": "Emercoin"
+    },
+    {
+      "id": "iconomi",
+      "name": "Iconomi"
+    },
+    {
+      "id": "civic",
+      "name": "Civic"
+    }
+  ],
+  "rates": [
+    {
+      "id": "bitcoin",
+      "name": "Bitcoin",
+      "symbol": "BTC",
+      "price_usd": "11719.7",
+      "price_btc": "1.0",
+      "percent_change_1h": "0.22",
+      "percent_change_24h": "12.53",
+      "percent_change_7d": "-14.58",
+      "last_updated": "1516304665",
+      "price_jpy": "1299558.46737",
+      "24h_volume_jpy": "1943078148725.0769042969",
+      "market_cap_jpy": "21846812417074"
+    },
+    {
+      "id": "ethereum",
+      "name": "Ethereum",
+      "symbol": "ETH",
+      "price_usd": "1062.03",
+      "price_btc": "0.0911834",
+      "percent_change_1h": "0.56",
+      "percent_change_24h": "16.27",
+      "percent_change_7d": "-11.34",
+      "last_updated": "1516304651",
+      "price_jpy": "117764.966604",
+      "24h_volume_jpy": "793989561423.8679199219",
+      "market_cap_jpy": "11430621965370"
+    },
+    {
+      "id": "ripple",
+      "name": "Ripple",
+      "symbol": "XRP",
+      "price_usd": "1.62495",
+      "price_btc": "0.00013951",
+      "percent_change_1h": "0.93",
+      "percent_change_24h": "53.41",
+      "percent_change_7d": "-18.7",
+      "last_updated": "1516304641",
+      "price_jpy": "180.185289005",
+      "24h_volume_jpy": "1113812212033.4819335938",
+      "market_cap_jpy": "6980223643222"
+    },
+    {
+      "id": "bitcoin-cash",
+      "name": "Bitcoin Cash",
+      "symbol": "BCH",
+      "price_usd": "1852.97",
+      "price_btc": "0.159091",
+      "percent_change_1h": "-0.27",
+      "percent_change_24h": "18.71",
+      "percent_change_7d": "-27.22",
+      "last_updated": "1516304657",
+      "price_jpy": "205469.66674",
+      "24h_volume_jpy": "135194132870.7306976318",
+      "market_cap_jpy": "3476300197632"
+    },
+    {
+      "id": "cardano",
+      "name": "Cardano",
+      "symbol": "ADA",
+      "price_usd": "0.685301",
+      "price_btc": "0.00005884",
+      "percent_change_1h": "-0.05",
+      "percent_change_24h": "27.75",
+      "percent_change_7d": "-4.5",
+      "last_updated": "1516304659",
+      "price_jpy": "75.9907435556",
+      "24h_volume_jpy": "179966842272.0765991211",
+      "market_cap_jpy": "1970217368402"
+    },
+    {
+      "id": "litecoin",
+      "name": "Litecoin",
+      "symbol": "LTC",
+      "price_usd": "200.357",
+      "price_btc": "0.0172021",
+      "percent_change_1h": "0.58",
+      "percent_change_24h": "20.02",
+      "percent_change_7d": "-14.45",
+      "last_updated": "1516304641",
+      "price_jpy": "22216.919874",
+      "24h_volume_jpy": "128669561403.8678894043",
+      "market_cap_jpy": "1217833974183"
+    },
+    {
+      "id": "nem",
+      "name": "NEM",
+      "symbol": "XEM",
+      "price_usd": "1.12024",
+      "price_btc": "0.00009618",
+      "percent_change_1h": "0.77",
+      "percent_change_24h": "34.43",
+      "percent_change_7d": "-18.09",
+      "last_updated": "1516304645",
+      "price_jpy": "124.21967947",
+      "24h_volume_jpy": "16690217520.5",
+      "market_cap_jpy": "1117977115109"
+    },
+    {
+      "id": "neo",
+      "name": "NEO",
+      "symbol": "NEO",
+      "price_usd": "149.609",
+      "price_btc": "0.012845",
+      "percent_change_1h": "0.16",
+      "percent_change_24h": "21.22",
+      "percent_change_7d": "33.31",
+      "last_updated": "1516304650",
+      "price_jpy": "16589.6433138",
+      "24h_volume_jpy": "129230647937.2180938721",
+      "market_cap_jpy": "1078326815399"
+    },
+    {
+      "id": "stellar",
+      "name": "Stellar",
+      "symbol": "XLM",
+      "price_usd": "0.533262",
+      "price_btc": "0.00004578",
+      "percent_change_1h": "-0.75",
+      "percent_change_24h": "40.65",
+      "percent_change_7d": "-5.57",
+      "last_updated": "1516304644",
+      "price_jpy": "59.1316456418",
+      "24h_volume_jpy": "64445889141.9",
+      "market_cap_jpy": "1057917315224"
+    },
+    {
+      "id": "iota",
+      "name": "IOTA",
+      "symbol": "MIOTA",
+      "price_usd": "2.91857",
+      "price_btc": "0.00025058",
+      "percent_change_1h": "0.57",
+      "percent_change_24h": "20.71",
+      "percent_change_7d": "-15.12",
+      "last_updated": "1516304655",
+      "price_jpy": "323.630498743",
+      "24h_volume_jpy": "19077274793.9",
+      "market_cap_jpy": "899540771759"
+    },
+    {
+      "id": "dash",
+      "name": "Dash",
+      "symbol": "DASH",
+      "price_usd": "871.317",
+      "price_btc": "0.074809",
+      "percent_change_1h": "-1.06",
+      "percent_change_24h": "19.89",
+      "percent_change_7d": "-15.47",
+      "last_updated": "1516304642",
+      "price_jpy": "96617.4377429",
+      "24h_volume_jpy": "21459009507.3",
+      "market_cap_jpy": "756115491267"
+    },
+    {
+      "id": "eos",
+      "name": "EOS",
+      "symbol": "EOS",
+      "price_usd": "10.7332",
+      "price_btc": "0.00092152",
+      "percent_change_1h": "0.38",
+      "percent_change_24h": "20.39",
+      "percent_change_7d": "-6.31",
+      "last_updated": "1516304655",
+      "price_jpy": "1190.1687707",
+      "24h_volume_jpy": "167592999138.3713073730",
+      "market_cap_jpy": "729272912563"
+    },
+    {
+      "id": "tron",
+      "name": "TRON",
+      "symbol": "TRX",
+      "price_usd": "0.0921381",
+      "price_btc": "0.00000791",
+      "percent_change_1h": "-0.24",
+      "percent_change_24h": "44.18",
+      "percent_change_7d": "-17.55",
+      "last_updated": "1516304658",
+      "price_jpy": "10.2168867823",
+      "24h_volume_jpy": "211344442339.6864929199",
+      "market_cap_jpy": "671741838663"
+    },
+    {
+      "id": "monero",
+      "name": "Monero",
+      "symbol": "XMR",
+      "price_usd": "336.903",
+      "price_btc": "0.0289256",
+      "percent_change_1h": "-0.21",
+      "percent_change_24h": "19.59",
+      "percent_change_7d": "-8.66",
+      "last_updated": "1516304643",
+      "price_jpy": "37358.0506611",
+      "24h_volume_jpy": "19097788827.2",
+      "market_cap_jpy": "583453283881"
+    },
+    {
+      "id": "bitcoin-gold",
+      "name": "Bitcoin Gold",
+      "symbol": "BTG",
+      "price_usd": "201.178",
+      "price_btc": "0.0172727",
+      "percent_change_1h": "-1.2",
+      "percent_change_24h": "18.82",
+      "percent_change_7d": "-6.24",
+      "last_updated": "1516304660",
+      "price_jpy": "22307.9578273",
+      "24h_volume_jpy": "33139145654.3",
+      "market_cap_jpy": "374138719773"
+    },
+    {
+      "id": "icon",
+      "name": "ICON",
+      "symbol": "ICX",
+      "price_usd": "8.25922",
+      "price_btc": "0.00070911",
+      "percent_change_1h": "0.41",
+      "percent_change_24h": "31.58",
+      "percent_change_7d": "-13.06",
+      "last_updated": "1516304660",
+      "price_jpy": "915.837375094",
+      "24h_volume_jpy": "12133440840.4",
+      "market_cap_jpy": "348059418881"
+    },
+    {
+      "id": "ethereum-classic",
+      "name": "Ethereum Classic",
+      "symbol": "ETC",
+      "price_usd": "31.0806",
+      "price_btc": "0.0026685",
+      "percent_change_1h": "0.03",
+      "percent_change_24h": "17.89",
+      "percent_change_7d": "-8.12",
+      "last_updated": "1516304649",
+      "price_jpy": "3446.4241321",
+      "24h_volume_jpy": "58310529875.1",
+      "market_cap_jpy": "341930384150"
+    },
+    {
+      "id": "qtum",
+      "name": "Qtum",
+      "symbol": "QTUM",
+      "price_usd": "38.329",
+      "price_btc": "0.00329083",
+      "percent_change_1h": "-0.33",
+      "percent_change_24h": "19.14",
+      "percent_change_7d": "-19.98",
+      "last_updated": "1516304654",
+      "price_jpy": "4250.17504679",
+      "24h_volume_jpy": "94910115736.2",
+      "market_cap_jpy": "313735443440"
+    },
+    {
+      "id": "lisk",
+      "name": "Lisk",
+      "symbol": "LSK",
+      "price_usd": "23.8799",
+      "price_btc": "0.00205027",
+      "percent_change_1h": "0.06",
+      "percent_change_24h": "28.45",
+      "percent_change_7d": "-8.09",
+      "last_updated": "1516304648",
+      "price_jpy": "2647.96251141",
+      "24h_volume_jpy": "9932772964.97",
+      "market_cap_jpy": "310172975983"
+    },
+    {
+      "id": "raiblocks",
+      "name": "RaiBlocks",
+      "symbol": "XRB",
+      "price_usd": "18.0497",
+      "price_btc": "0.0015497",
+      "percent_change_1h": "-3.22",
+      "percent_change_24h": "31.69",
+      "percent_change_7d": "-29.21",
+      "last_updated": "1516304652",
+      "price_jpy": "2001.47106739",
+      "24h_volume_jpy": "2911451408.75",
+      "market_cap_jpy": "266692595653"
+    },
+    {
+      "id": "omisego",
+      "name": "OmiseGO",
+      "symbol": "OMG",
+      "price_usd": "18.8083",
+      "price_btc": "0.00161484",
+      "percent_change_1h": "0.69",
+      "percent_change_24h": "22.23",
+      "percent_change_7d": "-16.26",
+      "last_updated": "1516304656",
+      "price_jpy": "2085.58969273",
+      "24h_volume_jpy": "11016224407.7",
+      "market_cap_jpy": "212818894177"
+    },
+    {
+      "id": "verge",
+      "name": "Verge",
+      "symbol": "XVG",
+      "price_usd": "0.119929",
+      "price_btc": "0.00001030",
+      "percent_change_1h": "3.12",
+      "percent_change_24h": "62.33",
+      "percent_change_7d": "-19.36",
+      "last_updated": "1516304644",
+      "price_jpy": "13.2985270471",
+      "24h_volume_jpy": "31340563920.9",
+      "market_cap_jpy": "195204029879"
+    },
+    {
+      "id": "siacoin",
+      "name": "Siacoin",
+      "symbol": "SC",
+      "price_usd": "0.0547228",
+      "price_btc": "0.00000470",
+      "percent_change_1h": "-0.54",
+      "percent_change_24h": "22.29",
+      "percent_change_7d": "-18.41",
+      "last_updated": "1516304647",
+      "price_jpy": "6.0680288828",
+      "24h_volume_jpy": "21445592220.6",
+      "market_cap_jpy": "190512721794"
+    },
+    {
+      "id": "vechain",
+      "name": "VeChain",
+      "symbol": "VEN",
+      "price_usd": "6.01532",
+      "price_btc": "0.00051646",
+      "percent_change_1h": "-1.43",
+      "percent_change_24h": "41.23",
+      "percent_change_7d": "-10.6",
+      "last_updated": "1516304657",
+      "price_jpy": "667.018783753",
+      "24h_volume_jpy": "18825451173.9",
+      "market_cap_jpy": "184872682666"
+    },
+    {
+      "id": "tether",
+      "name": "Tether",
+      "symbol": "USDT",
+      "price_usd": "1.01507",
+      "price_btc": "0.00008715",
+      "percent_change_1h": "-1.01",
+      "percent_change_24h": "0.2",
+      "percent_change_7d": "1.17",
+      "last_updated": "1516304647",
+      "price_jpy": "112.557728737",
+      "24h_volume_jpy": "546411791883.0921630859",
+      "market_cap_jpy": "182128627927"
+    },
+    {
+      "id": "populous",
+      "name": "Populous",
+      "symbol": "PPT",
+      "price_usd": "43.9579",
+      "price_btc": "0.00377411",
+      "percent_change_1h": "0.46",
+      "percent_change_24h": "26.48",
+      "percent_change_7d": "-11.72",
+      "last_updated": "1516304656",
+      "price_jpy": "4874.34500481",
+      "24h_volume_jpy": "438275114.547",
+      "market_cap_jpy": "180370393651"
+    },
+    {
+      "id": "zcash",
+      "name": "Zcash",
+      "symbol": "ZEC",
+      "price_usd": "519.397",
+      "price_btc": "0.0445941",
+      "percent_change_1h": "-0.98",
+      "percent_change_24h": "17.08",
+      "percent_change_7d": "-22.15",
+      "last_updated": "1516304651",
+      "price_jpy": "57594.2020084",
+      "24h_volume_jpy": "16383726773.8",
+      "market_cap_jpy": "177699351058"
+    },
+    {
+      "id": "stratis",
+      "name": "Stratis",
+      "symbol": "STRAT",
+      "price_usd": "15.3553",
+      "price_btc": "0.00131837",
+      "percent_change_1h": "0.88",
+      "percent_change_24h": "20.29",
+      "percent_change_7d": "-8.93",
+      "last_updated": "1516304650",
+      "price_jpy": "1702.69803272",
+      "24h_volume_jpy": "6034474577.51",
+      "market_cap_jpy": "168066166771"
+    },
+    {
+      "id": "ardor",
+      "name": "Ardor",
+      "symbol": "ARDR",
+      "price_usd": "1.46688",
+      "price_btc": "0.00012594",
+      "percent_change_1h": "-3.14",
+      "percent_change_24h": "16.8",
+      "percent_change_7d": "7.09",
+      "last_updated": "1516304649",
+      "price_jpy": "162.657433605",
+      "24h_volume_jpy": "29258888527.5",
+      "market_cap_jpy": "162494694029"
+    },
+    {
+      "id": "binance-coin",
+      "name": "Binance Coin",
+      "symbol": "BNB",
+      "price_usd": "14.7979",
+      "price_btc": "0.00127051",
+      "percent_change_1h": "-0.25",
+      "percent_change_24h": "24.13",
+      "percent_change_7d": "-27.17",
+      "last_updated": "1516304656",
+      "price_jpy": "1640.88980472",
+      "24h_volume_jpy": "28981006540.9",
+      "market_cap_jpy": "162471063124"
+    },
+    {
+      "id": "bytecoin-bcn",
+      "name": "Bytecoin",
+      "symbol": "BCN",
+      "price_usd": "0.0079449",
+      "price_btc": "0.00000068",
+      "percent_change_1h": "0.6",
+      "percent_change_24h": "38.82",
+      "percent_change_7d": "-19.78",
+      "last_updated": "1516304642",
+      "price_jpy": "0.880983478",
+      "24h_volume_jpy": "1207123342.04",
+      "market_cap_jpy": "161810824983"
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "symbol": "SNT",
+      "price_usd": "0.335014",
+      "price_btc": "0.00002876",
+      "percent_change_1h": "0.01",
+      "percent_change_24h": "27.14",
+      "percent_change_7d": "-16.0",
+      "last_updated": "1516304655",
+      "price_jpy": "37.1485857478",
+      "24h_volume_jpy": "163494627938.2481079102",
+      "market_cap_jpy": "128923564585"
+    },
+    {
+      "id": "steem",
+      "name": "Steem",
+      "symbol": "STEEM",
+      "price_usd": "4.34805",
+      "price_btc": "0.00037331",
+      "percent_change_1h": "-0.93",
+      "percent_change_24h": "24.54",
+      "percent_change_7d": "-7.32",
+      "last_updated": "1516304648",
+      "price_jpy": "482.140771014",
+      "24h_volume_jpy": "2698526831.41",
+      "market_cap_jpy": "119295211006"
+    },
+    {
+      "id": "kucoin-shares",
+      "name": "KuCoin Shares",
+      "symbol": "KCS",
+      "price_usd": "10.8627",
+      "price_btc": "0.00093264",
+      "percent_change_1h": "-4.64",
+      "percent_change_24h": "28.1",
+      "percent_change_7d": "-42.83",
+      "last_updated": "1516304661",
+      "price_jpy": "1204.52859404",
+      "24h_volume_jpy": "1471188850.04",
+      "market_cap_jpy": "109663988331"
+    },
+    {
+      "id": "bitshares",
+      "name": "BitShares",
+      "symbol": "BTS",
+      "price_usd": "0.375449",
+      "price_btc": "0.00003224",
+      "percent_change_1h": "4.76",
+      "percent_change_24h": "30.91",
+      "percent_change_7d": "-37.33",
+      "last_updated": "1516304644",
+      "price_jpy": "41.6322881146",
+      "24h_volume_jpy": "8523935687.59",
+      "market_cap_jpy": "108547448478"
+    },
+    {
+      "id": "maker",
+      "name": "Maker",
+      "symbol": "MKR",
+      "price_usd": "1532.34",
+      "price_btc": "0.131563",
+      "percent_change_1h": "12.98",
+      "percent_change_24h": "60.4",
+      "percent_change_7d": "48.12",
+      "last_updated": "1516304651",
+      "price_jpy": "169916.074805",
+      "24h_volume_jpy": "330038639.21",
+      "market_cap_jpy": "105046836032"
+    },
+    {
+      "id": "dogecoin",
+      "name": "Dogecoin",
+      "symbol": "DOGE",
+      "price_usd": "0.00827687",
+      "price_btc": "0.00000071",
+      "percent_change_1h": "-0.64",
+      "percent_change_24h": "30.14",
+      "percent_change_7d": "-30.31",
+      "last_updated": "1516304642",
+      "price_jpy": "0.9177945248",
+      "24h_volume_jpy": "6988831762.88",
+      "market_cap_jpy": "103551092390"
+    },
+    {
+      "id": "waves",
+      "name": "Waves",
+      "symbol": "WAVES",
+      "price_usd": "8.90572",
+      "price_btc": "0.00076462",
+      "percent_change_1h": "0.33",
+      "percent_change_24h": "15.74",
+      "percent_change_7d": "-20.82",
+      "last_updated": "1516304648",
+      "price_jpy": "987.525605096",
+      "24h_volume_jpy": "4338518454.13",
+      "market_cap_jpy": "98752560510.0"
+    },
+    {
+      "id": "dentacoin",
+      "name": "Dentacoin",
+      "symbol": "DCN",
+      "price_usd": "0.00258451",
+      "price_btc": "0.00000022",
+      "percent_change_1h": "0.63",
+      "percent_change_24h": "69.75",
+      "percent_change_7d": "-11.0",
+      "last_updated": "1516304657",
+      "price_jpy": "0.2865876989",
+      "24h_volume_jpy": "767862445.023",
+      "market_cap_jpy": "93195515521.0"
+    },
+    {
+      "id": "0x",
+      "name": "0x",
+      "symbol": "ZRX",
+      "price_usd": "1.68275",
+      "price_btc": "0.00014448",
+      "percent_change_1h": "-0.04",
+      "percent_change_24h": "26.21",
+      "percent_change_7d": "-13.19",
+      "last_updated": "1516304657",
+      "price_jpy": "186.594538339",
+      "24h_volume_jpy": "3121947568.09",
+      "market_cap_jpy": "92664723920.0"
+    },
+    {
+      "id": "smartcash",
+      "name": "SmartCash",
+      "symbol": "SMART",
+      "price_usd": "1.27206",
+      "price_btc": "0.00010922",
+      "percent_change_1h": "-6.29",
+      "percent_change_24h": "-7.89",
+      "percent_change_7d": "89.95",
+      "last_updated": "1516304656",
+      "price_jpy": "141.054493204",
+      "24h_volume_jpy": "460699725.147",
+      "market_cap_jpy": "85068841345.0"
+    },
+    {
+      "id": "dragonchain",
+      "name": "Dragonchain",
+      "symbol": "DRGN",
+      "price_usd": "3.14947",
+      "price_btc": "0.00027041",
+      "percent_change_1h": "-1.13",
+      "percent_change_24h": "20.59",
+      "percent_change_7d": "-23.51",
+      "last_updated": "1516304663",
+      "price_jpy": "349.234230077",
+      "24h_volume_jpy": "857560887.426",
+      "market_cap_jpy": "83265102649.0"
+    },
+    {
+      "id": "electroneum",
+      "name": "Electroneum",
+      "symbol": "ETN",
+      "price_usd": "0.124321",
+      "price_btc": "0.00001067",
+      "percent_change_1h": "0.48",
+      "percent_change_24h": "24.86",
+      "percent_change_7d": "-15.1",
+      "last_updated": "1516304661",
+      "price_jpy": "13.7855412871",
+      "24h_volume_jpy": "737387462.422",
+      "market_cap_jpy": "81112848006.0"
+    },
+    {
+      "id": "augur",
+      "name": "Augur",
+      "symbol": "REP",
+      "price_usd": "65.9102",
+      "price_btc": "0.00565888",
+      "percent_change_1h": "0.21",
+      "percent_change_24h": "18.84",
+      "percent_change_7d": "-38.79",
+      "last_updated": "1516304647",
+      "price_jpy": "7308.56237755",
+      "24h_volume_jpy": "3336757218.77",
+      "market_cap_jpy": "80394186153.0"
+    },
+    {
+      "id": "veritaseum",
+      "name": "Veritaseum",
+      "symbol": "VERI",
+      "price_usd": "349.844",
+      "price_btc": "0.0300367",
+      "percent_change_1h": "1.64",
+      "percent_change_24h": "23.45",
+      "percent_change_7d": "-13.9",
+      "last_updated": "1516304655",
+      "price_jpy": "38793.0350145",
+      "24h_volume_jpy": "96013216.2962",
+      "market_cap_jpy": "79007657866.0"
+    },
+    {
+      "id": "komodo",
+      "name": "Komodo",
+      "symbol": "KMD",
+      "price_usd": "6.71874",
+      "price_btc": "0.00057685",
+      "percent_change_1h": "0.63",
+      "percent_change_24h": "31.41",
+      "percent_change_7d": "-12.3",
+      "last_updated": "1516304652",
+      "price_jpy": "745.018682822",
+      "24h_volume_jpy": "1504953840.05",
+      "market_cap_jpy": "77490290865.0"
+    },
+    {
+      "id": "digibyte",
+      "name": "DigiByte",
+      "symbol": "DGB",
+      "price_usd": "0.0678632",
+      "price_btc": "0.00000583",
+      "percent_change_1h": "0.59",
+      "percent_change_24h": "28.93",
+      "percent_change_7d": "-30.27",
+      "last_updated": "1516304641",
+      "price_jpy": "7.5251240376",
+      "24h_volume_jpy": "3372939538.1",
+      "market_cap_jpy": "73111061204.0"
+    },
+    {
+      "id": "ark",
+      "name": "Ark",
+      "symbol": "ARK",
+      "price_usd": "6.63199",
+      "price_btc": "0.00056941",
+      "percent_change_1h": "1.18",
+      "percent_change_24h": "29.57",
+      "percent_change_7d": "-23.32",
+      "last_updated": "1516304653",
+      "price_jpy": "735.399264489",
+      "24h_volume_jpy": "1272058574.04",
+      "market_cap_jpy": "72055364187.0"
+    },
+    {
+      "id": "qash",
+      "name": "QASH",
+      "symbol": "QASH",
+      "price_usd": "1.78821",
+      "price_btc": "0.00015353",
+      "percent_change_1h": "-1.33",
+      "percent_change_24h": "22.82",
+      "percent_change_7d": "0.02",
+      "last_updated": "1516304663",
+      "price_jpy": "198.288646206",
+      "24h_volume_jpy": "3291238242.1",
+      "market_cap_jpy": "69401026172.0"
+    },
+    {
+      "id": "salt",
+      "name": "SALT",
+      "symbol": "SALT",
+      "price_usd": "8.72407",
+      "price_btc": "0.00074903",
+      "percent_change_1h": "0.64",
+      "percent_change_24h": "20.2",
+      "percent_change_7d": "-25.88",
+      "last_updated": "1516304659",
+      "price_jpy": "967.383042096",
+      "24h_volume_jpy": "1965344191.39",
+      "market_cap_jpy": "68786568497.0"
+    },
+    {
+      "id": "basic-attention-token",
+      "name": "Basic Attention Token",
+      "symbol": "BAT",
+      "price_usd": "0.619248",
+      "price_btc": "0.00005317",
+      "percent_change_1h": "0.96",
+      "percent_change_24h": "47.3",
+      "percent_change_7d": "-9.84",
+      "last_updated": "1516304654",
+      "price_jpy": "68.6663465621",
+      "24h_volume_jpy": "4405793394.8",
+      "market_cap_jpy": "68666346562.0"
+    },
+    {
+      "id": "golem-network-tokens",
+      "name": "Golem",
+      "symbol": "GNT",
+      "price_usd": "0.727517",
+      "price_btc": "0.00006246",
+      "percent_change_1h": "-0.3",
+      "percent_change_24h": "24.31",
+      "percent_change_7d": "-14.9",
+      "last_updated": "1516304651",
+      "price_jpy": "80.6719350758",
+      "24h_volume_jpy": "1996669674.73",
+      "market_cap_jpy": "67301529900.0"
+    },
+    {
+      "id": "wax",
+      "name": "WAX",
+      "symbol": "WAX",
+      "price_usd": "1.17784",
+      "price_btc": "0.00010113",
+      "percent_change_1h": "-4.7",
+      "percent_change_24h": "52.6",
+      "percent_change_7d": "-36.45",
+      "last_updated": "1516304664",
+      "price_jpy": "130.606751471",
+      "24h_volume_jpy": "1184602260.04",
+      "market_cap_jpy": "64383190746.0"
+    },
+    {
+      "id": "gas",
+      "name": "Gas",
+      "symbol": "GAS",
+      "price_usd": "60.5411",
+      "price_btc": "0.0051979",
+      "percent_change_1h": "-0.19",
+      "percent_change_24h": "20.84",
+      "percent_change_7d": "23.2",
+      "last_updated": "1516304656",
+      "price_jpy": "6713.20077554",
+      "24h_volume_jpy": "4205787114.13",
+      "market_cap_jpy": "64034305524.0"
+    },
+    {
+      "id": "walton",
+      "name": "Walton",
+      "symbol": "WTC",
+      "price_usd": "23.1852",
+      "price_btc": "0.00199063",
+      "percent_change_1h": "-0.82",
+      "percent_change_24h": "36.53",
+      "percent_change_7d": "45.8",
+      "last_updated": "1516304658",
+      "price_jpy": "2570.92954408",
+      "24h_volume_jpy": "6678970061.53",
+      "market_cap_jpy": "64011461414.0"
+    },
+    {
+      "id": "ethos",
+      "name": "Ethos",
+      "symbol": "ETHOS",
+      "price_usd": "7.64953",
+      "price_btc": "0.00065677",
+      "percent_change_1h": "0.75",
+      "percent_change_24h": "35.37",
+      "percent_change_7d": "-4.17",
+      "last_updated": "1516304656",
+      "price_jpy": "848.230883292",
+      "24h_volume_jpy": "945075971.362",
+      "market_cap_jpy": "63960925449.0"
+    },
+    {
+      "id": "decred",
+      "name": "Decred",
+      "symbol": "DCR",
+      "price_usd": "87.6",
+      "price_btc": "0.00752112",
+      "percent_change_1h": "-0.32",
+      "percent_change_24h": "17.13",
+      "percent_change_7d": "-17.25",
+      "last_updated": "1516304648",
+      "price_jpy": "9713.67200029",
+      "24h_volume_jpy": "290473167.675",
+      "market_cap_jpy": "63935951533.0"
+    },
+    {
+      "id": "loopring",
+      "name": "Loopring",
+      "symbol": "LRC",
+      "price_usd": "1.0163",
+      "price_btc": "0.00008726",
+      "percent_change_1h": "1.88",
+      "percent_change_24h": "35.91",
+      "percent_change_7d": "-32.56",
+      "last_updated": "1516304658",
+      "price_jpy": "112.694119337",
+      "24h_volume_jpy": "1956528701.39",
+      "market_cap_jpy": "63240267644.0"
+    },
+    {
+      "id": "dent",
+      "name": "Dent",
+      "symbol": "DENT",
+      "price_usd": "0.0534627",
+      "price_btc": "0.00000459",
+      "percent_change_1h": "-0.61",
+      "percent_change_24h": "43.98",
+      "percent_change_7d": "-23.18",
+      "last_updated": "1516304657",
+      "price_jpy": "5.9283005942",
+      "24h_volume_jpy": "4960459590.15",
+      "market_cap_jpy": "62927493713.0"
+    },
+    {
+      "id": "byteball",
+      "name": "Byteball Bytes",
+      "symbol": "GBYTE",
+      "price_usd": "868.406",
+      "price_btc": "0.0745591",
+      "percent_change_1h": "0.35",
+      "percent_change_24h": "30.38",
+      "percent_change_7d": "21.96",
+      "last_updated": "1516304652",
+      "price_jpy": "96294.6466562",
+      "24h_volume_jpy": "264597764.008",
+      "market_cap_jpy": "62131429602.0"
+    },
+    {
+      "id": "pivx",
+      "name": "PIVX",
+      "symbol": "PIVX",
+      "price_usd": "9.62372",
+      "price_btc": "0.00082627",
+      "percent_change_1h": "-1.16",
+      "percent_change_24h": "9.58",
+      "percent_change_7d": "-23.4",
+      "last_updated": "1516304648",
+      "price_jpy": "1067.14223177",
+      "24h_volume_jpy": "1002548530.7",
+      "market_cap_jpy": "59104085942.0"
+    },
+    {
+      "id": "hshare",
+      "name": "Hshare",
+      "symbol": "HSR",
+      "price_usd": "11.6275",
+      "price_btc": "0.00099831",
+      "percent_change_1h": "1.19",
+      "percent_change_24h": "16.7",
+      "percent_change_7d": "-35.08",
+      "last_updated": "1516304658",
+      "price_jpy": "1289.33471671",
+      "24h_volume_jpy": "13373819093.7",
+      "market_cap_jpy": "54814159330.0"
+    },
+    {
+      "id": "funfair",
+      "name": "FunFair",
+      "symbol": "FUN",
+      "price_usd": "0.109719",
+      "price_btc": "0.00000942",
+      "percent_change_1h": "1.31",
+      "percent_change_24h": "45.17",
+      "percent_change_7d": "-19.51",
+      "last_updated": "1516304655",
+      "price_jpy": "12.1663741804",
+      "24h_volume_jpy": "2347115896.07",
+      "market_cap_jpy": "53764248807.0"
+    },
+    {
+      "id": "rchain",
+      "name": "RChain",
+      "symbol": "RHOC",
+      "price_usd": "1.97873",
+      "price_btc": "0.00016989",
+      "percent_change_1h": "-7.68",
+      "percent_change_24h": "17.72",
+      "percent_change_7d": "-18.0",
+      "last_updated": "1516304659",
+      "price_jpy": "219.41477394",
+      "24h_volume_jpy": "138291197.471",
+      "market_cap_jpy": "53541593356.0"
+    },
+    {
+      "id": "zclassic",
+      "name": "ZClassic",
+      "symbol": "ZCL",
+      "price_usd": "149.41",
+      "price_btc": "0.012828",
+      "percent_change_1h": "0.98",
+      "percent_change_24h": "31.22",
+      "percent_change_7d": "-6.49",
+      "last_updated": "1516304651",
+      "price_jpy": "16567.5768672",
+      "24h_volume_jpy": "1609841538.05",
+      "market_cap_jpy": "51707821592.0"
+    },
+    {
+      "id": "kyber-network",
+      "name": "Kyber Network",
+      "symbol": "KNC",
+      "price_usd": "3.39043",
+      "price_btc": "0.00029109",
+      "percent_change_1h": "0.4",
+      "percent_change_24h": "21.46",
+      "percent_change_7d": "-22.77",
+      "last_updated": "1516304659",
+      "price_jpy": "375.953481278",
+      "24h_volume_jpy": "2557357016.08",
+      "market_cap_jpy": "50427654364.0"
+    },
+    {
+      "id": "medibloc",
+      "name": "MediBloc",
+      "symbol": "MED",
+      "price_usd": "0.151491",
+      "price_btc": "0.00001301",
+      "percent_change_1h": "2.38",
+      "percent_change_24h": "70.21",
+      "percent_change_7d": "-24.02",
+      "last_updated": "1516304664",
+      "price_jpy": "16.7983320205",
+      "24h_volume_jpy": "3202783948.1",
+      "market_cap_jpy": "49830305012.0"
+    },
+    {
+      "id": "power-ledger",
+      "name": "Power Ledger",
+      "symbol": "POWR",
+      "price_usd": "1.20528",
+      "price_btc": "0.00010348",
+      "percent_change_1h": "1.91",
+      "percent_change_24h": "40.49",
+      "percent_change_7d": "-12.24",
+      "last_updated": "1516304661",
+      "price_jpy": "133.649481604",
+      "24h_volume_jpy": "8835116940.27",
+      "market_cap_jpy": "48196890018.0"
+    },
+    {
+      "id": "reddcoin",
+      "name": "ReddCoin",
+      "symbol": "RDD",
+      "price_usd": "0.0149472",
+      "price_btc": "0.00000128",
+      "percent_change_1h": "2.77",
+      "percent_change_24h": "58.22",
+      "percent_change_7d": "-21.62",
+      "last_updated": "1516304641",
+      "price_jpy": "1.657445184",
+      "24h_volume_jpy": "2287614110.74",
+      "market_cap_jpy": "47608783454.0"
+    },
+    {
+      "id": "request-network",
+      "name": "Request Network",
+      "symbol": "REQ",
+      "price_usd": "0.660899",
+      "price_btc": "0.00005674",
+      "percent_change_1h": "0.94",
+      "percent_change_24h": "50.06",
+      "percent_change_7d": "-15.1",
+      "last_updated": "1516304661",
+      "price_jpy": "73.2848871155",
+      "24h_volume_jpy": "2999417801.42",
+      "market_cap_jpy": "46978905715.0"
+    },
+    {
+      "id": "factom",
+      "name": "Factom",
+      "symbol": "FCT",
+      "price_usd": "48.1911",
+      "price_btc": "0.00413757",
+      "percent_change_1h": "-0.99",
+      "percent_change_24h": "26.68",
+      "percent_change_7d": "-19.94",
+      "last_updated": "1516304647",
+      "price_jpy": "5343.75044216",
+      "24h_volume_jpy": "1744014404.72",
+      "market_cap_jpy": "46731642679.0"
+    },
+    {
+      "id": "aion",
+      "name": "Aion",
+      "symbol": "AION",
+      "price_usd": "5.8947",
+      "price_btc": "0.0005061",
+      "percent_change_1h": "-1.18",
+      "percent_change_24h": "20.09",
+      "percent_change_7d": "-27.97",
+      "last_updated": "1516304660",
+      "price_jpy": "653.64363402",
+      "24h_volume_jpy": "1095286376.63",
+      "market_cap_jpy": "46490109778.0"
+    },
+    {
+      "id": "kin",
+      "name": "Kin",
+      "symbol": "KIN",
+      "price_usd": "0.000539128",
+      "price_btc": "0.00000005",
+      "percent_change_1h": "1.93",
+      "percent_change_24h": "57.4",
+      "percent_change_7d": "-27.17",
+      "last_updated": "1516304659",
+      "price_jpy": "0.0597821068",
+      "24h_volume_jpy": "200296803.739",
+      "market_cap_jpy": "45201105163.0"
+    },
+    {
+      "id": "experience-points",
+      "name": "Experience Points",
+      "symbol": "XP",
+      "price_usd": "0.00185982",
+      "price_btc": "0.00000016",
+      "percent_change_1h": "0.71",
+      "percent_change_24h": "64.97",
+      "percent_change_7d": "-32.37",
+      "last_updated": "1516304650",
+      "price_jpy": "0.2062292404",
+      "24h_volume_jpy": "473482740.081",
+      "market_cap_jpy": "43574434831.0"
+    },
+    {
+      "id": "nexus",
+      "name": "Nexus",
+      "symbol": "NXS",
+      "price_usd": "7.07707",
+      "price_btc": "0.00060762",
+      "percent_change_1h": "1.48",
+      "percent_change_24h": "10.76",
+      "percent_change_7d": "-18.22",
+      "last_updated": "1516304644",
+      "price_jpy": "784.75270209",
+      "24h_volume_jpy": "260616932.675",
+      "market_cap_jpy": "43229983921.0"
+    },
+    {
+      "id": "digixdao",
+      "name": "DigixDAO",
+      "symbol": "DGD",
+      "price_usd": "189.177",
+      "price_btc": "0.0162423",
+      "percent_change_1h": "-0.29",
+      "percent_change_24h": "19.27",
+      "percent_change_7d": "-4.17",
+      "last_updated": "1516304648",
+      "price_jpy": "20977.2069406",
+      "24h_volume_jpy": "1092628423.23",
+      "market_cap_jpy": "41954413881.0"
+    },
+    {
+      "id": "monacoin",
+      "name": "MonaCoin",
+      "symbol": "MONA",
+      "price_usd": "6.59644",
+      "price_btc": "0.00056635",
+      "percent_change_1h": "-0.66",
+      "percent_change_24h": "21.77",
+      "percent_change_7d": "-16.16",
+      "last_updated": "1516304642",
+      "price_jpy": "731.457243489",
+      "24h_volume_jpy": "743434112.356",
+      "market_cap_jpy": "41552641297.0"
+    },
+    {
+      "id": "enigma-project",
+      "name": "Enigma",
+      "symbol": "ENG",
+      "price_usd": "4.99583",
+      "price_btc": "0.00042893",
+      "percent_change_1h": "0.77",
+      "percent_change_24h": "48.59",
+      "percent_change_7d": "-27.88",
+      "last_updated": "1516304660",
+      "price_jpy": "553.97093595",
+      "24h_volume_jpy": "2249136437.4",
+      "market_cap_jpy": "41457063742.0"
+    },
+    {
+      "id": "neblio",
+      "name": "Neblio",
+      "symbol": "NEBL",
+      "price_usd": "28.9029",
+      "price_btc": "0.00248153",
+      "percent_change_1h": "0.38",
+      "percent_change_24h": "17.42",
+      "percent_change_7d": "-10.6",
+      "last_updated": "1516304658",
+      "price_jpy": "3204.9462381",
+      "24h_volume_jpy": "4286046883.46",
+      "market_cap_jpy": "40813175669.0"
+    },
+    {
+      "id": "aelf",
+      "name": "aelf",
+      "symbol": "ELF",
+      "price_usd": "1.45034",
+      "price_btc": "0.00012452",
+      "percent_change_1h": "0.11",
+      "percent_change_24h": "19.65",
+      "percent_change_7d": "-28.11",
+      "last_updated": "1516304664",
+      "price_jpy": "160.823368138",
+      "24h_volume_jpy": "10301027585.0",
+      "market_cap_jpy": "40205842035.0"
+    },
+    {
+      "id": "syscoin",
+      "name": "Syscoin",
+      "symbol": "SYS",
+      "price_usd": "0.681393",
+      "price_btc": "0.00005850",
+      "percent_change_1h": "-0.92",
+      "percent_change_24h": "21.33",
+      "percent_change_7d": "-11.63",
+      "last_updated": "1516304643",
+      "price_jpy": "75.5573984623",
+      "24h_volume_jpy": "792940573.557",
+      "market_cap_jpy": "40070744686.0"
+    },
+    {
+      "id": "aeternity",
+      "name": "Aeternity",
+      "symbol": "AE",
+      "price_usd": "1.5474",
+      "price_btc": "0.00013286",
+      "percent_change_1h": "-1.02",
+      "percent_change_24h": "11.75",
+      "percent_change_7d": "-27.88",
+      "last_updated": "1516304655",
+      "price_jpy": "171.586028005",
+      "24h_volume_jpy": "262378921.808",
+      "market_cap_jpy": "39983057254.0"
+    },
+    {
+      "id": "bytom",
+      "name": "Bytom",
+      "symbol": "BTM",
+      "price_usd": "0.362113",
+      "price_btc": "0.00003109",
+      "percent_change_1h": "-0.77",
+      "percent_change_24h": "21.77",
+      "percent_change_7d": "-34.25",
+      "last_updated": "1516304657",
+      "price_jpy": "40.1535035279",
+      "24h_volume_jpy": "4788751586.81",
+      "market_cap_jpy": "39631507982.0"
+    },
+    {
+      "id": "bitconnect",
+      "name": "BitConnect",
+      "symbol": "BCC",
+      "price_usd": "38.7519",
+      "price_btc": "0.00332714",
+      "percent_change_1h": "10.09",
+      "percent_change_24h": "55.32",
+      "percent_change_7d": "-87.48",
+      "last_updated": "1516304653",
+      "price_jpy": "4297.06901813",
+      "24h_volume_jpy": "6642166776.87",
+      "market_cap_jpy": "39389434082.0"
+    },
+    {
+      "id": "quantstamp",
+      "name": "Quantstamp",
+      "symbol": "QSP",
+      "price_usd": "0.563334",
+      "price_btc": "0.00004837",
+      "percent_change_1h": "6.32",
+      "percent_change_24h": "47.62",
+      "percent_change_7d": "-1.27",
+      "last_updated": "1516304663",
+      "price_jpy": "62.4662294819",
+      "24h_volume_jpy": "3689387907.44",
+      "market_cap_jpy": "38561288657.0"
+    },
+    {
+      "id": "substratum",
+      "name": "Substratum",
+      "symbol": "SUB",
+      "price_usd": "1.50701",
+      "price_btc": "0.00012939",
+      "percent_change_1h": "-0.82",
+      "percent_change_24h": "39.05",
+      "percent_change_7d": "-29.53",
+      "last_updated": "1516304658",
+      "price_jpy": "167.107315538",
+      "24h_volume_jpy": "1766003230.72",
+      "market_cap_jpy": "37781535089.0"
+    },
+    {
+      "id": "maidsafecoin",
+      "name": "MaidSafeCoin",
+      "symbol": "MAID",
+      "price_usd": "0.743838",
+      "price_btc": "0.00006386",
+      "percent_change_1h": "-0.71",
+      "percent_change_24h": "17.36",
+      "percent_change_7d": "-21.2",
+      "last_updated": "1516304643",
+      "price_jpy": "82.4817163625",
+      "24h_volume_jpy": "730357247.755",
+      "market_cap_jpy": "37327299686.0"
+    },
+    {
+      "id": "nxt",
+      "name": "Nxt",
+      "symbol": "NXT",
+      "price_usd": "0.331733",
+      "price_btc": "0.00002848",
+      "percent_change_1h": "-0.07",
+      "percent_change_24h": "28.75",
+      "percent_change_7d": "-20.08",
+      "last_updated": "1516304642",
+      "price_jpy": "36.7847665944",
+      "24h_volume_jpy": "3064674604.76",
+      "market_cap_jpy": "36747979676.0"
+    },
+    {
+      "id": "gxshares",
+      "name": "GXShares",
+      "symbol": "GXS",
+      "price_usd": "5.46212",
+      "price_btc": "0.00046896",
+      "percent_change_1h": "0.04",
+      "percent_change_24h": "18.36",
+      "percent_change_7d": "-44.51",
+      "last_updated": "1516304655",
+      "price_jpy": "605.676279752",
+      "24h_volume_jpy": "1656924016.72",
+      "market_cap_jpy": "36340576785.0"
+    },
+    {
+      "id": "nebulas-token",
+      "name": "Nebulas",
+      "symbol": "NAS",
+      "price_usd": "8.92619",
+      "price_btc": "0.00076638",
+      "percent_change_1h": "0.77",
+      "percent_change_24h": "27.76",
+      "percent_change_7d": "-30.94",
+      "last_updated": "1516304657",
+      "price_jpy": "989.795455163",
+      "24h_volume_jpy": "2704681041.41",
+      "market_cap_jpy": "35137738658.0"
+    },
+    {
+      "id": "zcoin",
+      "name": "ZCoin",
+      "symbol": "XZC",
+      "price_usd": "81.0628",
+      "price_btc": "0.00695984",
+      "percent_change_1h": "-1.17",
+      "percent_change_24h": "20.27",
+      "percent_change_7d": "-18.09",
+      "last_updated": "1516304650",
+      "price_jpy": "8988.78368294",
+      "24h_volume_jpy": "737181213.222",
+      "market_cap_jpy": "35052689860.0"
+    },
+    {
+      "id": "gamecredits",
+      "name": "GameCredits",
+      "symbol": "GAME",
+      "price_usd": "4.83755",
+      "price_btc": "0.00041534",
+      "percent_change_1h": "1.27",
+      "percent_change_24h": "29.18",
+      "percent_change_7d": "-18.62",
+      "last_updated": "1516304644",
+      "price_jpy": "536.419794349",
+      "24h_volume_jpy": "799316556.891",
+      "market_cap_jpy": "34521484685.0"
+    },
+    {
+      "id": "bitcore",
+      "name": "Bitcore",
+      "symbol": "BTX",
+      "price_usd": "28.8403",
+      "price_btc": "0.00247615",
+      "percent_change_1h": "-0.48",
+      "percent_change_24h": "25.85",
+      "percent_change_7d": "25.48",
+      "last_updated": "1516304654",
+      "price_jpy": "3198.00473276",
+      "24h_volume_jpy": "292384853.809",
+      "market_cap_jpy": "34406521079.0"
+    },
+    {
+      "id": "particl",
+      "name": "Particl",
+      "symbol": "PART",
+      "price_usd": "33.9199",
+      "price_btc": "0.00291227",
+      "percent_change_1h": "-1.86",
+      "percent_change_24h": "27.33",
+      "percent_change_7d": "31.37",
+      "last_updated": "1516304656",
+      "price_jpy": "3761.26464478",
+      "24h_volume_jpy": "99664492.4563",
+      "market_cap_jpy": "33252323635.0"
+    },
+    {
+      "id": "digitalnote",
+      "name": "DigitalNote",
+      "symbol": "XDN",
+      "price_usd": "0.0423587",
+      "price_btc": "0.00000364",
+      "percent_change_1h": "-1.31",
+      "percent_change_24h": "26.32",
+      "percent_change_7d": "-33.0",
+      "last_updated": "1516304643",
+      "price_jpy": "4.6970150475",
+      "24h_volume_jpy": "4649688618.14",
+      "market_cap_jpy": "32382425529.0"
+    },
+    {
+      "id": "bancor",
+      "name": "Bancor",
+      "symbol": "BNT",
+      "price_usd": "7.07784",
+      "price_btc": "0.00060768",
+      "percent_change_1h": "-0.12",
+      "percent_change_24h": "18.18",
+      "percent_change_7d": "-19.69",
+      "last_updated": "1516304655",
+      "price_jpy": "784.838084824",
+      "24h_volume_jpy": "1040151308.23",
+      "market_cap_jpy": "32000101719.0"
+    },
+    {
+      "id": "tenx",
+      "name": "TenX",
+      "symbol": "PAY",
+      "price_usd": "2.74498",
+      "price_btc": "0.00023568",
+      "percent_change_1h": "1.83",
+      "percent_change_24h": "23.4",
+      "percent_change_7d": "-13.98",
+      "last_updated": "1516304654",
+      "price_jpy": "304.381682276",
+      "24h_volume_jpy": "1727858217.39",
+      "market_cap_jpy": "31856985607.0"
+    },
+    {
+      "id": "emercoin",
+      "name": "Emercoin",
+      "symbol": "EMC",
+      "price_usd": "6.95432",
+      "price_btc": "0.00059708",
+      "percent_change_1h": "0.74",
+      "percent_change_24h": "32.99",
+      "percent_change_7d": "4.98",
+      "last_updated": "1516304643",
+      "price_jpy": "771.141363757",
+      "24h_volume_jpy": "486823514.948",
+      "market_cap_jpy": "31777617675.0"
+    },
+    {
+      "id": "iconomi",
+      "name": "Iconomi",
+      "symbol": "ICN",
+      "price_usd": "2.8506",
+      "price_btc": "0.00024474",
+      "percent_change_1h": "0.99",
+      "percent_change_24h": "33.12",
+      "percent_change_7d": "-27.73",
+      "last_updated": "1516304650",
+      "price_jpy": "316.093532009",
+      "24h_volume_jpy": "681173466.754",
+      "market_cap_jpy": "31542440696.0"
+    },
+    {
+      "id": "civic",
+      "name": "Civic",
+      "symbol": "CVC",
+      "price_usd": "0.825371",
+      "price_btc": "0.00007086",
+      "percent_change_1h": "0.06",
+      "percent_change_24h": "40.39",
+      "percent_change_7d": "-11.63",
+      "last_updated": "1516304656",
+      "price_jpy": "91.5226389561",
+      "24h_volume_jpy": "2617302348.08",
+      "market_cap_jpy": "31364805258.0"
+    }
+  ]
+}
