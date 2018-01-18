@@ -1,15 +1,19 @@
 {
-  "name": "y",
+  "name": "cryptocurrencyclient",
   "version": "0.0.1",
-  "description": "クライアント用",
+  "description": "クライアント",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git@github-cryptocurrencyapp:CryptocurrencyApp/CryptocurrencyClient.git"
+    "url": "git+ssh://git@github.com/CryptocurrencyApp/CryptocurrencyClient.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CryptocurrencyApp/CryptocurrencyClient/issues"
+  },
+  "homepage": "https://github.com/CryptocurrencyApp/CryptocurrencyClient#readme"
 }
