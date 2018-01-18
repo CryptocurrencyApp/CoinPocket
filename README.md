@@ -1,2 +1,2 @@
 # CryptocurrencyClient
-クライアント用
+クライアント
