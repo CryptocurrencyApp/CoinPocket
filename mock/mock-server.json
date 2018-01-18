@@ -1,19 +1,19 @@
 {
   "assets": [
     {
-      "brand": "ripple",
+      "id": "ripple",
       "amount": 10.0011
     },
     {
-      "brand": "bitcoin",
+      "id": "bitcoin",
       "amount": 0.0001
     },
     {
-      "brand": "bitcoin-cash",
+      "id": "bitcoin-cash",
       "amount": 0.1211
     },
     {
-      "brand": "verge",
+      "id": "verge",
       "amount": 40.9011
     }
   ],
