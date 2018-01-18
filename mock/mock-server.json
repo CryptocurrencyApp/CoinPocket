@@ -1,19 +1,19 @@
 {
   "assets": [
     {
-      "brand": "XRP",
+      "brand": "ripple",
       "amount": 10.0011
     },
     {
-      "brand": "BTC",
+      "brand": "bitcoin",
       "amount": 0.0001
     },
     {
-      "brand": "BCH",
+      "brand": "bitcoin-cash",
       "amount": 0.1211
     },
     {
-      "brand": "XVG",
+      "brand": "verge",
       "amount": 40.9011
     }
   ],
