@@ -2,19 +2,23 @@
   "assets": [
     {
       "id": "ripple",
-      "amount": 10.0011
+      "amount": 10.0011,
+      "price_jpy": "180.185289005"
     },
     {
       "id": "bitcoin",
-      "amount": 0.0001
+      "amount": 0.0001,
+      "price_jpy": "1299558.46737"
     },
     {
       "id": "bitcoin-cash",
-      "amount": 0.1211
+      "amount": 0.1211,
+      "price_jpy": "205469.66674"
     },
     {
       "id": "verge",
-      "amount": 40.9011
+      "amount": 40.9011,
+      "price_jpy": "13.2985270471"
     }
   ],
   "articles": [
