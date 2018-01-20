@@ -1,6 +1,19 @@
 # CryptocurrencyClient
 クライアント
 
+# ローカル開発環境の起動方法
+## インストール
+```shell
+yarn
+```
+
+## 実行
+```shell
+ionic serve # watchが開始される
+```
+
+## アクセス先（デフォルト）
+`localhost:8101`
 
 # Mockサーバーの起動方法
 
