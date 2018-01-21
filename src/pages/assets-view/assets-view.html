@@ -17,8 +17,17 @@
 
 
 <ion-content padding>
+    <ion-card color="primary">
+        <ion-card-header text-center>
+            総資産額
+        </ion-card-header>
+        <ion-card-content text-center class="assets-view-total-card-value">
+            1000 JPY
+        </ion-card-content>
+    </ion-card>
+
     <ion-fab bottom right>
-        <button ion-fab color="primary" (click)="goAssetsEditPage()">
+        <button ion-fab color="secondary" (click)="goAssetsEditPage()">
             <ion-icon name="settings"></ion-icon>
         </button>
     </ion-fab>
