@@ -10,6 +10,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AssetsViewPage } from "../pages/assets-view/assets-view";
 import { AssetsEditPage } from "../pages/assets-edit/assets-edit";
+import { HttpClientModule } from "@angular/common/http";
+import { RestProvider } from '../providers/rest/rest';
 
 @NgModule({
     declarations: [
@@ -21,6 +23,7 @@ import { AssetsEditPage } from "../pages/assets-edit/assets-edit";
     ],
     imports: [
         BrowserModule,
+        HttpClientModule,
         IonicModule.forRoot(MyApp),
     ],
     bootstrap: [IonicApp],
@@ -34,7 +37,8 @@ import { AssetsEditPage } from "../pages/assets-edit/assets-edit";
     providers: [
         StatusBar,
         SplashScreen,
-        {provide: ErrorHandler, useClass: IonicErrorHandler}
+        {provide: ErrorHandler, useClass: IonicErrorHandler},
+        RestProvider
     ]
 })
 export class AppModule {

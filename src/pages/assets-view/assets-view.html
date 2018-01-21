@@ -22,8 +22,21 @@
             総資産額
         </ion-card-header>
         <ion-card-content text-center class="assets-view-total-card-value">
-            1000 JPY
+            {{total}} JPY
         </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <ion-list inset>
+            <li ion-item *ngFor="let item of information">
+                <span item-start>
+                    {{item.id}}
+                </span>
+                <span item-end>
+                    {{item.jpy}} JPY
+                </span>
+            </li>
+        </ion-list>
     </ion-card>
 
     <ion-fab bottom right>
