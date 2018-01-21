@@ -1,24 +1,24 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the AssetRegisterPage page.
+ * Generated class for the AssetsRegisterPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
+@IonicPage()
 @Component({
-    selector: 'page-asset-register',
-    templateUrl: 'asset-register.html',
+    selector: 'page-assets-register',
+    templateUrl: 'assets-register.html',
 })
-export class AssetRegisterPage {
+export class AssetsRegisterPage {
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
     }
 
     ionViewDidLoad() {
-        console.log('ionViewDidLoad AssetRegisterPage');
     }
 
 }
