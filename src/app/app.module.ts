@@ -9,6 +9,7 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AssetsViewPage } from "../pages/assets-view/assets-view";
+import { AssetsEditPage } from "../pages/assets-edit/assets-edit";
 
 @NgModule({
     declarations: [
@@ -16,6 +17,7 @@ import { AssetsViewPage } from "../pages/assets-view/assets-view";
         HomePage,
         ListPage,
         AssetsViewPage,
+        AssetsEditPage,
     ],
     imports: [
         BrowserModule,
@@ -27,6 +29,7 @@ import { AssetsViewPage } from "../pages/assets-view/assets-view";
         HomePage,
         ListPage,
         AssetsViewPage,
+        AssetsEditPage,
     ],
     providers: [
         StatusBar,

@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AssetsEditPage } from "../assets-edit/assets-edit";
 
 /**
- * Generated class for the AssetsViewPage page.
+ * Generated class for the AssetsEditPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,21 +10,16 @@ import { AssetsEditPage } from "../assets-edit/assets-edit";
 
 @IonicPage()
 @Component({
-    selector: 'page-assets-view',
-    templateUrl: 'assets-view.html',
+    selector: 'page-assets-edit',
+    templateUrl: 'assets-edit.html',
 })
-export class AssetsViewPage {
+export class AssetsEditPage {
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
     }
 
-    goAssetsEditPage() {
-        this.navCtrl.setRoot(AssetsEditPage);
-    }
-
-
     ionViewDidLoad() {
-        console.log('ionViewDidLoad AssetsViewPage');
+        console.log('ionViewDidLoad AssetsEditPage');
     }
 
 }
