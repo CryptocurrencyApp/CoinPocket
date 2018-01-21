@@ -10,14 +10,16 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>AssetsView</ion-title>
+        <ion-title>アセット確認画面</ion-title>
     </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-    <button ion-button (click)="goAssetsEditPage()">
-        編集
-    </button>
+    <ion-fab bottom right>
+        <button ion-fab color="primary" (click)="goAssetsEditPage()">
+            <ion-icon name="options"></ion-icon>
+        </button>
+    </ion-fab>
 </ion-content>
