@@ -26,14 +26,24 @@
         </ion-card-content>
     </ion-card>
 
-    <ion-card>
-        <ion-list inset>
+    <ion-card (click)="switchAssets()">
+        <ion-list inset *ngIf="viewMode == 'jpy'">
             <li ion-item *ngFor="let item of information">
                 <span item-start>
                     {{item.id}}
                 </span>
                 <span item-end>
                     {{item.jpy}} JPY
+                </span>
+            </li>
+        </ion-list>
+        <ion-list inset *ngIf="viewMode == 'coin'">
+            <li ion-item *ngFor="let item of information">
+                <span item-start>
+                    {{item.id}}
+                </span>
+                <span item-end>
+                    {{item.amount}} 枚
                 </span>
             </li>
         </ion-list>
