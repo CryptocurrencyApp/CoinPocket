@@ -4,6 +4,18 @@
       "id": "ripple",
       "amount": 10.0011,
       "price_jpy": "180.185289005"
+    },{
+      "id": "dash",
+      "amount": 10.0011,
+      "price_jpy": "96617.4377429"
+    },{
+      "id": "lisk",
+      "amount": 10.0011,
+      "price_jpy": "2647.96251141"
+    },{
+      "id": "litecoin",
+      "amount": 10.0011,
+      "price_jpy": "22216.919874"
     },
     {
       "id": "bitcoin",

@@ -41,6 +41,10 @@ export class AssetsViewPage {
         })
     }
 
+    addComma(value: number) {
+        return String(value).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
+
     goAssetsEditPage() {
         this.navCtrl.setRoot(AssetsEditPage)
     }

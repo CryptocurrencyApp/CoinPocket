@@ -22,7 +22,7 @@
             総資産額
         </ion-card-header>
         <ion-card-content text-center class="assets-view-total-card-value">
-            {{total}} JPY
+            {{addComma(total)}} JPY
         </ion-card-content>
     </ion-card>
 
@@ -33,7 +33,7 @@
                     {{item.id}}
                 </span>
                 <span item-end>
-                    {{item.jpy}} JPY
+                    {{addComma(item.jpy)}} JPY
                 </span>
             </li>
         </ion-list>
