@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
+import { Injectable } from '@angular/core'
 
 /*
   Generated class for the RestProvider provider.
@@ -9,19 +9,31 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class RestProvider {
-    baseUrl = 'http://localhost:3000';
+    baseUrl = 'http://localhost:3000'
 
     constructor(public http: HttpClient) {
-        console.log('Hello RestProvider Provider');
+        console.log('Hello RestProvider Provider')
     }
 
     getAssets() {
         return new Promise(resolve => {
-            this.http.get(this.baseUrl + '/assets').subscribe(data => {
-                resolve(data)
-            }, err => {
-                console.log(err)
-            })
+            this.http.get(this.baseUrl + '/assets')
+                .subscribe(data => {
+                    resolve(data)
+                }, err => {
+                    console.log(err)
+                })
+        })
+    }
+
+    getSelectableCoinList() {
+        return new Promise(resolve => {
+            this.http.get(this.baseUrl + '/coinIds')
+                .subscribe(data => {
+                    resolve(data)
+                }, err => {
+                    console.log(err)
+                })
         })
     }
 }

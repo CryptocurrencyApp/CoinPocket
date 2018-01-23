@@ -10,12 +10,36 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>AssetsEdit</ion-title>
+        <ion-title>アセット編集画面</ion-title>
     </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
-    アセット編集画面
+    <ion-card>
+        <ion-card-header>
+            コイン銘柄追加
+        </ion-card-header>
+        <ion-card-content>
+            <ion-item>
+                <ion-label color="primary">
+                    <ion-icon name="search"></ion-icon>
+                </ion-label>
+                <ion-input placeholder="例）Bitcoin, BTC, bitcoin" (input)="getInputCoinName($event.target.value)"></ion-input>
+            </ion-item>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngIf="isInput">
+        <ion-list inset>
+            <li ion-item *ngFor="let coin of matchedCoinList">
+                {{coin.name}}（{{coin.symbol}}）
+            </li>
+        </ion-list>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-content>
+            <!-- コイン銘柄編集・削除フォーム -->
+        </ion-card-content>
+    </ion-card>
 </ion-content>

@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { AssetsViewPage } from "../pages/assets-view/assets-view";
+import { AssetsEditPage } from "../pages/assets-edit/assets-edit"
 
 @Component({
     templateUrl: 'app.html'
@@ -13,7 +14,7 @@ import { AssetsViewPage } from "../pages/assets-view/assets-view";
 export class MyApp {
     @ViewChild(Nav) nav: Nav;
 
-    rootPage: any = HomePage;
+    rootPage: any = AssetsEditPage;
 
     pages: Array<{ title: string, component: any }>;
 
