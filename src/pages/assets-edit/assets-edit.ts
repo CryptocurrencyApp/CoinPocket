@@ -19,6 +19,7 @@ export class AssetsEditPage {
     private matchedCoinList: any
     private timeoutId: number
     private isInput: boolean
+    private isNotFound: boolean
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private restProvider: RestProvider) {
         this.restProvider.getSelectableCoinList()
@@ -45,5 +46,7 @@ export class AssetsEditPage {
                 element.name.toLowerCase().indexOf(input) > -1 ||
                 element.symbol.toLowerCase().indexOf(input) > -1
         })
+
+        this.isNotFound = this.matchedCoinList.length <= 0;
     }
 }

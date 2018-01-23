@@ -24,17 +24,21 @@
                 <ion-label color="primary">
                     <ion-icon name="search"></ion-icon>
                 </ion-label>
-                <ion-input placeholder="例）Bitcoin, BTC, bitcoin" (input)="getInputCoinName($event.target.value)"></ion-input>
+                <ion-input placeholder="例）Bitcoin, BTC, bitcoin"
+                           (input)="getInputCoinName($event.target.value)"></ion-input>
+            </ion-item>
+
+            <ion-list inset *ngIf="isInput">
+                <li ion-item *ngFor="let coin of matchedCoinList">
+                    {{coin.name}}（{{coin.symbol}}）
+                </li>
+            </ion-list>
+
+            <ion-item *ngIf="isNotFound" text-wrap>
+                一致するコインが存在しません。
+                選択できないコインの可能性があります。詳しくは<a href="">こちら</a>
             </ion-item>
         </ion-card-content>
-    </ion-card>
-
-    <ion-card *ngIf="isInput">
-        <ion-list inset>
-            <li ion-item *ngFor="let coin of matchedCoinList">
-                {{coin.name}}（{{coin.symbol}}）
-            </li>
-        </ion-list>
     </ion-card>
 
     <ion-card>
