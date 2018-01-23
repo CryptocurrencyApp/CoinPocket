@@ -46,7 +46,7 @@ export class AssetsViewPage {
     }
 
     goAssetsEditPage() {
-        this.navCtrl.setRoot(AssetsEditPage)
+        this.navCtrl.push(AssetsEditPage)
     }
 
     switchAssets() {
