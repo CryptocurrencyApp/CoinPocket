@@ -11,6 +11,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AssetsViewPage } from "../pages/assets-view/assets-view";
 import { AssetsEditPage } from "../pages/assets-edit/assets-edit";
 import { ArticlesViewPage } from "../pages/articles-view/articles-view";
+import { ArticlePostPage } from "../pages/article-post/article-post";
 import { HttpClientModule } from "@angular/common/http";
 import { RestProvider } from '../providers/rest/rest';
 
@@ -22,6 +23,7 @@ import { RestProvider } from '../providers/rest/rest';
         AssetsViewPage,
         AssetsEditPage,
         ArticlesViewPage,
+        ArticlePostPage,
     ],
     imports: [
         BrowserModule,
@@ -36,6 +38,7 @@ import { RestProvider } from '../providers/rest/rest';
         AssetsViewPage,
         AssetsEditPage,
         ArticlesViewPage,
+        ArticlePostPage,
     ],
     providers: [
         StatusBar,

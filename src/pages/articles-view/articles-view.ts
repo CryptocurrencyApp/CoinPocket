@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ArticlePostPage } from "../article-post/article-post";
+import { RestProvider } from "../../providers/rest/rest";
 
 /**
  * Generated class for the ArticlesViewPage page.
@@ -14,12 +16,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'articles-view.html',
 })
 export class ArticlesViewPage {
+  articles: any;
+  sortMode: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private restProvider: RestProvider) {
+    this.restProvider.getArticles()
+        .then(data => {
+            this.articles = data;
+        }).then(() => {
+        console.dir(this.articles);
+        })
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ArticlesViewPage');
+  goAssetsEditPage() {
+      this.navCtrl.push(ArticlePostPage)
   }
-
 }

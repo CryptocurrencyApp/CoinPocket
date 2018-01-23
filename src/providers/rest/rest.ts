@@ -36,4 +36,15 @@ export class RestProvider {
                 })
         })
     }
+
+    getArticles() {
+      return new Promise(resolve => {
+        this.http.get(this.baseUrl + '/articles')
+        .subscribe(data => {
+          resolve(data)
+        }, err => {
+          console.log(err)
+        })
+      })
+    }
 }
