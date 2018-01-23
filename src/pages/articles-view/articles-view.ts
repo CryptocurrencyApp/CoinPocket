@@ -28,7 +28,7 @@ export class ArticlesViewPage {
         })
   }
 
-  goAssetsEditPage() {
-      this.navCtrl.push(ArticlePostPage)
+  goArticlePostPage() {
+    this.navCtrl.push(ArticlePostPage)
   }
 }

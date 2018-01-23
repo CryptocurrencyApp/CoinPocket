@@ -16,8 +16,43 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-card>
+
+    <ion-item>
+      <h2>UserName</h2>
+      <p>CreatedAt</p>
+    </ion-item>
+
+    <ion-card-content>
+      <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+    </ion-card-content>
+
+    <img src="http://xn--eck5eb7eb2541d26fovj.biz/wp-content/uploads/2015/02/927c75bc-1024x576.jpg">
+    <ion-note>
+      11h ago
+    </ion-note>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left full>
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>Like</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button color="danger" ion-button icon-left full>
+            <ion-icon name="thumbs-down"></ion-icon>
+            <div>UnLike</div>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-card>
+
   <ion-fab bottom right>
-    <button ion-fab color="secondary" (click)="goAssetsEditPage()">
+    <button ion-fab color="secondary" (click)="goArticlePostPage()">
       <ion-icon name="settings"></ion-icon>
     </button>
   </ion-fab>
