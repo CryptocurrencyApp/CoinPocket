@@ -1,8 +1,9 @@
 {
   "assets": [
     {
-      "amount": "20",
-      "id": "ripple"
+      "amount": "2",
+      "id": "ripple",
+      "price_jpy": "180.185289005"
     },
     {
       "amount": "0.0745",
