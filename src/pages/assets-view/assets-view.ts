@@ -21,6 +21,9 @@ export class AssetsViewPage {
     viewMode: string
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private restProvider: RestProvider) {
+    }
+
+    ionViewWillEnter() {
         this.restProvider.getAssets()
             .then(data => {
                 this.information = data
