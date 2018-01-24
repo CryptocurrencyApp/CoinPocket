@@ -20,6 +20,7 @@ export class AssetsEditPage {
     private timeoutId: number
     private isInput: boolean
     private isNotFound: boolean
+    private selectedCoinName: string
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private restProvider: RestProvider) {
         this.restProvider.getSelectableCoinList()
@@ -28,14 +29,19 @@ export class AssetsEditPage {
             })
     }
 
-    getInputCoinName(coinName: string) {
+    getInputCoinName() {
         const timeoutMS = 400
         clearTimeout(this.timeoutId)
         this.timeoutId = setTimeout(() => {
             // timeoutMS秒間の入力待機後、画面に描画される
-            this.filteringCoinList(coinName.toLowerCase())
-            this.isInput = coinName != ""
+            this.filteringCoinList(this.selectedCoinName.toLowerCase())
+            this.isInput = this.selectedCoinName != ""
         }, timeoutMS)
+    }
+
+    selectCoinName() {
+        this.selectedCoinName = ''
+        this.isInput = this.selectedCoinName != ""
     }
 
     private filteringCoinList(input: string) {
@@ -47,6 +53,6 @@ export class AssetsEditPage {
                 element.symbol.toLowerCase().indexOf(input) > -1
         })
 
-        this.isNotFound = this.matchedCoinList.length <= 0;
+        this.isNotFound = this.matchedCoinList.length <= 0
     }
 }
