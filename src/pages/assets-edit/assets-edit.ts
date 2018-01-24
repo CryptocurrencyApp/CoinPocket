@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { IonicPage, NavController, NavParams } from 'ionic-angular'
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular'
 import { RestProvider } from "../../providers/rest/rest"
 
 /**
@@ -15,6 +15,7 @@ import { RestProvider } from "../../providers/rest/rest"
     templateUrl: 'assets-edit.html',
 })
 export class AssetsEditPage {
+    private userAssetsList: any
     private selectableCoinList: any
     private matchedCoinList: any
     private timeoutId: number
@@ -22,10 +23,14 @@ export class AssetsEditPage {
     private isNotFound: boolean
     private selectedCoinName: string
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, private restProvider: RestProvider) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, private restProvider: RestProvider, private toastCtrl: ToastController) {
         this.restProvider.getSelectableCoinList()
             .then(data => {
                 this.selectableCoinList = data
+            })
+        this.restProvider.getAssets()
+            .then(data => {
+                this.userAssetsList = data
             })
     }
 
@@ -41,7 +46,21 @@ export class AssetsEditPage {
 
     selectCoinName() {
         this.selectedCoinName = ''
-        this.isInput = this.selectedCoinName != ""
+        this.isInput = this.selectedCoinName != ''
+    }
+
+    deleteCoinAsset(id: string) {
+        console.log(id)
+    }
+
+    editAmount(id: string, amount: number) {
+        const timeoutMS = 600
+        clearTimeout(this.timeoutId)
+        this.timeoutId = setTimeout(() => {
+            // timeoutMS秒間の入力待機後、編集をAPIに投稿される
+            // APIに投稿する
+            console.log(id, amount)
+        }, timeoutMS)
     }
 
     private filteringCoinList(input: string) {
