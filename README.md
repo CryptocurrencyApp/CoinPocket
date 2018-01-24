@@ -19,7 +19,7 @@ ionic serve # watchが開始される
 ```
 
 ## アクセス先（デフォルト）
-`localhost:8101`
+`localhost:8100`
 
 # Mockサーバーの起動方法
 
