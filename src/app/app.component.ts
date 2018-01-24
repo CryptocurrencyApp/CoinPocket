@@ -15,7 +15,7 @@ import { ArticlesViewPage } from "../pages/articles-view/articles-view";
 export class MyApp {
     @ViewChild(Nav) nav: Nav;
 
-    rootPage: any = AssetsEditPage;
+    rootPage: any = ArticlesViewPage;
 
     pages: Array<{ title: string, component: any }>;
 
