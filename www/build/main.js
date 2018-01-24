@@ -62,7 +62,7 @@ var AssetsViewPage = (function () {
     };
     AssetsViewPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-assets-view',template:/*ion-inline-start:"/Users/ahaha0807/Documents/Programings/product/CryptocurrencyClient/src/pages/assets-view/assets-view.html"*/'<!--\n  Generated template for the AssetsViewPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>アセット確認画面</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-card color="primary">\n        <ion-card-header text-center>\n            総資産額\n        </ion-card-header>\n        <ion-card-content text-center class="assets-view-total-card-value">\n            {{addComma(total)}} JPY\n        </ion-card-content>\n    </ion-card>\n\n    <ion-card (click)="switchAssets()">\n        <ion-list inset *ngIf="viewMode == \'jpy\'">\n            <li ion-item *ngFor="let item of information">\n                <span item-start>\n                    {{item.id}}\n                </span>\n                <span item-end>\n                    {{addComma(item.jpy)}} JPY\n                </span>\n            </li>\n        </ion-list>\n        <ion-list inset *ngIf="viewMode == \'coin\'">\n            <li ion-item *ngFor="let item of information">\n                <span item-start>\n                    {{item.id}}\n                </span>\n                <span item-end>\n                    {{item.amount}} 枚\n                </span>\n            </li>\n        </ion-list>\n    </ion-card>\n\n    <ion-fab bottom right>\n        <button ion-fab color="secondary" (click)="goAssetsEditPage()">\n            <ion-icon name="settings"></ion-icon>\n        </button>\n    </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/Users/ahaha0807/Documents/Programings/product/CryptocurrencyClient/src/pages/assets-view/assets-view.html"*/,
+            selector: 'page-assets-view',template:/*ion-inline-start:"/Users/ahaha0807/Documents/Programings/product/CryptocurrencyClient/src/pages/assets-view/assets-view.html"*/'<!--\n  Generated template for the AssetsViewPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>総資産</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-card color="primary">\n        <ion-card-header text-center>\n            総資産額\n        </ion-card-header>\n        <ion-card-content text-center class="assets-view-total-card-value">\n            {{addComma(total)}} JPY\n        </ion-card-content>\n    </ion-card>\n\n    <ion-card (click)="switchAssets()">\n        <ion-list inset *ngIf="viewMode == \'jpy\'">\n            <li ion-item *ngFor="let item of information">\n                <span item-start>\n                    {{item.id}}\n                </span>\n                <span item-end>\n                    {{addComma(item.jpy)}} JPY\n                </span>\n            </li>\n        </ion-list>\n        <ion-list inset *ngIf="viewMode == \'coin\'">\n            <li ion-item *ngFor="let item of information">\n                <span item-start>\n                    {{item.id}}\n                </span>\n                <span item-end>\n                    {{item.amount}} 枚\n                </span>\n            </li>\n        </ion-list>\n    </ion-card>\n\n    <ion-fab bottom right>\n        <button ion-fab color="secondary" (click)="goAssetsEditPage()">\n            <ion-icon name="settings"></ion-icon>\n        </button>\n    </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/Users/ahaha0807/Documents/Programings/product/CryptocurrencyClient/src/pages/assets-view/assets-view.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__["a" /* RestProvider */]])
     ], AssetsViewPage);
@@ -436,7 +436,27 @@ var AssetsEditPage = (function () {
         this.isInput = this.selectedCoinName != '';
     };
     AssetsEditPage.prototype.deleteCoinAsset = function (id) {
-        console.log(id);
+        var _this = this;
+        this.restProvider.deleteAsset(id)
+            .then(function () {
+            var toast = _this.toastCtrl.create({
+                message: "削除が完了しました。",
+                duration: 3000
+            });
+            toast.present();
+        })
+            .catch(function () {
+            var toast = _this.toastCtrl.create({
+                message: "削除に失敗しました",
+                duration: 3000,
+            });
+            toast.present();
+        })
+            .then(function () {
+            _this.restProvider.getAssets().then(function (data) {
+                _this.userAssetsList = data;
+            });
+        });
     };
     AssetsEditPage.prototype.editAmount = function (id, amount) {
         var timeoutMS = 600;
