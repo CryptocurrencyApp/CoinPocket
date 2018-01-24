@@ -17,7 +17,8 @@
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve"
+    "ionic:serve": "ionic-app-scripts serve",
+    "mock": "json-server mock/mock-server.json --watch --middlewares mock/middlware.js"
   },
   "dependencies": {
     "@angular/common": "5.0.3",

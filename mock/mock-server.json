@@ -1,33 +1,32 @@
 {
   "assets": [
     {
-      "id": "ripple",
-      "amount": 10.0011,
-      "price_jpy": "180.185289005"
+      "amount": "20",
+      "id": "ripple"
     },
     {
+      "amount": "0.0745",
       "id": "dash",
-      "amount": 10.0011,
       "price_jpy": "96617.4377429"
     },
     {
+      "amount": "1.0011",
       "id": "lisk",
-      "amount": 10.0011,
       "price_jpy": "2647.96251141"
     },
     {
+      "amount": "0.0011",
       "id": "litecoin",
-      "amount": 10.0011,
       "price_jpy": "22216.919874"
     },
     {
+      "amount": "0.0001",
       "id": "bitcoin",
-      "amount": 0.0001,
       "price_jpy": "1299558.46737"
     },
     {
+      "amount": "0.0211",
       "id": "bitcoin-cash",
-      "amount": 0.1211,
       "price_jpy": "205469.66674"
     },
     {
