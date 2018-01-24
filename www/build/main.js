@@ -30,10 +30,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  */
 var AssetsViewPage = (function () {
     function AssetsViewPage(navCtrl, navParams, restProvider) {
-        var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.restProvider = restProvider;
+    }
+    AssetsViewPage.prototype.ionViewWillEnter = function () {
+        var _this = this;
         this.restProvider.getAssets()
             .then(function (data) {
             _this.information = data;
@@ -50,7 +52,7 @@ var AssetsViewPage = (function () {
             _this.total = Math.round(_this.total);
             _this.viewMode = 'jpy';
         });
-    }
+    };
     AssetsViewPage.prototype.addComma = function (value) {
         return String(value).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
     };
@@ -64,9 +66,10 @@ var AssetsViewPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-assets-view',template:/*ion-inline-start:"/Users/ahaha0807/Documents/Programings/product/CryptocurrencyClient/src/pages/assets-view/assets-view.html"*/'<!--\n  Generated template for the AssetsViewPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>総資産</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-card color="primary">\n        <ion-card-header text-center>\n            総資産額\n        </ion-card-header>\n        <ion-card-content text-center class="assets-view-total-card-value">\n            {{addComma(total)}} JPY\n        </ion-card-content>\n    </ion-card>\n\n    <ion-card (click)="switchAssets()">\n        <ion-list inset *ngIf="viewMode == \'jpy\'">\n            <li ion-item *ngFor="let item of information">\n                <span item-start>\n                    {{item.id}}\n                </span>\n                <span item-end>\n                    {{addComma(item.jpy)}} JPY\n                </span>\n            </li>\n        </ion-list>\n        <ion-list inset *ngIf="viewMode == \'coin\'">\n            <li ion-item *ngFor="let item of information">\n                <span item-start>\n                    {{item.id}}\n                </span>\n                <span item-end>\n                    {{item.amount}} 枚\n                </span>\n            </li>\n        </ion-list>\n    </ion-card>\n\n    <ion-fab bottom right>\n        <button ion-fab color="secondary" (click)="goAssetsEditPage()">\n            <ion-icon name="settings"></ion-icon>\n        </button>\n    </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/Users/ahaha0807/Documents/Programings/product/CryptocurrencyClient/src/pages/assets-view/assets-view.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__["a" /* RestProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__["a" /* RestProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__["a" /* RestProvider */]) === "function" && _c || Object])
     ], AssetsViewPage);
     return AssetsViewPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=assets-view.js.map
@@ -434,6 +437,7 @@ var AssetsEditPage = (function () {
     AssetsEditPage.prototype.selectCoinName = function () {
         this.selectedCoinName = '';
         this.isInput = this.selectedCoinName != '';
+        // TODO: /assetsにPOSTする
     };
     AssetsEditPage.prototype.deleteCoinAsset = function (id) {
         var _this = this;
@@ -453,18 +457,34 @@ var AssetsEditPage = (function () {
             toast.present();
         })
             .then(function () {
-            _this.restProvider.getAssets().then(function (data) {
+            _this.restProvider.getAssets()
+                .then(function (data) {
                 _this.userAssetsList = data;
             });
         });
     };
     AssetsEditPage.prototype.editAmount = function (id, amount) {
-        var timeoutMS = 600;
+        var _this = this;
+        var timeoutMS = 1000;
         clearTimeout(this.timeoutId);
         this.timeoutId = setTimeout(function () {
             // timeoutMS秒間の入力待機後、編集をAPIに投稿される
             // APIに投稿する
-            console.log(id, amount);
+            _this.restProvider.putAsset(id, amount)
+                .then(function () {
+                var toast = _this.toastCtrl.create({
+                    message: "保存完了しました",
+                    duration: 2000
+                });
+                toast.present();
+            })
+                .catch(function () {
+                var toast = _this.toastCtrl.create({
+                    message: "保存に失敗しました。通信環境をご確認ください",
+                    duration: 2000
+                });
+                toast.present();
+            });
         }, timeoutMS);
     };
     AssetsEditPage.prototype.filteringCoinList = function (input) {
@@ -478,7 +498,7 @@ var AssetsEditPage = (function () {
     };
     AssetsEditPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-assets-edit',template:/*ion-inline-start:"/Users/ahaha0807/Documents/Programings/product/CryptocurrencyClient/src/pages/assets-edit/assets-edit.html"*/'<!--\n  Generated template for the AssetsEditPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>アセット編集画面</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <ion-card>\n        <ion-card-header>\n            コイン銘柄追加\n        </ion-card-header>\n        <ion-card-content>\n            <ion-item>\n                <ion-label color="primary">\n                    <ion-icon name="search"></ion-icon>\n                </ion-label>\n                <ion-input placeholder="例）Bitcoin, BTC, bitcoin"\n                           (input)="getInputCoinName()"\n                           id="assets-edit-coin-add-form"\n                           [(ngModel)]="selectedCoinName"></ion-input>\n            </ion-item>\n\n            <ion-list inset *ngIf="isInput">\n                <button ion-item *ngFor="let coin of matchedCoinList" (click)="selectCoinName(coin.id)">\n                    {{coin.name}}（{{coin.symbol}}）\n                </button>\n            </ion-list>\n\n            <ion-item *ngIf="isNotFound" text-wrap>\n                一致するコインが存在しません。\n                選択できないコインの可能性があります。詳しくは<a href="">こちら</a>\n            </ion-item>\n        </ion-card-content>\n    </ion-card>\n\n    <ion-card>\n        <ion-card-content>\n            <ion-list inset>\n                <li ion-item *ngFor="let asset of userAssetsList">\n                    <ion-label>{{asset.id}}</ion-label>\n                    <ion-input item-right [(ngModel)]="asset.amount" (input)="editAmount(asset.id, asset.amount)"></ion-input>\n                    <ion-icon name="trash" item-end color="danger" (click)="deleteCoinAsset(asset.id)"></ion-icon>\n                </li>\n            </ion-list>\n            <!-- コイン銘柄編集・削除フォーム -->\n        </ion-card-content>\n    </ion-card>\n</ion-content>\n'/*ion-inline-end:"/Users/ahaha0807/Documents/Programings/product/CryptocurrencyClient/src/pages/assets-edit/assets-edit.html"*/,
+            selector: 'page-assets-edit',template:/*ion-inline-start:"/Users/ahaha0807/Documents/Programings/product/CryptocurrencyClient/src/pages/assets-edit/assets-edit.html"*/'<!--\n  Generated template for the AssetsEditPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>コイン管理</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <ion-card>\n        <ion-card-header>\n            コイン銘柄追加\n        </ion-card-header>\n        <ion-card-content>\n            <ion-item>\n                <ion-label color="primary">\n                    <ion-icon name="search"></ion-icon>\n                </ion-label>\n                <ion-input placeholder="例）Bitcoin, BTC, bitcoin"\n                           (input)="getInputCoinName()"\n                           id="assets-edit-coin-add-form"\n                           [(ngModel)]="selectedCoinName"></ion-input>\n            </ion-item>\n\n            <ion-list inset *ngIf="isInput">\n                <button ion-item *ngFor="let coin of matchedCoinList" (click)="selectCoinName(coin.id)">\n                    {{coin.name}}（{{coin.symbol}}）\n                </button>\n            </ion-list>\n\n            <ion-item *ngIf="isNotFound" text-wrap>\n                一致するコインが存在しません。\n                選択できないコインの可能性があります。詳しくは<a href="">こちら</a>\n            </ion-item>\n        </ion-card-content>\n    </ion-card>\n\n    <ion-card>\n        <ion-card-content>\n            <ion-list inset>\n                <li ion-item *ngFor="let asset of userAssetsList">\n                    <ion-label>{{asset.id}}</ion-label>\n                    <ion-input item-right [(ngModel)]="asset.amount" (input)="editAmount(asset.id, asset.amount)"></ion-input>\n                    <ion-icon name="trash" item-end color="danger" (click)="deleteCoinAsset(asset.id)"></ion-icon>\n                </li>\n            </ion-list>\n            <!-- コイン銘柄編集・削除フォーム -->\n        </ion-card-content>\n    </ion-card>\n</ion-content>\n'/*ion-inline-end:"/Users/ahaha0807/Documents/Programings/product/CryptocurrencyClient/src/pages/assets-edit/assets-edit.html"*/,
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__["a" /* RestProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__["a" /* RestProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _d || Object])
     ], AssetsEditPage);
@@ -537,6 +557,19 @@ var RestProvider = (function () {
             _this.http.delete(_this.baseUrl + '/assets/' + id)
                 .subscribe(function (data) {
                 resolve(data);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    RestProvider.prototype.putAsset = function (id, amount) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.put(_this.baseUrl + '/assets/' + id, {
+                amount: amount,
+                id: id,
+            }).subscribe(function () {
+                resolve();
             }, function (err) {
                 reject(err);
             });

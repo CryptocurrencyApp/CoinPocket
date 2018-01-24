@@ -47,6 +47,7 @@ export class AssetsEditPage {
     selectCoinName() {
         this.selectedCoinName = ''
         this.isInput = this.selectedCoinName != ''
+        // TODO: /assetsにPOSTする
     }
 
     deleteCoinAsset(id: string) {
@@ -66,19 +67,34 @@ export class AssetsEditPage {
                 toast.present()
             })
             .then(() => {
-                this.restProvider.getAssets().then(data => {
-                    this.userAssetsList = data
-                })
+                this.restProvider.getAssets()
+                    .then(data => {
+                        this.userAssetsList = data
+                    })
             })
     }
 
     editAmount(id: string, amount: number) {
-        const timeoutMS = 600
+        const timeoutMS = 1000
         clearTimeout(this.timeoutId)
         this.timeoutId = setTimeout(() => {
             // timeoutMS秒間の入力待機後、編集をAPIに投稿される
             // APIに投稿する
-            console.log(id, amount)
+            this.restProvider.putAsset(id, amount)
+                .then(() => {
+                    let toast = this.toastCtrl.create({
+                        message: "保存完了しました",
+                        duration: 2000
+                    })
+                    toast.present()
+                })
+                .catch(() => {
+                    let toast = this.toastCtrl.create({
+                        message: "保存に失敗しました。通信環境をご確認ください",
+                        duration: 2000
+                    })
+                    toast.present()
+                })
         }, timeoutMS)
     }
 

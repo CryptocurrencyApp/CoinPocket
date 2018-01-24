@@ -37,6 +37,19 @@ export class RestProvider {
         })
     }
 
+    putAsset(id: string, amount: number) {
+        return new Promise((resolve, reject) => {
+            this.http.put(this.baseUrl + '/assets/' + id, {
+                amount: amount,
+                id: id,
+            }).subscribe(() => {
+                resolve()
+            }, err => {
+                reject(err)
+            })
+        })
+    }
+
     getSelectableCoinList() {
         return new Promise(resolve => {
             this.http.get(this.baseUrl + '/coinIds')
