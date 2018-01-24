@@ -50,7 +50,26 @@ export class AssetsEditPage {
     }
 
     deleteCoinAsset(id: string) {
-        console.log(id)
+        this.restProvider.deleteAsset(id)
+            .then(() => {
+                let toast = this.toastCtrl.create({
+                    message: "削除が完了しました。",
+                    duration: 3000
+                })
+                toast.present()
+            })
+            .catch(() => {
+                let toast = this.toastCtrl.create({
+                    message: "削除に失敗しました",
+                    duration: 3000,
+                })
+                toast.present()
+            })
+            .then(() => {
+                this.restProvider.getAssets().then(data => {
+                    this.userAssetsList = data
+                })
+            })
     }
 
     editAmount(id: string, amount: number) {

@@ -26,6 +26,17 @@ export class RestProvider {
         })
     }
 
+    deleteAsset(id: string) {
+        return new Promise((resolve, reject) => {
+            this.http.delete(this.baseUrl + '/assets/' + id)
+                .subscribe(data => {
+                    resolve(data)
+                }, err => {
+                    reject(err)
+                })
+        })
+    }
+
     getSelectableCoinList() {
         return new Promise(resolve => {
             this.http.get(this.baseUrl + '/coinIds')
