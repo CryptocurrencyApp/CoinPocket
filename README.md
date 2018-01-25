@@ -1,4 +1,4 @@
-# CryptocurrencyClient
+# CoinPocket-Client
 クライアント
 
 # ローカル開発環境の起動方法

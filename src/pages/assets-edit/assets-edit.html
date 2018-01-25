@@ -31,7 +31,7 @@
             </ion-item>
 
             <ion-list inset *ngIf="isInput">
-                <button ion-item *ngFor="let coin of matchedCoinList" (click)="selectCoinName(coin.id)">
+                <button ion-item *ngFor="let coin of matchedCoinList" (click)="addCoin(coin.id)">
                     {{coin.name}}（{{coin.symbol}}）
                 </button>
             </ion-list>
@@ -48,11 +48,11 @@
             <ion-list inset>
                 <li ion-item *ngFor="let asset of userAssetsList">
                     <ion-label>{{asset.id}}</ion-label>
-                    <ion-input item-right [(ngModel)]="asset.amount" (input)="editAmount(asset.id, asset.amount)"></ion-input>
+                    <ion-input item-right [(ngModel)]="asset.amount"
+                               (input)="editAmount(asset.id, asset.amount)"></ion-input>
                     <ion-icon name="trash" item-end color="danger" (click)="deleteCoinAsset(asset.id)"></ion-icon>
                 </li>
             </ion-list>
-            <!-- コイン銘柄編集・削除フォーム -->
         </ion-card-content>
     </ion-card>
 </ion-content>

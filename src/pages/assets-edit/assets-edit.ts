@@ -44,10 +44,27 @@ export class AssetsEditPage {
         }, timeoutMS)
     }
 
-    selectCoinName() {
+    addCoin(id: string) {
         this.selectedCoinName = ''
         this.isInput = this.selectedCoinName != ''
-        // TODO: /assetsにPOSTする
+
+        this.restProvider.postAsset(id, 0)
+            .then(() => {
+                this.restProvider.getAssets()
+                    .then(data => {
+                        this.userAssetsList = data
+                    })
+            })
+            .catch(err => {
+                    // TODO: 通信エラーとToastの中身を振り分ける
+                    let toast = this.toastCtrl.create({
+                        message: "既にこのコインは登録されています",
+                        duration: 3000
+                    })
+                    toast.present()
+                }
+            )
+
     }
 
     deleteCoinAsset(id: string) {

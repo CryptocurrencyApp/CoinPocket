@@ -1,7 +1,7 @@
 {
-  "name": "cryptocurrencyclient",
+  "name": "coin-pocket-client",
   "version": "0.0.1",
-  "description": "クライアント",
+  "description": "コインポケットのクライアント側",
   "author": "Ionic Framework",
   "homepage": "https://github.com/CryptocurrencyApp/CryptocurrencyClient#readme",
   "private": true,

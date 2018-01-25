@@ -17,11 +17,25 @@ export class RestProvider {
 
     getAssets() {
         return new Promise(resolve => {
-            this.http.get(this.baseUrl + '/assets')
+            this.http.get(this.baseUrl + '/assets' + '?_sort=amount&_order=asc') // FIXME: ここのQueryStringはMock用
                 .subscribe(data => {
                     resolve(data)
                 }, err => {
                     console.log(err)
+                })
+        })
+    }
+
+    postAsset(id: string, amount: number) {
+        return new Promise((resolve, reject) => {
+            this.http.post(this.baseUrl + '/assets', {
+                amount: amount,
+                id: id,
+            })
+                .subscribe(data => {
+                    resolve(data)
+                }, err => {
+                    reject(err)
                 })
         })
     }
