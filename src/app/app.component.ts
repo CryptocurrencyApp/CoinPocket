@@ -14,7 +14,7 @@ import { AssetsEditPage } from "../pages/assets-edit/assets-edit"
 export class MyApp {
     @ViewChild(Nav) nav: Nav;
 
-    rootPage: any = AssetsEditPage;
+    rootPage: any = HomePage;
 
     pages: Array<{ title: string, component: any }>;
 
