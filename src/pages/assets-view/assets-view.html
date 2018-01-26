@@ -17,7 +17,7 @@
 
 
 <ion-content padding>
-    <ion-card color="primary" *ngIf="total != undefined">
+    <ion-card color="primary" *ngIf="!isNetworkError">
         <ion-card-header text-center>
             総資産額
         </ion-card-header>
@@ -26,7 +26,7 @@
         </ion-card-content>
     </ion-card>
 
-    <ion-card color="danger" *ngIf="total == undefined">
+    <ion-card color="danger" *ngIf="isNetworkError">
         <ion-card-header text-center>
             ネットワークに接続できませんでした
         </ion-card-header>
@@ -55,7 +55,7 @@
         </ion-list>
     </ion-card>
 
-    <ion-fab bottom right *ngIf="total != undefined">
+    <ion-fab bottom right *ngIf="!isNetworkError">
         <button ion-fab color="secondary" (click)="goAssetsEditPage()">
             <ion-icon name="settings"></ion-icon>
         </button>
