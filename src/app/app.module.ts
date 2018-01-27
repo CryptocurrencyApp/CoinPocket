@@ -12,6 +12,7 @@ import { AssetsViewPage } from "../pages/assets-view/assets-view";
 import { AssetsEditPage } from "../pages/assets-edit/assets-edit";
 import { HttpClientModule } from "@angular/common/http";
 import { RestProvider } from '../providers/rest/rest';
+import { IonicStorageModule } from "@ionic/storage"
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { RestProvider } from '../providers/rest/rest';
         BrowserModule,
         HttpClientModule,
         IonicModule.forRoot(MyApp),
+        IonicStorageModule.forRoot(),
     ],
     bootstrap: [IonicApp],
     entryComponents: [
