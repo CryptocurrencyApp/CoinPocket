@@ -25682,7 +25682,7 @@ ion-navbar.toolbar {
   font-size: 2em;
 }
 
-page-home .home__header-image-wrapper {
+page-home .home__header-image-wrapper img {
   height: 44px;
 }
 
