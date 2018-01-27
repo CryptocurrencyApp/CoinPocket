@@ -1,13 +1,93 @@
 webpackJsonp([2],{
 
-/***/ 100:
+/***/ 101:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AssetsViewPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__assets_edit_assets_edit__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__ = __webpack_require__(78);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ * Generated class for the AssetsViewPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var AssetsViewPage = (function () {
+    function AssetsViewPage(navCtrl, navParams, restProvider) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.restProvider = restProvider;
+        this.isNetworkError = false;
+    }
+    AssetsViewPage.prototype.ionViewWillEnter = function () {
+        var _this = this;
+        this.restProvider.getAssets()
+            .then(function (data) {
+            _this.information = data;
+        })
+            .then(function () {
+            _this.information = _this.information.map(function (element) {
+                var temp = element.amount * element.price_jpy * 100;
+                element.jpy = Math.round(temp) / 100;
+                return element;
+            });
+            _this.total = 0;
+            _this.information.forEach(function (element) {
+                _this.total += element.jpy;
+            });
+            _this.total = Math.round(_this.total);
+            _this.viewMode = 'jpy';
+        })
+            .catch(function (err) {
+            _this.isNetworkError = true;
+        });
+    };
+    AssetsViewPage.prototype.addComma = function (value) {
+        return String(value).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+    };
+    AssetsViewPage.prototype.goAssetsEditPage = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__assets_edit_assets_edit__["a" /* AssetsEditPage */]);
+    };
+    AssetsViewPage.prototype.switchAssets = function () {
+        this.viewMode == 'jpy' ? this.viewMode = 'coin' : this.viewMode = 'jpy';
+    };
+    AssetsViewPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-assets-view',template:/*ion-inline-start:"/Users/ahaha0807/Documents/Programings/product/CryptocurrencyClient/src/pages/assets-view/assets-view.html"*/'<!--\n  Generated template for the AssetsViewPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>総資産</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-card color="primary" *ngIf="!isNetworkError">\n        <ion-card-header text-center>\n            総資産額\n        </ion-card-header>\n        <ion-card-content text-center class="assets-view-total-card-value">\n            {{addComma(total)}} JPY\n        </ion-card-content>\n    </ion-card>\n\n    <ion-card color="danger" *ngIf="isNetworkError">\n        <ion-card-header text-center>\n            ネットワークに接続できませんでした\n        </ion-card-header>\n    </ion-card>\n\n    <ion-card (click)="switchAssets()">\n        <ion-list inset *ngIf="viewMode == \'jpy\'">\n            <li ion-item *ngFor="let item of information">\n                <span item-start>\n                    {{item.id}}\n                </span>\n                <span item-end>\n                    {{addComma(item.jpy)}} JPY\n                </span>\n            </li>\n        </ion-list>\n        <ion-list inset *ngIf="viewMode == \'coin\'">\n            <li ion-item *ngFor="let item of information">\n                <span item-start>\n                    {{item.id}}\n                </span>\n                <span item-end>\n                    {{item.amount}} 枚\n                </span>\n            </li>\n        </ion-list>\n    </ion-card>\n\n    <ion-fab bottom right *ngIf="!isNetworkError">\n        <button ion-fab color="secondary" (click)="goAssetsEditPage()">\n            <ion-icon name="settings"></ion-icon>\n        </button>\n    </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/Users/ahaha0807/Documents/Programings/product/CryptocurrencyClient/src/pages/assets-view/assets-view.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__["a" /* RestProvider */]])
+    ], AssetsViewPage);
+    return AssetsViewPage;
+}());
+
+//# sourceMappingURL=assets-view.js.map
+
+/***/ }),
+
+/***/ 102:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AssetsEditPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__ = __webpack_require__(78);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -142,87 +222,6 @@ var AssetsEditPage = (function () {
 
 /***/ }),
 
-/***/ 101:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AssetsViewPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__assets_edit_assets_edit__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__ = __webpack_require__(77);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-/**
- * Generated class for the AssetsViewPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var AssetsViewPage = (function () {
-    function AssetsViewPage(navCtrl, navParams, restProvider) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.restProvider = restProvider;
-        this.isNetworkError = false;
-    }
-    AssetsViewPage.prototype.ionViewWillEnter = function () {
-        var _this = this;
-        this.restProvider.getAssets()
-            .then(function (data) {
-            _this.information = data;
-        })
-            .then(function () {
-            _this.information = _this.information.map(function (element) {
-                var temp = element.amount * element.price_jpy * 100;
-                element.jpy = Math.round(temp) / 100;
-                return element;
-            });
-            _this.total = 0;
-            _this.information.forEach(function (element) {
-                _this.total += element.jpy;
-            });
-            _this.total = Math.round(_this.total);
-            _this.viewMode = 'jpy';
-        })
-            .catch(function (err) {
-            _this.isNetworkError = true;
-        });
-    };
-    AssetsViewPage.prototype.addComma = function (value) {
-        return String(value).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-    };
-    AssetsViewPage.prototype.goAssetsEditPage = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__assets_edit_assets_edit__["a" /* AssetsEditPage */]);
-    };
-    AssetsViewPage.prototype.switchAssets = function () {
-        this.viewMode == 'jpy' ? this.viewMode = 'coin' : this.viewMode = 'jpy';
-    };
-    AssetsViewPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-assets-view',template:/*ion-inline-start:"/Users/ahaha0807/Documents/Programings/product/CryptocurrencyClient/src/pages/assets-view/assets-view.html"*/'<!--\n  Generated template for the AssetsViewPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>総資産</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-card color="primary" *ngIf="!isNetworkError">\n        <ion-card-header text-center>\n            総資産額\n        </ion-card-header>\n        <ion-card-content text-center class="assets-view-total-card-value">\n            {{addComma(total)}} JPY\n        </ion-card-content>\n    </ion-card>\n\n    <ion-card color="danger" *ngIf="isNetworkError">\n        <ion-card-header text-center>\n            ネットワークに接続できませんでした\n        </ion-card-header>\n    </ion-card>\n\n    <ion-card (click)="switchAssets()">\n        <ion-list inset *ngIf="viewMode == \'jpy\'">\n            <li ion-item *ngFor="let item of information">\n                <span item-start>\n                    {{item.id}}\n                </span>\n                <span item-end>\n                    {{addComma(item.jpy)}} JPY\n                </span>\n            </li>\n        </ion-list>\n        <ion-list inset *ngIf="viewMode == \'coin\'">\n            <li ion-item *ngFor="let item of information">\n                <span item-start>\n                    {{item.id}}\n                </span>\n                <span item-end>\n                    {{item.amount}} 枚\n                </span>\n            </li>\n        </ion-list>\n    </ion-card>\n\n    <ion-fab bottom right *ngIf="!isNetworkError">\n        <button ion-fab color="secondary" (click)="goAssetsEditPage()">\n            <ion-icon name="settings"></ion-icon>\n        </button>\n    </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/Users/ahaha0807/Documents/Programings/product/CryptocurrencyClient/src/pages/assets-view/assets-view.html"*/,
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__["a" /* RestProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__["a" /* RestProvider */]) === "function" && _c || Object])
-    ], AssetsViewPage);
-    return AssetsViewPage;
-    var _a, _b, _c;
-}());
-
-//# sourceMappingURL=assets-view.js.map
-
-/***/ }),
-
 /***/ 114:
 /***/ (function(module, exports) {
 
@@ -245,12 +244,16 @@ webpackEmptyAsyncContext.id = 114;
 
 var map = {
 	"../pages/assets-edit/assets-edit.module": [
-		281,
-		1
+		286,
+		6
 	],
 	"../pages/assets-view/assets-view.module": [
-		282,
-		0
+		285,
+		5
+	],
+	"../pages/not-singed-home/not-singed-home.module": [
+		287,
+		4
 	]
 };
 function webpackAsyncContext(req) {
@@ -276,7 +279,8 @@ module.exports = webpackAsyncContext;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__not_singed_home_not_singed_home__ = __webpack_require__(288);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -289,14 +293,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var HomePage = (function () {
     function HomePage(navCtrl, storage) {
+        var _this = this;
         this.navCtrl = navCtrl;
         this.storage = storage;
+        this.storage.set('isLogin', true);
+        this.storage.get('isLogin').then(function (data) {
+            if (!data) {
+                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__not_singed_home_not_singed_home__["a" /* NotSingedHomePage */]);
+            }
+        });
     }
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/ahaha0807/Documents/Programings/product/CryptocurrencyClient/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>Home</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/ahaha0807/Documents/Programings/product/CryptocurrencyClient/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/ahaha0807/Documents/Programings/product/CryptocurrencyClient/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>\n            <div class="home__header-image-wrapper">\n                <img src="../../assets/imgs/side-logo.png" alt="LOGO">\n            </div>\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/ahaha0807/Documents/Programings/product/CryptocurrencyClient/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _b || Object])
     ], HomePage);
@@ -308,7 +320,7 @@ var HomePage = (function () {
 
 /***/ }),
 
-/***/ 202:
+/***/ 203:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -365,13 +377,13 @@ var ListPage = (function () {
 
 /***/ }),
 
-/***/ 203:
+/***/ 204:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(225);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(226);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -379,7 +391,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 225:
+/***/ 226:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -387,22 +399,24 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(273);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_list_list__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_list_list__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__ = __webpack_require__(197);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_splash_screen__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_assets_view_assets_view__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_assets_edit_assets_edit__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_assets_edit_assets_edit__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_common_http__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_rest_rest__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_storage__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_rest_rest__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_storage__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_not_singed_home_not_singed_home__ = __webpack_require__(288);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -424,6 +438,7 @@ var AppModule = (function () {
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
                 __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_not_singed_home_not_singed_home__["a" /* NotSingedHomePage */],
                 __WEBPACK_IMPORTED_MODULE_5__pages_list_list__["a" /* ListPage */],
                 __WEBPACK_IMPORTED_MODULE_8__pages_assets_view_assets_view__["a" /* AssetsViewPage */],
                 __WEBPACK_IMPORTED_MODULE_9__pages_assets_edit_assets_edit__["a" /* AssetsEditPage */],
@@ -433,8 +448,9 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_10__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                     links: [
+                        { loadChildren: '../pages/assets-view/assets-view.module#AssetsViewPageModule', name: 'AssetsViewPage', segment: 'assets-view', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/assets-edit/assets-edit.module#AssetsEditPageModule', name: 'AssetsEditPage', segment: 'assets-edit', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/assets-view/assets-view.module#AssetsViewPageModule', name: 'AssetsViewPage', segment: 'assets-view', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/not-singed-home/not-singed-home.module#NotSingedHomePageModule', name: 'NotSingedHomePage', segment: 'not-singed-home', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_12__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
@@ -443,6 +459,7 @@ var AppModule = (function () {
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
                 __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_not_singed_home_not_singed_home__["a" /* NotSingedHomePage */],
                 __WEBPACK_IMPORTED_MODULE_5__pages_list_list__["a" /* ListPage */],
                 __WEBPACK_IMPORTED_MODULE_8__pages_assets_view_assets_view__["a" /* AssetsViewPage */],
                 __WEBPACK_IMPORTED_MODULE_9__pages_assets_edit_assets_edit__["a" /* AssetsEditPage */],
@@ -462,7 +479,7 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 272:
+/***/ 273:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -472,7 +489,7 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(197);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_list_list__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_list_list__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_assets_view_assets_view__ = __webpack_require__(101);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -520,22 +537,66 @@ var MyApp = (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */]),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/ahaha0807/Documents/Programings/product/CryptocurrencyClient/src/app/app.html"*/'<ion-menu [content]="content">\n    <ion-header>\n        <ion-toolbar>\n            <ion-title>Menu</ion-title>\n        </ion-toolbar>\n    </ion-header>\n\n    <ion-content>\n        <ion-list>\n            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n                {{p.title}}\n            </button>\n        </ion-list>\n    </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/ahaha0807/Documents/Programings/product/CryptocurrencyClient/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
     return MyApp;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
 
-/***/ 77:
+/***/ 288:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotSingedHomePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the NotSingedHomePage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var NotSingedHomePage = (function () {
+    function NotSingedHomePage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    NotSingedHomePage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad NotSingedHomePage');
+    };
+    NotSingedHomePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-not-singed-home',template:/*ion-inline-start:"/Users/ahaha0807/Documents/Programings/product/CryptocurrencyClient/src/pages/not-singed-home/not-singed-home.html"*/'<!--\n  Generated template for the NotSingedHomePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar hideBackButton>\n        <ion-title>\n            <div class="not-signed-in-home__header-image-wrapper">\n                <img src="../../assets/imgs/side-logo.png" alt="LOGO">\n            </div>\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/ahaha0807/Documents/Programings/product/CryptocurrencyClient/src/pages/not-singed-home/not-singed-home.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+    ], NotSingedHomePage);
+    return NotSingedHomePage;
+}());
+
+//# sourceMappingURL=not-singed-home.js.map
+
+/***/ }),
+
+/***/ 78:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -627,15 +688,14 @@ var RestProvider = (function () {
     };
     RestProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
     ], RestProvider);
     return RestProvider;
-    var _a;
 }());
 
 //# sourceMappingURL=rest.js.map
 
 /***/ })
 
-},[203]);
+},[204]);
 //# sourceMappingURL=main.js.map

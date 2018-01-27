@@ -25681,3 +25681,11 @@ ion-navbar.toolbar {
 .assets-view-total-card-value {
   font-size: 2em;
 }
+
+page-home .home__header-image-wrapper {
+  height: 44px;
+}
+
+page-not-singed-home .not-signed-in-home__header-image-wrapper img {
+  height: 44px;
+}
