@@ -18,6 +18,7 @@ node_modules/
 tmp/
 temp/
 www/
+plugins/
 $RECYCLE.BIN/
 
 .DS_Store
