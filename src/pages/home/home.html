@@ -12,5 +12,16 @@
 </ion-header>
 
 <ion-content padding>
-
+    <div ion-item class="home__menu-buttons-wrapper">
+        <ion-buttons>
+            <button ion-button block icon-end large (click)="goAssetsView()">
+                総資産
+                <ion-icon name="arrow-dropright"></ion-icon>
+            </button>
+            <button ion-button block icon-end large (click)="goCatchUp()">
+                キャッチアップ
+                <ion-icon name="arrow-dropright"></ion-icon>
+            </button>
+        </ion-buttons>
+    </div>
 </ion-content>

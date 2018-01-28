@@ -2,6 +2,7 @@ import { Component } from '@angular/core'
 import { NavController } from 'ionic-angular'
 import { Storage } from "@ionic/storage"
 import { NotSingedHomePage } from "../not-singed-home/not-singed-home"
+import { AssetsViewPage } from "../assets-view/assets-view"
 
 @Component({
     selector: 'page-home',
@@ -18,4 +19,10 @@ export class HomePage {
         })
     }
 
+    goAssetsView() {
+        this.navCtrl.push(AssetsViewPage)
+    }
+    goCatchUp() {
+        // this.navCtrl.push()
+    }
 }
