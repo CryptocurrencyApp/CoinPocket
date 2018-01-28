@@ -14,6 +14,7 @@ import { ArticlesViewPage } from "../pages/articles-view/articles-view";
 import { ArticlePostPage } from "../pages/article-post/article-post";
 import { HttpClientModule } from "@angular/common/http";
 import { RestProvider } from '../providers/rest/rest';
+import { UrlProvider } from '../providers/url/url';
 
 @NgModule({
     declarations: [
@@ -44,7 +45,8 @@ import { RestProvider } from '../providers/rest/rest';
         StatusBar,
         SplashScreen,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
-        RestProvider
+        RestProvider,
+        UrlProvider
     ]
 })
 export class AppModule {

@@ -32,6 +32,8 @@ export class ArticlesViewPage {
     this.navCtrl.push(ArticlePostPage)
   }
   openUrl(url: string) {
+    console.log("running")
     this.urlProvider.openUrl(url)
+    console.log(url)
   }
 }

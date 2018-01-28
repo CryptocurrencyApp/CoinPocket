@@ -27,9 +27,11 @@
       <ion-card-content>
         <p> {{ article.comment }} </p>
       </ion-card-content>
-      <a href="#" ng-click="openUrl(article.url)">
-        <img src= "{{ article.image }}">
-      </a>
+      <ion-item>
+        <a href="#" (click)="openUrl(article.url)">
+          <img src="{{ article.image }}">
+        </a>
+      </ion-item>
       <ion-item>
         <ion-note item-end>
           11h ago
