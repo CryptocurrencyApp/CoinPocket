@@ -32,16 +32,24 @@
         </button>
     </ion-item>
 
-    <ion-card>
+    <ion-card *ngIf="!isNetworkError">
         <ion-list inset>
             <li ion-item *ngFor="let item of userHasCoins">
                 <span item-start>{{item.symbol}}</span>
                 <span item-end>{{item.price_jpy}}</span>
-
-                <div item-end class="home__coin-price-list-perecent-plus" *ngIf="item.percent > 0">{{item.percent}}%</div>
-                <div item-end class="home__coin-price-list-perecent-minus" *ngIf="item.percent < 0">{{item.percent}}%</div>
+                <div item-end class="home__coin-price-list-perecent-plus" *ngIf="item.percent > 0">
+                    {{item.percent}}%
+                </div>
+                <div item-end class="home__coin-price-list-perecent-minus" *ngIf="item.percent < 0">
+                    {{item.percent}}%
+                </div>
             </li>
         </ion-list>
+    </ion-card>
+    <ion-card *ngIf="isNetworkError">
+        <ion-card-content color="danger">
+            ネットワークに接続できませんでした
+        </ion-card-content>
     </ion-card>
 
 </ion-content>

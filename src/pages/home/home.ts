@@ -11,7 +11,10 @@ import { AssetsViewPage } from "../assets-view/assets-view"
     templateUrl: 'home.html'
 })
 export class HomePage {
+    private isNetworkError:boolean = false
+
     private userHasCoins: Array<any> = []
+
     private compareModeList: string[] = ['1h', '24h', '7d']
     private compareModeIndex: number = 0
     private compareMode: string = this.compareModeList[this.compareModeIndex]
@@ -38,6 +41,9 @@ export class HomePage {
                 })
 
                 this.userHasCoins = this.formatUserHasCoins(this.userHasCoins)
+            })
+            .catch(err => {
+                this.isNetworkError = true
             })
     }
 
