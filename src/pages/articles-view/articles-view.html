@@ -40,13 +40,13 @@
       <ion-grid>
         <ion-row>
           <ion-col>
-            <button ion-button icon-left full>
+            <button ion-button icon-left full (click)="toggleGood(article.id)">
               <ion-icon name="thumbs-up"></ion-icon>
               <div> Good: {{ article.good }} </div>
             </button>
           </ion-col>
           <ion-col>
-            <button color="danger" ion-button icon-left full>
+            <button color="danger" ion-button icon-left full (click)="toggleBad(article.id)">
               <ion-icon name="thumbs-down"></ion-icon>
               <div>  Bad: {{article.bad}} </div>
             </button>

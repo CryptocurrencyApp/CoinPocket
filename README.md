@@ -1,4 +1,4 @@
-# CryptocurrencyClient
+# CoinPocket-Client
 クライアント
 
 # ローカル開発環境の起動方法
@@ -19,7 +19,7 @@ ionic serve # watchが開始される
 ```
 
 ## アクセス先（デフォルト）
-`localhost:8101`
+`localhost:8100`
 
 # Mockサーバーの起動方法
 
@@ -39,7 +39,7 @@ yarn
 
 ## 実行
 ```shell
-json-server mock/mock-server.json
+npm run mock
 ```
 
 ## アクセス先(デフォルト)

@@ -3,16 +3,53 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Home</ion-title>
+        <ion-title>
+            <div class="home__header-image-wrapper">
+                <img src="../../assets/imgs/side-logo.png" alt="LOGO">
+            </div>
+        </ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <h3>Ionic Menu Starter</h3>
+    <div ion-item class="home__menu-buttons-wrapper">
+        <ion-buttons>
+            <button ion-button block icon-end large (click)="goAssetsView()">
+                総資産
+                <ion-icon name="arrow-dropright"></ion-icon>
+            </button>
+            <button ion-button block icon-end large (click)="goCatchUp()">
+                キャッチアップ
+                <ion-icon name="arrow-dropright"></ion-icon>
+            </button>
+        </ion-buttons>
+    </div>
 
-    <p>
-        If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-    </p>
+    <ion-item>
+        <div>コイン価格</div>
+        <button ion-button item-end icon-end default color="secondary" (click)="changeCompareMode()">{{compareMode}}
+            <ion-icon name="git-compare"></ion-icon>
+        </button>
+    </ion-item>
 
-    <button ion-button secondary menuToggle>Toggle Menu</button>
+    <ion-card *ngIf="!isNetworkError">
+        <ion-list inset>
+            <li ion-item *ngFor="let item of userHasCoins">
+                <span item-start>{{item.symbol}}</span>
+                <span item-end>{{item.price_jpy}}</span>
+                <div item-end class="home__coin-price-list-perecent-plus" *ngIf="item.percent > 0">
+                    {{item.percent}}%
+                </div>
+                <div item-end class="home__coin-price-list-perecent-minus" *ngIf="item.percent < 0">
+                    {{item.percent}}%
+                </div>
+            </li>
+        </ion-list>
+    </ion-card>
+    <ion-card *ngIf="isNetworkError">
+        <ion-card-content color="danger">
+            ネットワークに接続できませんでした
+        </ion-card-content>
+    </ion-card>
+
 </ion-content>

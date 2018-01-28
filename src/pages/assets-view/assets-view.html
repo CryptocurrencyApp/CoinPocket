@@ -10,20 +10,26 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>アセット確認画面</ion-title>
+        <ion-title>総資産</ion-title>
     </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-    <ion-card color="primary">
+    <ion-card color="primary" *ngIf="!isNetworkError">
         <ion-card-header text-center>
             総資産額
         </ion-card-header>
         <ion-card-content text-center class="assets-view-total-card-value">
             {{addComma(total)}} JPY
         </ion-card-content>
+    </ion-card>
+
+    <ion-card color="danger" *ngIf="isNetworkError">
+        <ion-card-header text-center>
+            ネットワークに接続できませんでした
+        </ion-card-header>
     </ion-card>
 
     <ion-card (click)="switchAssets()">
@@ -49,7 +55,7 @@
         </ion-list>
     </ion-card>
 
-    <ion-fab bottom right>
+    <ion-fab bottom right *ngIf="!isNetworkError">
         <button ion-fab color="secondary" (click)="goAssetsEditPage()">
             <ion-icon name="settings"></ion-icon>
         </button>

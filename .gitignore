@@ -18,6 +18,7 @@ node_modules/
 tmp/
 temp/
 www/
+plugins/
 $RECYCLE.BIN/
 
 .DS_Store
@@ -43,3 +44,5 @@ demos/src/**/*.ngfactory.ts
 demos/src/**/*.d.ts
 demos/src/**/*.metadata.json
 demos/src/**/*.css.shim.ts
+
+./mock-server.json

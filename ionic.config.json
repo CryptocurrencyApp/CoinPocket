@@ -1,6 +1,8 @@
 {
-  "name": "cryptocurrency-client",
+  "name": "coin-pocket-client",
   "app_id": "",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {}
+  }
 }

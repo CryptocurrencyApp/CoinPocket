@@ -16,13 +16,55 @@ export class RestProvider {
     }
 
     getAssets() {
-        return new Promise(resolve => {
-            this.http.get(this.baseUrl + '/assets')
+        let promise: Promise<Array<any>>
+
+        promise = new Promise((resolve, reject) => {
+            this.http.get(this.baseUrl + '/assets' + '?_sort=amount&_order=asc') // FIXME: ここのQueryStringはMock用
+                .subscribe(data => {
+                    resolve(<Array<any>>data)
+                }, err => {
+                    reject(err)
+                })
+        })
+
+        return promise
+    }
+
+    postAsset(id: string, amount: number) {
+        return new Promise((resolve, reject) => {
+            this.http.post(this.baseUrl + '/assets', {
+                amount: amount,
+                id: id,
+            })
                 .subscribe(data => {
                     resolve(data)
                 }, err => {
-                    console.log(err)
+                    reject(err)
                 })
+        })
+    }
+
+    deleteAsset(id: string) {
+        return new Promise((resolve, reject) => {
+            this.http.delete(this.baseUrl + '/assets/' + id)
+                .subscribe(data => {
+                    resolve(data)
+                }, err => {
+                    reject(err)
+                })
+        })
+    }
+
+    putAsset(id: string, amount: number) {
+        return new Promise((resolve, reject) => {
+            this.http.put(this.baseUrl + '/assets/' + id, {
+                amount: amount,
+                id: id,
+            }).subscribe(() => {
+                resolve()
+            }, err => {
+                reject(err)
+            })
         })
     }
 
@@ -37,14 +79,57 @@ export class RestProvider {
         })
     }
 
+    getRates() {
+        let promise: Promise<Array<any>>
+
+        promise = new Promise((resolve, reject) => {
+            this.http.get(this.baseUrl + '/rates')
+                .subscribe(data => {
+                    resolve(<Array<any>>data)
+                }, err => {
+                    reject(err)
+                })
+        })
+
+        return promise
+    }
+
+    // CatchUpPage
+
     getArticles() {
-      return new Promise(resolve => {
+      return new Promise((resolve, reject) => {
         this.http.get(this.baseUrl + '/articles')
         .subscribe(data => {
           resolve(data)
         }, err => {
-          console.log(err)
+          reject(err)
         })
       })
     }
-}
+
+    toggleGood(id: string) {
+      return new Promise((resolve, reject) => {
+        this.http.post(this.baseUrl + '/articles/' + id + '/good', {
+          id: id,
+        })
+        .subscribe(data => {
+          resolve(data)
+        }, err => {
+          reject(err)
+        })
+      })
+    }
+
+    toggleBad(id: string) {
+      return new Promise((resolve, reject) => {
+        this.http.post(this.baseUrl + '/articles/' + id + '/bad', {
+          id: id,
+        })
+        .subscribe(data => {
+          resolve(data)
+        }, err => {
+          reject(err)
+        })
+      })
+    }
+  }

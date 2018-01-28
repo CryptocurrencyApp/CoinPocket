@@ -1,7 +1,7 @@
 {
-  "name": "cryptocurrencyclient",
+  "name": "coin-pocket-client",
   "version": "0.0.1",
-  "description": "クライアント",
+  "description": "コインポケットのクライアント側",
   "author": "Ionic Framework",
   "homepage": "https://github.com/CryptocurrencyApp/CryptocurrencyClient#readme",
   "private": true,
@@ -17,7 +17,8 @@
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve"
+    "ionic:serve": "ionic-app-scripts serve",
+    "mock": "json-server mock/mock-server.json --watch --middlewares mock/middlware.js"
   },
   "dependencies": {
     "@angular/common": "5.0.3",
@@ -29,9 +30,11 @@
     "@angular/platform-browser": "5.0.3",
     "@angular/platform-browser-dynamic": "5.0.3",
     "@ionic-native/core": "4.4.0",
+    "@ionic-native/in-app-browser": "^4.5.2",
     "@ionic-native/splash-screen": "4.4.0",
     "@ionic-native/status-bar": "4.4.0",
-    "@ionic/storage": "2.1.3",
+    "@ionic/storage": "^2.1.3",
+    "cordova-plugin-inappbrowser": "^2.0.1",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
     "json-server": "^0.12.1",
@@ -44,5 +47,10 @@
     "typescript": "2.4.2"
   },
   "main": "index.js",
-  "license": "ISC"
+  "license": "ISC",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-inappbrowser": {}
+    }
+  }
 }
