@@ -16,14 +16,18 @@ export class RestProvider {
     }
 
     getAssets() {
-        return new Promise((resolve, reject) => {
+        let promise: Promise<Array<any>>
+
+        promise = new Promise((resolve, reject) => {
             this.http.get(this.baseUrl + '/assets' + '?_sort=amount&_order=asc') // FIXME: ここのQueryStringはMock用
                 .subscribe(data => {
-                    resolve(data)
+                    resolve(<Array<any>>data)
                 }, err => {
                     reject(err)
                 })
         })
+
+        return promise
     }
 
     postAsset(id: string, amount: number) {
@@ -73,5 +77,20 @@ export class RestProvider {
                     console.log(err)
                 })
         })
+    }
+
+    getRates() {
+        let promise: Promise<Array<any>>
+
+        promise = new Promise((resolve, reject) => {
+            this.http.get(this.baseUrl + '/rates')
+                .subscribe(data => {
+                    resolve(<Array<any>>data)
+                }, err => {
+                    reject(err)
+                })
+        })
+
+        return promise
     }
 }
