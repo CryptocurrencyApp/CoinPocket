@@ -44,4 +44,4 @@ demos/src/**/*.d.ts
 demos/src/**/*.metadata.json
 demos/src/**/*.css.shim.ts
 
-mock-server.json
+./mock-server.json
