@@ -16,11 +16,12 @@
 
 
 <ion-content padding>
-    <div class="not-logged-home__hero-icon-wrapper">
-        <img src="../../assets/imgs/vector-logo.png" alt="LOGO">
-    </div>
+    <ion-card color="#0080ff" class="not-logged-in-home__hero-card-wrapper">
+        <div class="not-logged-in-home__hero-image-wrapper">
+            <img src="../../assets/imgs/vector-logo.png" alt="LOGO">
+        </div>
+    </ion-card>
     <ion-card>
-        <ion-card-header>ログイン</ion-card-header>
         <ion-list>
             <ion-item>
                 <ion-label color="primary" stacked>メールアドレス</ion-label>
@@ -38,4 +39,9 @@
             <a (click)="goSignUpPage()">アカウントをお持ちでない方</a>
         </ion-item>
     </ion-card>
+
+    <button ion-button full icon-end>
+        使い方はこちらから
+        <ion-icon name="arrow-dropright"></ion-icon>
+    </button>
 </ion-content>

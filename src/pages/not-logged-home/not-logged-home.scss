@@ -2,9 +2,17 @@ page-not-singed-home {
   .not-logged-in-home__header-image-wrapper img {
     height: $toolbar-ios-height / 1.3;
   }
-  .not-logged-home__hero-icon-wrapper {
+
+  .not-logged-in-home__hero-card-wrapper {
+    background-color: #0080ff;
+  }
+
+  .not-logged-in-home__hero-image-wrapper {
+    background-color: #0080ff;
     margin: 0 auto;
-    width: 70%;
-    max-width: 30rem;
+    max-width: 60rem;
+    & img {
+      padding: 3rem 2rem;
+    }
   }
 }
