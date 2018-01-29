@@ -11,7 +11,7 @@ import { AssetsViewPage } from "../assets-view/assets-view"
     templateUrl: 'home.html'
 })
 export class HomePage {
-    private isNetworkError:boolean = false
+    private isNetworkError: boolean = false
 
     private userHasCoins: Array<any> = []
 
