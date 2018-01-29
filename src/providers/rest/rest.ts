@@ -107,23 +107,11 @@ export class RestProvider {
         })
     }
 
-    addGood(id: string) {
-        return new Promise((resolve, reject) => {
-            this.http.post(this.baseUrl + '/articles/' + id + '/good', {
-                id: id,
-            })
-                .subscribe(() => {
-                    resolve()
-                }, err => {
-                    reject(err)
-                })
-        })
-    }
-
-    toggleGood(id: string) {
+    toggleGood(id: string, is_add: boolean) {
         return new Promise((resolve, reject) => {
             this.http.put(this.baseUrl + '/articles/' + id + '/good', {
                 id: id,
+                is_add: is_add,
             })
                 .subscribe(data => {
                     resolve(data)
@@ -133,10 +121,11 @@ export class RestProvider {
         })
     }
 
-    toggleBad(id: string) {
+    toggleBad(id: string, is_add: boolean) {
         return new Promise((resolve, reject) => {
-            this.http.post(this.baseUrl + '/articles/' + id + '/bad', {
+            this.http.put(this.baseUrl + '/articles/' + id + '/bad', {
                 id: id,
+                is_add: is_add,
             })
                 .subscribe(data => {
                     resolve(data)

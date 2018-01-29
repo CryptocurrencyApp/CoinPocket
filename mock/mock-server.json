@@ -96,6 +96,27 @@
       "created_at": "2018/01/19 20:30"
     }
   ],
+  "dummy": [
+    {
+      "id": 1,
+      "is_add": true
+    },
+    {
+      "id": 2,
+      "is_add": true
+    },
+    {
+      "id": 3,
+      "is_add": true
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5,
+      "is_add": true
+    }
+  ],
   "coinIds": [
     {
       "id": "bitcoin",
