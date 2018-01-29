@@ -1,0 +1,10 @@
+page-not-singed-home {
+  .not-logged-in-home__header-image-wrapper img {
+    height: $toolbar-ios-height / 1.3;
+  }
+  .not-logged-home__hero-icon-wrapper {
+    margin: 0 auto;
+    width: 70%;
+    max-width: 30rem;
+  }
+}

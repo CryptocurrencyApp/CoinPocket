@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular'
 import { Storage } from "@ionic/storage"
 import { RestProvider } from "../../providers/rest/rest"
 
-import { NotSingedHomePage } from "../not-singed-home/not-singed-home"
+import { NotLoggedHomePage } from "../not-logged-home/not-logged-home"
 import { AssetsViewPage } from "../assets-view/assets-view"
 
 @Component({
@@ -20,10 +20,10 @@ export class HomePage {
     private compareMode: string = this.compareModeList[this.compareModeIndex]
 
     constructor(public navCtrl: NavController, private storage: Storage, private restProvider: RestProvider) {
-        this.storage.set('isLogin', true)
+        this.storage.set('isLogin', false)
         this.storage.get('isLogin').then(data => {
             if (!data) {
-                this.navCtrl.push(NotSingedHomePage)
+                this.navCtrl.push(NotLoggedHomePage)
             }
         })
     }
