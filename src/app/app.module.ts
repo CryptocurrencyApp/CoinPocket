@@ -5,7 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular'
 import { MyApp } from './app.component'
 import { HomePage } from '../pages/home/home'
 import { ListPage } from '../pages/list/list'
-import { NotSingedHomePage } from "../pages/not-singed-home/not-singed-home"
+import { NotLoggedHomePage } from "../pages/not-logged-home/not-logged-home"
 import { AssetsViewPage } from "../pages/assets-view/assets-view"
 import { AssetsEditPage } from "../pages/assets-edit/assets-edit"
 import { ArticlesViewPage } from "../pages/articles-view/articles-view";
@@ -22,7 +22,7 @@ import { IonicStorageModule } from "@ionic/storage"
     declarations: [
         MyApp,
         HomePage,
-        NotSingedHomePage,
+        NotLoggedHomePage,
         ListPage,
         AssetsViewPage,
         AssetsEditPage,
@@ -39,7 +39,7 @@ import { IonicStorageModule } from "@ionic/storage"
     entryComponents: [
         MyApp,
         HomePage,
-        NotSingedHomePage,
+        NotLoggedHomePage,
         ListPage,
         AssetsViewPage,
         AssetsEditPage,
