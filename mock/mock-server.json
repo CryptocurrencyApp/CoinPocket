@@ -38,6 +38,10 @@
     {
       "amount": "100",
       "id": "nem"
+    },
+    {
+      "amount": "10000",
+      "id": "experience-points"
     }
   ],
   "articles": [

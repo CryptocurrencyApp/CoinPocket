@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http'
-import { Injectable } from '@angular/core'
+import {HttpClient} from '@angular/common/http'
+import {Injectable} from '@angular/core'
 
 /*
   Generated class for the RestProvider provider.
@@ -97,39 +97,52 @@ export class RestProvider {
     // CatchUpPage
 
     getArticles() {
-      return new Promise((resolve, reject) => {
-        this.http.get(this.baseUrl + '/articles')
-        .subscribe(data => {
-          resolve(data)
-        }, err => {
-          reject(err)
+        return new Promise((resolve, reject) => {
+            this.http.get(this.baseUrl + '/articles')
+                .subscribe(data => {
+                    resolve(data)
+                }, err => {
+                    reject(err)
+                })
         })
-      })
+    }
+
+    addGood(id: string) {
+        return new Promise((resolve, reject) => {
+            this.http.post(this.baseUrl + '/articles/' + id + '/good', {
+                id: id,
+            })
+                .subscribe(() => {
+                    resolve()
+                }, err => {
+                    reject(err)
+                })
+        })
     }
 
     toggleGood(id: string) {
-      return new Promise((resolve, reject) => {
-        this.http.post(this.baseUrl + '/articles/' + id + '/good', {
-          id: id,
+        return new Promise((resolve, reject) => {
+            this.http.put(this.baseUrl + '/articles/' + id + '/good', {
+                id: id,
+            })
+                .subscribe(data => {
+                    resolve(data)
+                }, err => {
+                    reject(err)
+                })
         })
-        .subscribe(data => {
-          resolve(data)
-        }, err => {
-          reject(err)
-        })
-      })
     }
 
     toggleBad(id: string) {
-      return new Promise((resolve, reject) => {
-        this.http.post(this.baseUrl + '/articles/' + id + '/bad', {
-          id: id,
+        return new Promise((resolve, reject) => {
+            this.http.post(this.baseUrl + '/articles/' + id + '/bad', {
+                id: id,
+            })
+                .subscribe(data => {
+                    resolve(data)
+                }, err => {
+                    reject(err)
+                })
         })
-        .subscribe(data => {
-          resolve(data)
-        }, err => {
-          reject(err)
-        })
-      })
     }
-  }
+}
