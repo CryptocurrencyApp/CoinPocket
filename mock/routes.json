@@ -1,3 +1,4 @@
 {
-  "/articles/:id/good": "/dummy/:id"
+  "/articles/:id/good": "/dummy/:id",
+  "/articles/:id/bad": "/dummy/:id"
 }

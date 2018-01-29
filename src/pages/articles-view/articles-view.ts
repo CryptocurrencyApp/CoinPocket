@@ -66,20 +66,35 @@ export class ArticlesViewPage {
     }
 
     toggleBad(id: string) {
-        this.restProvider.toggleBad(id, true)
-            .then(() => {
-                let toast = this.toastCtrl.create({
-                    message: "Badしました",
-                    duration: 2000
+        this.storage.get('evaluation').then(data => {
+            // badの追加か取り消しかを判断
+            let is_add = data['bad'].indexOf(id) == -1
+            this.restProvider.toggleBad(id, is_add)
+                .then(() => {
+                    let toast
+                    if(is_add) {
+                        toast = this.toastCtrl.create({
+                            message: "Badしました",
+                            duration: 2000
+                        })
+                        data['bad'].push(id)
+                    } else {
+                        toast = this.toastCtrl.create({
+                            message: "Badを取り消しました",
+                            duration: 2000
+                        })
+                        data['bad'].splice([data['bad'].indexOf(id)], 1)
+                    }
+                    this.storage.set('evaluation', data)
+                    toast.present()
                 })
-                toast.present()
-            })
-            .catch(() => {
-                let toast = this.toastCtrl.create({
-                    message: "Badに失敗しました。通信環境をご確認ください",
-                    duration: 2000
+                .catch(() => {
+                    let toast = this.toastCtrl.create({
+                        message: "Badに失敗しました。通信環境をご確認ください",
+                        duration: 2000
+                    })
+                    toast.present()
                 })
-                toast.present()
-            })
+        })
     }
 }
