@@ -18,6 +18,7 @@ import { Storage } from "@ionic/storage"
 export class UserArticlesViewPage {
     private userId: string
     private articles: Array<any>
+    private isNetworkError: boolean
 
     constructor(public navCtrl: NavController, public navParams: NavParams,
                 private restProvider: RestProvider, private storage: Storage) {
@@ -34,7 +35,7 @@ export class UserArticlesViewPage {
                     })
                 })
                 .catch(err => {
-                    console.log(err)
+                    this.isNetworkError = true
                 })
         })
     }

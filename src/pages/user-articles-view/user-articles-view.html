@@ -14,9 +14,8 @@
 
 
 <ion-content padding>
-    <ion-list>
+    <ion-list *ngIf="!isNetworkError">
         <ion-card *ngFor="let article of articles">
-
             <ion-item>
                 <ion-card-header> {{ article.user_name }}</ion-card-header>
                 <p item-end> {{ article.created_at }} </p>
@@ -47,4 +46,10 @@
             </ion-item>
         </ion-card>
     </ion-list>
+
+    <ion-card color="danger" *ngIf="isNetworkError">
+        <ion-card-header text-center>
+            ネットワークに接続できませんでした
+        </ion-card-header>
+    </ion-card>
 </ion-content>
