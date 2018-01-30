@@ -9,11 +9,11 @@ import {ArticlesViewPage} from "../articles-view/articles-view";
     templateUrl: 'article-post.html',
 })
 export class ArticlePostPage {
-    url: string
-    comment: string
-    count: number
+    url: string = ''
+    comment: string =  ''
+    count: number = 0
+    isError: boolean = false
     constructor(public navCtrl: NavController, private restProvider: RestProvider, private toastCtrl: ToastController) {
-        this.count = 0
     }
 
     ionViewDidLoad() {
@@ -25,6 +25,12 @@ export class ArticlePostPage {
     }
 
     postArticle() {
+        if(this.url == '' || this.comment == ''
+        || this.url.match('https?://[\w/:%#\$&\?\(\)~\.=\+\-]+') == null
+        || this.comment.length > 100) {
+            this.isError = true
+            return
+        }
         this.restProvider.postArticle(this.url, this.comment)
             .then(() => {
                 let toast = this.toastCtrl.create({
