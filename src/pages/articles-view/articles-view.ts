@@ -31,7 +31,11 @@ export class ArticlesViewPage {
                     element.howLongAgo = Math.floor((now - postedTime) / (1000 * 60 * 60))
                     element.unitOfTime = '時間前'
 
-                    if (element.howLongAgo > 24) {
+                    if (element.howLongAgo <= 0) {
+                        element.howLongAgo = 1
+                        element.unitOfTime = '時間以内'
+                    }
+                    else if (element.howLongAgo > 24) {
                         element.howLongAgo = Math.floor(element.howLongAgo / 24)
                         element.unitOfTime = '日前'
                     }
@@ -96,7 +100,7 @@ export class ArticlesViewPage {
     toggleBad(article: any) {
         let id = article.id
         article.didBadPush = !article.didBadPush
-        
+
         this.storage.get('evaluation').then(data => {
             // badの追加か取り消しかを判断
             let is_add = data['bad'].indexOf(id) == -1
