@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http'
-import { Injectable } from '@angular/core'
+import {HttpClient} from '@angular/common/http'
+import {Injectable} from '@angular/core'
 
 /*
   Generated class for the RestProvider provider.
@@ -92,5 +92,46 @@ export class RestProvider {
         })
 
         return promise
+    }
+
+    // CatchUpPage
+
+    getArticles() {
+        return new Promise((resolve, reject) => {
+            this.http.get(this.baseUrl + '/articles')
+                .subscribe(data => {
+                    resolve(data)
+                }, err => {
+                    reject(err)
+                })
+        })
+    }
+
+    toggleGood(id: string, is_add: boolean) {
+        return new Promise((resolve, reject) => {
+            this.http.put(this.baseUrl + '/articles/' + id + '/good', {
+                id: id,
+                is_add: is_add,
+            })
+                .subscribe(data => {
+                    resolve(data)
+                }, err => {
+                    reject(err)
+                })
+        })
+    }
+
+    toggleBad(id: string, is_add: boolean) {
+        return new Promise((resolve, reject) => {
+            this.http.put(this.baseUrl + '/articles/' + id + '/bad', {
+                id: id,
+                is_add: is_add,
+            })
+                .subscribe(data => {
+                    resolve(data)
+                }, err => {
+                    reject(err)
+                })
+        })
     }
 }
