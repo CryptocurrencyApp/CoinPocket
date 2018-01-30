@@ -37,6 +37,10 @@ export class ArticlesViewPage {
                     }
 
                     element.reliability = Math.round(element.good / (element.good + element.bad) * 100)
+
+                    element.didGoodPush = false
+                    element.didBadPush = false
+
                     return element
                 })
             })
@@ -53,7 +57,10 @@ export class ArticlesViewPage {
         this.urlProvider.openUrl(url)
     }
 
-    toggleGood(id: string) {
+    toggleGood(article: any) {
+        let id = article.id
+        article.didGoodPush = !article.didGoodPush
+
         this.storage.get('evaluation').then(data => {
             // goodの追加か取り消しかを判断
             let is_add = data['good'].indexOf(id) == -1
@@ -86,7 +93,10 @@ export class ArticlesViewPage {
         })
     }
 
-    toggleBad(id: string) {
+    toggleBad(article: any) {
+        let id = article.id
+        article.didBadPush = !article.didBadPush
+        
         this.storage.get('evaluation').then(data => {
             // badの追加か取り消しかを判断
             let is_add = data['bad'].indexOf(id) == -1
