@@ -17,12 +17,14 @@ import { SplashScreen } from '@ionic-native/splash-screen'
 import { HttpClientModule } from "@angular/common/http"
 import { RestProvider } from '../providers/rest/rest'
 import { IonicStorageModule } from "@ionic/storage"
+import { AboutPage } from "../pages/about/about"
 
 @NgModule({
     declarations: [
         MyApp,
         HomePage,
         NotLoggedHomePage,
+        AboutPage,
         ListPage,
         AssetsViewPage,
         AssetsEditPage,
@@ -40,6 +42,7 @@ import { IonicStorageModule } from "@ionic/storage"
         MyApp,
         HomePage,
         NotLoggedHomePage,
+        AboutPage,
         ListPage,
         AssetsViewPage,
         AssetsEditPage,
