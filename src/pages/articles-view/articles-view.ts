@@ -1,9 +1,9 @@
-import {Component} from '@angular/core'
-import {IonicPage, NavController, ToastController} from 'ionic-angular'
-import {ArticlePostPage} from "../article-post/article-post"
-import {RestProvider} from "../../providers/rest/rest"
-import {UrlProvider} from "../../providers/url/url"
-import {Storage} from "@ionic/storage";
+import { Component } from '@angular/core'
+import { IonicPage, NavController, ToastController } from 'ionic-angular'
+import { ArticlePostPage } from "../article-post/article-post"
+import { RestProvider } from "../../providers/rest/rest"
+import { UrlProvider } from "../../providers/url/url"
+import { Storage } from "@ionic/storage"
 
 @IonicPage()
 @Component({
@@ -23,8 +23,19 @@ export class ArticlesViewPage {
             .then(data => {
                 this.articles = data
             })
-            .then( () => {
+            .then(() => {
                 this.articles = this.articles.map(element => {
+                    let now = new Date().getTime()
+                    let postedTime = new Date(element.created_at).getTime()
+
+                    element.howLongAgo = Math.floor((now - postedTime) / (1000 * 60 * 60))
+                    element.unitOfTime = '時間前'
+
+                    if (element.howLongAgo > 24) {
+                        element.howLongAgo = Math.floor(element.howLongAgo / 24)
+                        element.unitOfTime = '日前'
+                    }
+
                     element.reliability = Math.round(element.good / (element.good + element.bad) * 100)
                     return element
                 })
@@ -49,7 +60,7 @@ export class ArticlesViewPage {
             this.restProvider.toggleGood(id, is_add)
                 .then(() => {
                     let toast
-                    if(is_add) {
+                    if (is_add) {
                         toast = this.toastCtrl.create({
                             message: "Goodしました",
                             duration: 2000
@@ -82,7 +93,7 @@ export class ArticlesViewPage {
             this.restProvider.toggleBad(id, is_add)
                 .then(() => {
                     let toast
-                    if(is_add) {
+                    if (is_add) {
                         toast = this.toastCtrl.create({
                             message: "Badしました",
                             duration: 2000

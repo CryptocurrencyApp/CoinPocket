@@ -20,7 +20,7 @@
         <ion-card>
 
             <ion-item>
-                <ion-card-header> {{ article.user_name }} </ion-card-header>
+                <ion-card-header> {{ article.user_name }}</ion-card-header>
                 <p item-end> {{ article.created_at }} </p>
             </ion-item>
 
@@ -44,7 +44,7 @@
             </ion-item>
             <ion-item>
                 <ion-note item-end>
-                    11h ago
+                    {{article.howLongAgo}} {{article.unitOfTime}}
                 </ion-note>
             </ion-item>
             <ion-grid>
