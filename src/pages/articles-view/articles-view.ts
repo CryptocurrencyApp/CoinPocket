@@ -25,7 +25,6 @@ export class ArticlesViewPage {
             .then( () => {
                 this.articles = this.articles.map(element => {
                     element.reliability = Math.round(element.good / (element.good + element.bad) * 100)
-                    console.dir(element.reliability)
                     return element
                 })
             })
@@ -73,6 +72,11 @@ export class ArticlesViewPage {
     }
 
     toggleBad(id: string) {
+
+        this.restProvider.getHoge("http://www.yahoo.co.jp")
+
+
+
         this.storage.get('evaluation').then(data => {
             // badの追加か取り消しかを判断
             let is_add = data['bad'].indexOf(id) == -1
