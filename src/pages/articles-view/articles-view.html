@@ -6,60 +6,70 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>キャッチアップ</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>キャッチアップ</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
-  <div *ngFor="let article of articles">
-    <ion-card>
+    <div *ngFor="let article of articles">
+        <ion-card>
 
-      <ion-item>
-        <h2> {{ article.user_name }} </h2>
-        <p item-end> {{ article.created_at }} </p>
-      </ion-item>
+            <ion-item>
+                <h2> {{ article.user_name }} </h2>
+                <p item-end> {{ article.created_at }} </p>
+            </ion-item>
 
-      <ion-card-content>
-        <p> {{ article.comment }} </p>
-      </ion-card-content>
-      <ion-item>
-        <a href="#" (click)="openUrl(article.url)">
-          <img src="{{ article.image }}">
-        </a>
-      </ion-item>
-      <ion-item>
-        <ion-note item-end>
-          11h ago
-        </ion-note>
-      </ion-item>
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <button ion-button icon-left full (click)="toggleGood(article.id)">
-              <ion-icon name="thumbs-up"></ion-icon>
-              <div> Good: {{ article.good }} </div>
-            </button>
-          </ion-col>
-          <ion-col>
-            <button color="danger" ion-button icon-left full (click)="toggleBad(article.id)">
-              <ion-icon name="thumbs-down"></ion-icon>
-              <div>  Bad: {{article.bad}} </div>
-            </button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+            <ion-card-content>
+                <p> {{ article.comment }} </p>
+            </ion-card-content>
+            <ion-item>
+                <div id="graph">
+                    <p class="plus" id="plusGr" [ngStyle]="{ 'width': article.reliability + '%'}">
+                        <span>{{ article.reliability }} %</span>
+                    </p>
+                    <p class="minus" id="minusGr" [ngStyle]="{ 'width': 100 - article.reliability + '%'}">
+                        <span>{{ 100 - article.reliability }} %</span>
+                    </p>
+                </div>
+            </ion-item>
+            <ion-item>
+                <a href="#" (click)="openUrl(article.url)">
+                    <img src="{{ article.image }}">
+                </a>
+            </ion-item>
+            <ion-item>
+                <ion-note item-end>
+                    11h ago
+                </ion-note>
+            </ion-item>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <button ion-button icon-left full (click)="toggleGood(article.id)">
+                            <ion-icon name="thumbs-up"></ion-icon>
+                            <div> Good: {{ article.good }}</div>
+                        </button>
+                    </ion-col>
+                    <ion-col>
+                        <button color="danger" ion-button icon-left full (click)="toggleBad(article.id)">
+                            <ion-icon name="thumbs-down"></ion-icon>
+                            <div> Bad: {{article.bad}}</div>
+                        </button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
 
-    </ion-card>
-  </div>
+        </ion-card>
+    </div>
 
-  <ion-fab bottom right>
-    <button ion-fab color="secondary" (click)="goArticlePostPage()">
-      <ion-icon name="add"></ion-icon>
-    </button>
-  </ion-fab>
+    <ion-fab bottom right>
+        <button ion-fab color="secondary" (click)="goArticlePostPage()">
+            <ion-icon name="add"></ion-icon>
+        </button>
+    </ion-fab>
 </ion-content>

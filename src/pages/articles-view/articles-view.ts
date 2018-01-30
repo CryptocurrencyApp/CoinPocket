@@ -22,6 +22,13 @@ export class ArticlesViewPage {
             .then(data => {
                 this.articles = data
             })
+            .then( () => {
+                this.articles = this.articles.map(element => {
+                    element.reliability = Math.round(element.good / (element.good + element.bad) * 100)
+                    console.dir(element.reliability)
+                    return element
+                })
+            })
     }
 
     goArticlePostPage() {
