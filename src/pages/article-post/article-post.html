@@ -11,8 +11,9 @@
 
 <ion-content padding>
     <form (ngSubmit)="postArticle()">
-        <ion-item *ngIf="isError" color="danger">
-            URLかCommentが不正です
+        <ion-item *ngIf="isError" text-wrap color="danger">
+            入力内容に問題があります<br>
+            例）URLの形式が異なる、 未入力の項目がある等
         </ion-item>
         <ion-item>
             <ion-label floating>URL</ion-label>
