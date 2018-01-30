@@ -19,15 +19,19 @@ export class ArticlesViewPage {
         if (!!this.storage.get('evalueation')) {
             this.storage.set('evaluation', {'good': [], 'bad': []})
         }
+
         this.restProvider.getArticles()
             .then(data => {
                 this.articles = data
             })
             .then(() => {
                 this.articles = this.articles.map(element => {
+                    element.didGoodPush = false
+                    element.didBadPush = false
+
+                    // 表示される時間を加工 TODO: メソッドに詰めたい
                     let now = new Date().getTime()
                     let postedTime = new Date(element.created_at).getTime()
-
                     element.howLongAgo = Math.floor((now - postedTime) / (1000 * 60 * 60))
                     element.unitOfTime = '時間前'
 
@@ -40,10 +44,8 @@ export class ArticlesViewPage {
                         element.unitOfTime = '日前'
                     }
 
+                    // Good/Bad比率の計算
                     element.reliability = Math.round(element.good / (element.good + element.bad) * 100)
-
-                    element.didGoodPush = false
-                    element.didBadPush = false
 
                     return element
                 })
