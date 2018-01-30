@@ -72,11 +72,6 @@ export class ArticlesViewPage {
     }
 
     toggleBad(id: string) {
-
-        this.restProvider.getHoge("http://www.yahoo.co.jp")
-
-
-
         this.storage.get('evaluation').then(data => {
             // badの追加か取り消しかを判断
             let is_add = data['bad'].indexOf(id) == -1
