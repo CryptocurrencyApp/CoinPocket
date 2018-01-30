@@ -19,6 +19,7 @@ import { RestProvider } from '../providers/rest/rest'
 import { IonicStorageModule } from "@ionic/storage"
 import { AboutPage } from "../pages/about/about"
 import { ToHashProvider } from "../providers/toHash/toHash"
+import { UserArticlesViewPage } from "../pages/user-articles-view/user-articles-view"
 
 @NgModule({
     declarations: [
@@ -27,6 +28,7 @@ import { ToHashProvider } from "../providers/toHash/toHash"
         NotLoggedHomePage,
         AboutPage,
         ListPage,
+        UserArticlesViewPage,
         AssetsViewPage,
         AssetsEditPage,
         ArticlesViewPage,
@@ -48,6 +50,7 @@ import { ToHashProvider } from "../providers/toHash/toHash"
         NotLoggedHomePage,
         AboutPage,
         ListPage,
+        UserArticlesViewPage,
         AssetsViewPage,
         AssetsEditPage,
         ArticlesViewPage,

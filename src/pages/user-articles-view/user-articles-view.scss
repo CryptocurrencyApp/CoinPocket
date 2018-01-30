@@ -1,0 +1,29 @@
+page-user-articles-view {
+  #graph {
+    overflow: hidden;
+    width: 100%;
+    height: 20px;
+
+    p {
+      margin: 0;
+      display: inline-block;
+      text-align: center;
+      height: 100%;
+      color: black;
+
+      span {
+        color: white;
+        display: block;
+      }
+
+      &.plus {
+        background-color: color($colors, primary);
+      }
+
+      &.minus {
+        background-color: color($colors, danger);
+        margin-left: -5px;
+      }
+    }
+  }
+}

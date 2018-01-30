@@ -1,0 +1,50 @@
+<!--
+  Generated template for the UserArticlesViewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>あなたの投稿一覧</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <ion-card *ngFor="let article of articles">
+
+            <ion-item>
+                <ion-card-header> {{ article.user_name }}</ion-card-header>
+                <p item-end> {{ article.created_at }} </p>
+            </ion-item>
+
+            <ion-card-content>
+                <p> {{ article.comment }} </p>
+            </ion-card-content>
+            <ion-item>
+                <div id="graph">
+                    <p class="plus" id="plusGr" [ngStyle]="{ 'width': article.reliability + '%'}">
+                        <span>{{ article.reliability }} %</span>
+                    </p>
+                    <p class="minus" id="minusGr" [ngStyle]="{ 'width': 100 - article.reliability + '%'}">
+                        <span>{{ 100 - article.reliability }} %</span>
+                    </p>
+                </div>
+            </ion-item>
+            <ion-item>
+                <a href="#" (click)="openUrl(article.url)">
+                    <img src="{{ article.image }}">
+                </a>
+            </ion-item>
+            <ion-item>
+                <ion-note item-end>
+                    11h ago
+                </ion-note>
+            </ion-item>
+        </ion-card>
+    </ion-list>
+</ion-content>
