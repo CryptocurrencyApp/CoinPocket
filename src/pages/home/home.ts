@@ -5,6 +5,7 @@ import { RestProvider } from "../../providers/rest/rest"
 
 import { NotLoggedHomePage } from "../not-logged-home/not-logged-home"
 import { AssetsViewPage } from "../assets-view/assets-view"
+import { ArticlesViewPage } from "../articles-view/articles-view"
 
 @Component({
     selector: 'page-home',
@@ -20,7 +21,6 @@ export class HomePage {
     private compareMode: string = this.compareModeList[this.compareModeIndex]
 
     constructor(public navCtrl: NavController, private storage: Storage, private restProvider: RestProvider) {
-        this.storage.set('isLogin', false)
         this.storage.get('isLogin').then(data => {
             if (!data) {
                 this.navCtrl.push(NotLoggedHomePage)
@@ -63,7 +63,7 @@ export class HomePage {
     }
 
     goCatchUp() {
-        // this.navCtrl.push()
+        this.navCtrl.push(ArticlesViewPage)
     }
 
     private formatUserHasCoins(userHasCoins: Array<any>) {
