@@ -1,5 +1,5 @@
 import {Component} from '@angular/core'
-import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular'
+import {IonicPage, NavController, ToastController} from 'ionic-angular'
 import {RestProvider} from "../../providers/rest/rest";
 import {ArticlesViewPage} from "../articles-view/articles-view";
 
@@ -14,10 +14,6 @@ export class ArticlePostPage {
     count: number = 0
     isError: boolean = false
     constructor(public navCtrl: NavController, private restProvider: RestProvider, private toastCtrl: ToastController) {
-    }
-
-    ionViewDidLoad() {
-        console.log('ionViewDidLoad ArticlePostPage');
     }
 
     changeCount() {
