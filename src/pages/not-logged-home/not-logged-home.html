@@ -22,19 +22,29 @@
         </div>
     </ion-card>
     <ion-card>
-        <ion-list>
+        <ion-item *ngIf="isError" color="danger">
+            メールアドレスかパスワードが<br>
+            間違っています
+        </ion-item>
+        <form>
             <ion-item>
-                <ion-label color="primary" stacked>メールアドレス</ion-label>
-                <ion-input type="email" placeholder="あなたのメールアドレス"></ion-input>
+                <ion-label *ngIf="!isError" color="primary" stacked>メールアドレス</ion-label>
+                <ion-label *ngIf="isError" color="danger" stacked>メールアドレス</ion-label>
+                <ion-input type="email" placeholder="あなたのメールアドレス" name="email" required
+                           [(ngModel)]="email"></ion-input>
             </ion-item>
             <ion-item>
-                <ion-label color="primary" stacked>パスワード</ion-label>
-                <ion-input type="password" placeholder="あなたのパスワード"></ion-input>
+                <ion-label *ngIf="!isError" color="primary" stacked>パスワード</ion-label>
+                <ion-label *ngIf="isError" color="danger" stacked>パスワード</ion-label>
+                <ion-input type="password" placeholder="あなたのパスワード" name="inputPassword" required
+                           [(ngModel)]="inputPassword"></ion-input>
             </ion-item>
             <ion-item>
-                <button ion-button color="primary" item-right default>ログイン</button>
+                <button ion-button color="primary" item-right default (click)="login()" type="submit">
+                    ログイン
+                </button>
             </ion-item>
-        </ion-list>
+        </form>
         <ion-item>
             <a (click)="goSignUpPage()">アカウントをお持ちでない方</a>
         </ion-item>
