@@ -26,4 +26,24 @@ page-user-articles-view {
       }
     }
   }
+
+  .reaction-button {
+    background-color: lightgray;
+  }
+
+  .good {
+    color: gray;
+  }
+  .bad {
+    color: gray;
+  }
+
+  .pushed-good {
+    background-color: color($colors, primary);
+    color: #ffffff;
+  }
+  .pushed-bad {
+    background-color: color($colors, danger);
+    color: #ffffff;
+  }
 }
