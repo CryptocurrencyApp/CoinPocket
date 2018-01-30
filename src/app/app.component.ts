@@ -25,7 +25,7 @@ export class MyApp {
         this.pages = [
             {title: 'Home', component: HomePage},
             {title: '総資産', component: AssetsViewPage},
-            {title: 'キャッチアップ', component: ArticlesViewPage}
+            {title: 'キャッチアップ', component: ArticlesViewPage},
             {title: 'このアプリについて', component: AboutPage}
         ]
 

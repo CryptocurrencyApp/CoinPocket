@@ -5,6 +5,7 @@ import { RestProvider } from "../../providers/rest/rest"
 
 import { NotLoggedHomePage } from "../not-logged-home/not-logged-home"
 import { AssetsViewPage } from "../assets-view/assets-view"
+import { ArticlesViewPage } from "../articles-view/articles-view"
 
 @Component({
     selector: 'page-home',
@@ -63,7 +64,7 @@ export class HomePage {
     }
 
     goCatchUp() {
-        // this.navCtrl.push()
+        this.navCtrl.push(ArticlesViewPage)
     }
 
     private formatUserHasCoins(userHasCoins: Array<any>) {
