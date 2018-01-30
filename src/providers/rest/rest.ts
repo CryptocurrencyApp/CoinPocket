@@ -134,4 +134,20 @@ export class RestProvider {
                 })
         })
     }
+
+    // PostArticlePage
+
+    postArticle(url: string, comment: string) {
+        return new Promise((resolve, reject) => {
+            this.http.post(this.baseUrl + '/articles', {
+                url: url,
+                comment: comment,
+            })
+                .subscribe(data => {
+                    resolve(data)
+                }, err => {
+                    reject(err)
+                })
+        })
+    }
 }

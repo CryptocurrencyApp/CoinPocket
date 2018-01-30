@@ -10,12 +10,20 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-card>
-        <ion-card-header>
-            Header
-        </ion-card-header>
-        <ion-card-content>
-            The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
-        </ion-card-content>
-    </ion-card>
+    <form (ngSubmit)="postArticle()">
+        <ion-item>
+            <ion-label floating>URL</ion-label>
+            <ion-input type="text" [(ngModel)]="url" name="url"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Comment</ion-label>
+            <ion-textarea rows="4" maxLength="100" (keyup)="changeCount()" [(ngModel)]="comment" name="comment"></ion-textarea>
+        </ion-item>
+        <ion-item>
+            <ion-note item-end>
+                文字数: {{ count }} / 100
+            </ion-note>
+        </ion-item>
+        <button full ion-button type="submit">投稿</button>
+    </form>
 </ion-content>
