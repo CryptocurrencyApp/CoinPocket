@@ -17,11 +17,11 @@ page-articles-view {
       }
 
       &.plus {
-        background-color: color($colors, primary);
+        background-color: color($colors, good);
       }
 
       &.minus {
-        background-color: color($colors, danger);
+        background-color: color($colors, bad);
         margin-left: -5px;
       }
     }
@@ -39,11 +39,11 @@ page-articles-view {
   }
 
   .pushed-good {
-    background-color: color($colors, primary);
+    background-color: color($colors, good);
     color: #ffffff;
   }
   .pushed-bad {
-    background-color: color($colors, danger);
+    background-color: color($colors, bad);
     color: #ffffff;
   }
 }
