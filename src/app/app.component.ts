@@ -9,6 +9,7 @@ import { ArticlesViewPage } from "../pages/articles-view/articles-view";
 import { AboutPage } from "../pages/about/about"
 import { UserDetailPage } from "../pages/user-detail/user-detail"
 import { SignUpPage } from "../pages/sign-up/sign-up";
+import { UserArticlesViewPage } from "../pages/user-articles-view/user-articles-view"
 
 @Component({
     templateUrl: 'app.html'
@@ -29,6 +30,7 @@ export class MyApp {
             {title: '総資産', component: AssetsViewPage},
             {title: 'キャッチアップ', component: ArticlesViewPage},
             {title: 'プロフィール', component: UserDetailPage},
+            {title: 'あなたの投稿一覧',component: UserArticlesViewPage},
             {title: 'このアプリについて', component: AboutPage}
         ]
 
