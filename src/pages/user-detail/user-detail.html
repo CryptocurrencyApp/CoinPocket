@@ -17,5 +17,37 @@
 
 
 <ion-content padding>
+    <ion-list no-border>
+        <ion-list-header>あなたの情報</ion-list-header>
+        <ion-item>
+            <span class="info-label">
+                名前
+            </span>
+            <span item-end>{{userData.name}}</span>
+        </ion-item>
+        <ion-item>
+            <span class="info-label">
+                性別
+            </span>
+            <span item-end>{{userData.sex}}</span>
+        </ion-item>
+        <ion-item>
+            <span class="info-label">
+                メールアドレス
+            </span>
+            <span item-end>{{userData.mail}}</span>
+        </ion-item>
+        <ion-item>
+            <span class="info-label">
+                誕生日
+            </span>
+            <span item-end>{{userData.birthday}}</span>
+        </ion-item>
+    </ion-list>
 
+    <ion-fab bottom right>
+        <button ion-fab round color="secondary">
+            <ion-icon name="create"></ion-icon>
+        </button>
+    </ion-fab>
 </ion-content>

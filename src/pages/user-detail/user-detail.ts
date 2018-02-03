@@ -2,6 +2,7 @@ import { Component } from '@angular/core'
 import { IonicPage, NavController, NavParams } from 'ionic-angular'
 import { RestProvider } from "../../providers/rest/rest"
 import { Storage } from "@ionic/storage"
+import { UserData } from "../../interfaces/UserData"
 
 /**
  * Generated class for the UserDetailPage page.
@@ -16,36 +17,30 @@ import { Storage } from "@ionic/storage"
     templateUrl: 'user-detail.html',
 })
 export class UserDetailPage {
+    private userData: UserData = {
+        name: null,
+        user_id: null,
+        mail: null,
+        sex: null,
+        birthday: null
+    }
     private userId: string
-    private userData: UserData
 
     constructor(public navCtrl: NavController, public navParams: NavParams,
                 private restProvider: RestProvider, private storage: Storage) {
+    }
+
+    ionViewDidLoad() {
         this.storage.set('userId', '123456') // TODO: いらなくなったら消す
         this.storage.get('userId').then(data => {
             this.userId = data
         }).then(() => {
             this.restProvider.getUserData(this.userId)
                 .then((data) => {
-                    this.userData = new UserData(data)
+                    this.userData = <UserData>data[0]
+                    this.userData.sex = this.userData.sex == 'man' ? '男性' : '女性'
                 })
         })
-
     }
-}
 
-class UserData {
-    name: string
-    userId: string
-    mail: string
-    sex: string
-    birthday: string
-
-    constructor(data: any) {
-        this.name = data.name
-        this.userId = data.user_id
-        this.mail = data.mail
-        this.sex = data.sex
-        this.birthday = data.birthday
-    }
 }
