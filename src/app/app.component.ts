@@ -10,6 +10,8 @@ import { AboutPage } from "../pages/about/about"
 import { UserDetailPage } from "../pages/user-detail/user-detail"
 import {SignUpPage} from "../pages/sign-up/sign-up";
 
+import { SignUpPage } from "../pages/sign-up/sign-up";
+
 @Component({
     templateUrl: 'app.html'
 })

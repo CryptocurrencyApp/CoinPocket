@@ -19,13 +19,23 @@
             <ion-label floating>ユーザ名</ion-label>
             <ion-input type="text" [(ngModel)]="name" name="name"></ion-input>
         </ion-item>
+        <ion-list radio-group [(ngModel)]="sex" name="sex">
+            <ion-list-header>
+                性別
+            </ion-list-header>
+
+            <ion-item>
+                <ion-label>男</ion-label>
+                <ion-radio value="man"></ion-radio>
+            </ion-item>
+            <ion-item>
+                <ion-label>女</ion-label>
+                <ion-radio value="woman"></ion-radio>
+            </ion-item>
+        </ion-list>
         <ion-item>
-            <ion-label floating>性別</ion-label>
-            <ion-input type="text" [(ngModel)]="name" name="name"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label floating>誕生日</ion-label>
-            <ion-input type="text" [(ngModel)]="name" name="name"></ion-input>
+            <ion-label>誕生日</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="birthday" name="birthday"></ion-datetime>
         </ion-item>
         <ion-item>
             <ion-label floating>メールアドレス</ion-label>
