@@ -18,7 +18,7 @@ export class RestProvider {
         let promise: Promise<Array<any>>
 
         promise = new Promise((resolve, reject) => {
-            this.http.get(this.baseUrl + '/users?user_id=' + userId)
+            this.http.get(this.baseUrl + '/users?id=' + userId)
                 .subscribe(data => {
                     resolve(<Array<any>>data)
                 }, err => {
@@ -27,6 +27,23 @@ export class RestProvider {
         })
 
         return promise
+    }
+
+    putUser(user_id: string, name: string, sex: string, birthday: string, mail: string, hashedPassword: string) {
+        return new Promise((resolve, reject) => {
+            this.http.put(this.baseUrl + '/users/' + user_id, {
+                name: name,
+                sex: sex,
+                birthday: birthday,
+                mail: mail,
+                password: hashedPassword
+            })
+                .subscribe(() => {
+                    resolve()
+                }, err => {
+                    reject(err)
+                })
+        })
     }
 
     getAssets() {

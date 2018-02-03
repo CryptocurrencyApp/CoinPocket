@@ -22,6 +22,7 @@ import { AboutPage } from "../pages/about/about"
 import { ToHashProvider } from "../providers/toHash/toHash"
 import { UserArticlesViewPage } from "../pages/user-articles-view/user-articles-view"
 import { UserDetailPage } from "../pages/user-detail/user-detail"
+import {UserEditPage} from "../pages/user-edit/user-edit";
 
 @NgModule({
     declarations: [
@@ -37,6 +38,7 @@ import { UserDetailPage } from "../pages/user-detail/user-detail"
         ArticlesViewPage,
         ArticlePostPage,
         SignUpPage,
+        UserEditPage,
     ],
     imports: [
         BrowserModule,
@@ -61,6 +63,7 @@ import { UserDetailPage } from "../pages/user-detail/user-detail"
         ArticlesViewPage,
         ArticlePostPage,
         SignUpPage,
+        UserEditPage,
     ],
     providers: [
         StatusBar,

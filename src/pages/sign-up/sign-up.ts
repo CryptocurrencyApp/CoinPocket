@@ -1,15 +1,8 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
+import {IonicPage, NavController, ToastController} from 'ionic-angular';
 import {ArticlesViewPage} from "../articles-view/articles-view";
 import {ToHashProvider} from "../../providers/toHash/toHash";
 import {RestProvider} from "../../providers/rest/rest";
-
-/**
- * Generated class for the SignUpPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -20,23 +13,19 @@ export class SignUpPage {
   name: string = ''
   sex: string = ''
   birthday: string = ''
-  email: string = ''
+  mail: string = ''
   password: string = ''
   confirmationPassword: string = ''
   errorList: string[] = []
-  constructor(public navCtrl: NavController, public navParams: NavParams, private restProvider: RestProvider, private toastCtrl: ToastController, private toHashProvider: ToHashProvider) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SignUpPage');
+  constructor(public navCtrl: NavController, private restProvider: RestProvider, private toastCtrl: ToastController, private toHashProvider: ToHashProvider) {
   }
 
   signUp() {
       this.errorList = []
-      if(this.name == '' || this.sex == '' || this.birthday == '' || this.email == '' || this.password == '' || this.confirmationPassword == '') {
+      if(this.name == '' || this.sex == '' || this.birthday == '' || this.mail == '' || this.password == '' || this.confirmationPassword == '') {
           this.errorList.push('未入力項目があります。')
       }
-      if(this.email.match(/.+@.+\..+/) == null) {
+      if(this.mail.match(/.+@.+\..+/) == null) {
           this.errorList.push('メールアドレスが不正です。')
       }
       if(this.password != this.confirmationPassword) {
@@ -46,7 +35,7 @@ export class SignUpPage {
           return
       }
       let hashedPassword = this.toHashProvider.toSHA256(this.password)
-      this.restProvider.signUp(this.name, this.sex, this.birthday, this.email, hashedPassword)
+      this.restProvider.signUp(this.name, this.sex, this.birthday, this.mail, hashedPassword)
           .then(() => {
               let toast = this.toastCtrl.create({
                   message: "ユーザ作成に成功しました。",

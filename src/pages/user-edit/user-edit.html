@@ -1,0 +1,66 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>ユーザ編集</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="putUser()">
+    <ion-item *ngFor="let error of errorList" color="danger">
+      {{ error }}
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>ユーザ名</ion-label>
+      <ion-input type="text" [(ngModel)]="userData.name" name="name"></ion-input>
+    </ion-item>
+
+    <ion-list radio-group [(ngModel)]="userData.sex" name="sex">
+      <ion-list-header>
+        性別
+      </ion-list-header>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>男</ion-label>
+            <ion-radio value="man"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label>女</ion-label>
+            <ion-radio value="woman"></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+
+    <ion-item>
+      <ion-label>誕生日</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="userData.birthday" name="birthday"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>メールアドレス</ion-label>
+      <ion-input type="text" [(ngModel)]="userData.mail" name="mail"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>パスワード</ion-label>
+      <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>パスワード(2回目)</ion-label>
+      <ion-input type="password" [(ngModel)]="confirmationPassword" name="confirmationPassword"></ion-input>
+    </ion-item>
+
+    <button full ion-button type="submit">登録</button>
+  </form>
+</ion-content>
