@@ -20,6 +20,7 @@ import { IonicStorageModule } from "@ionic/storage"
 import { AboutPage } from "../pages/about/about"
 import { ToHashProvider } from "../providers/toHash/toHash"
 import { UserArticlesViewPage } from "../pages/user-articles-view/user-articles-view"
+import { UserDetailPage } from "../pages/user-detail/user-detail"
 
 @NgModule({
     declarations: [
@@ -28,6 +29,7 @@ import { UserArticlesViewPage } from "../pages/user-articles-view/user-articles-
         NotLoggedHomePage,
         AboutPage,
         ListPage,
+        UserDetailPage,
         UserArticlesViewPage,
         AssetsViewPage,
         AssetsEditPage,
@@ -50,6 +52,7 @@ import { UserArticlesViewPage } from "../pages/user-articles-view/user-articles-
         NotLoggedHomePage,
         AboutPage,
         ListPage,
+        UserDetailPage,
         UserArticlesViewPage,
         AssetsViewPage,
         AssetsEditPage,
