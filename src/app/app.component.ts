@@ -8,6 +8,7 @@ import { AssetsViewPage } from "../pages/assets-view/assets-view"
 import { ArticlesViewPage } from "../pages/articles-view/articles-view";
 import { AboutPage } from "../pages/about/about"
 import { UserDetailPage } from "../pages/user-detail/user-detail"
+import {SignUpPage} from "../pages/sign-up/sign-up";
 
 @Component({
     templateUrl: 'app.html'
@@ -15,7 +16,7 @@ import { UserDetailPage } from "../pages/user-detail/user-detail"
 export class MyApp {
     @ViewChild(Nav) nav: Nav
 
-    rootPage: any = UserDetailPage
+    rootPage: any = SignUpPage
 
     pages: Array<{ title: string, component: any }>
 
