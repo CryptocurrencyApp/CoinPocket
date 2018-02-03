@@ -1,4 +1,4 @@
-page-articles-view {
+page-user-articles-view {
   #graph {
     overflow: hidden;
     width: 100%;
@@ -17,11 +17,11 @@ page-articles-view {
       }
 
       &.plus {
-        background-color: color($colors, good);
+        background-color: color($colors, primary);
       }
 
       &.minus {
-        background-color: color($colors, bad);
+        background-color: color($colors, danger);
         margin-left: -5px;
       }
     }
@@ -32,18 +32,18 @@ page-articles-view {
   }
 
   .good {
-    color:gray;
+    color: gray;
   }
   .bad {
-    color:gray;
+    color: gray;
   }
 
   .pushed-good {
-    background-color: color($colors, good);
+    background-color: color($colors, primary);
     color: #ffffff;
   }
   .pushed-bad {
-    background-color: color($colors, bad);
+    background-color: color($colors, danger);
     color: #ffffff;
   }
 }

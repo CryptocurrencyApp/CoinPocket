@@ -1,7 +1,7 @@
-import {Component} from '@angular/core'
-import {IonicPage, NavController, ToastController} from 'ionic-angular'
-import {RestProvider} from "../../providers/rest/rest";
-import {ArticlesViewPage} from "../articles-view/articles-view";
+import { Component } from '@angular/core'
+import { IonicPage, NavController, ToastController } from 'ionic-angular'
+import { RestProvider } from "../../providers/rest/rest"
+import { ArticlesViewPage } from "../articles-view/articles-view"
 
 @IonicPage()
 @Component({
@@ -10,9 +10,10 @@ import {ArticlesViewPage} from "../articles-view/articles-view";
 })
 export class ArticlePostPage {
     url: string = ''
-    comment: string =  ''
+    comment: string = ''
     count: number = 0
     isError: boolean = false
+
     constructor(public navCtrl: NavController, private restProvider: RestProvider, private toastCtrl: ToastController) {
     }
 
@@ -21,12 +22,14 @@ export class ArticlePostPage {
     }
 
     postArticle() {
-        if(this.url == '' || this.comment == ''
-        || this.url.match('https?://[\w/:%#\$&\?\(\)~\.=\+\-]+') == null
-        || this.comment.length > 100) {
+        this.isError = false
+        if (this.url == '' || this.comment == ''
+            || this.url.match('http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&=]*)?') == null
+            || this.comment.length > 100) {
             this.isError = true
             return
         }
+
         this.restProvider.postArticle(this.url, this.comment)
             .then(() => {
                 let toast = this.toastCtrl.create({
@@ -35,7 +38,7 @@ export class ArticlePostPage {
                 })
                 toast.present()
             })
-            .then( () => {
+            .then(() => {
                 this.navCtrl.setRoot(ArticlesViewPage)
             })
             .catch(() => {

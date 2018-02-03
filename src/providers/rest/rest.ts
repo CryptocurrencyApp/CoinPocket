@@ -14,6 +14,21 @@ export class RestProvider {
     constructor(public http: HttpClient) {
     }
 
+    getUserData(userId: string) {
+        let promise: Promise<Array<any>>
+
+        promise = new Promise((resolve, reject) => {
+            this.http.get(this.baseUrl + '/user?user_id=' + userId)
+                .subscribe(data => {
+                    resolve(<Array<any>>data)
+                }, err => {
+                    reject(err)
+                })
+        })
+
+        return promise
+    }
+
     getAssets() {
         let promise: Promise<Array<any>>
 
@@ -102,6 +117,21 @@ export class RestProvider {
                     reject(err)
                 })
         })
+    }
+
+    getArticlesOfUser(userId: string) {
+        let promise: Promise<Array<any>>
+
+        promise = new Promise((resolve, reject) => {
+            this.http.get(this.baseUrl + '/articles?user_id=' + userId)
+                .subscribe(data => {
+                    resolve(<Array<any>>data)
+                }, err => {
+                    reject(err)
+                })
+        })
+
+        return promise
     }
 
     postLogin(email: string, hashedPassword: string) {

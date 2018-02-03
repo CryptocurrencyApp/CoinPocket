@@ -22,9 +22,8 @@
         </div>
     </ion-card>
     <ion-card>
-        <ion-item *ngIf="isError" color="danger">
-            メールアドレスかパスワードが<br>
-            間違っています
+        <ion-item *ngIf="isError" color="danger" text-wrap>
+            メールアドレスかパスワードが間違っています
         </ion-item>
         <form>
             <ion-item>
