@@ -134,6 +134,23 @@ export class RestProvider {
         return promise
     }
 
+    signUp(name: string, sex: string, birthday: string, email: string, hashedPassword: string) {
+        return new Promise((resolve, reject) => {
+            this.http.post(this.baseUrl + '/users', {
+                name: name,
+                sex: sex,
+                birthday: birthday,
+                email: email,
+                password: hashedPassword
+            })
+                .subscribe(() => {
+                    resolve(this.postLogin(email, hashedPassword))
+                }, err => {
+                    reject(err)
+                })
+        })
+    }
+
     postLogin(email: string, hashedPassword: string) {
         let promise: Promise<any>
 
