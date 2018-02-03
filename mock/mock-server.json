@@ -4,6 +4,7 @@
       "name": "山田太郎",
       "user_id": "123456",
       "password": "fkdsalhf@wgtoiht2okdsangat:lkdhg4t",
+      "mail": "exapmle@exapmle.com",
       "sex": "man",
       "birthday": "1996/01/01",
       "created_at": "2018/01/01/00:00:00"
@@ -12,6 +13,7 @@
       "name": "田中花子",
       "user_id": "abcdef",
       "password": "fkdsalhf@wgtoiht2okdsangat:lkdhg4t",
+      "mail": "exapmle@exapmle.com",
       "sex": "woman",
       "birthday": "1996/01/01",
       "created_at": "2018/01/01/00:00:00"
@@ -20,6 +22,7 @@
       "name": "豪炎寺光宙",
       "user_id": "1234abcd",
       "password": "fkdsalhf@wgtoiht2okdsangat:lkdhg4t",
+      "mail": "exapmle@exapmle.com",
       "sex": "man",
       "birthday": "2001/01/01",
       "created_at": "2018/01/01/00:00:00"
