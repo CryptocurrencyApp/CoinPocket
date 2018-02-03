@@ -6,8 +6,18 @@
     </ion-header>
 
     <ion-content>
-        <ion-list>
-            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-list class="menu-list">
+            <button menuClose ion-item *ngFor="let p of mainPages" (click)="openPage(p)">
+                {{p.title}}
+            </button>
+        </ion-list>
+        <ion-list class="menu-list">
+            <button menuClose ion-item *ngFor="let p of userPages" (click)="openPage(p)">
+                {{p.title}}
+            </button>
+        </ion-list>
+        <ion-list class="menu-list">
+            <button menuClose ion-item *ngFor="let p of aboutPages" (click)="openPage(p)">
                 {{p.title}}
             </button>
         </ion-list>
