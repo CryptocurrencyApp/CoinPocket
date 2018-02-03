@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular'
 import { RestProvider } from "../../providers/rest/rest"
 import { Storage } from "@ionic/storage"
 import { UserData } from "../../interfaces/UserData"
+import {ArticlePostPage} from "../article-post/article-post";
+import {UserEditPage} from "../user-edit/user-edit";
 
 /**
  * Generated class for the UserDetailPage page.
@@ -43,4 +45,7 @@ export class UserDetailPage {
         })
     }
 
+    goUserEditPage() {
+        this.navCtrl.push(UserEditPage)
+    }
 }
