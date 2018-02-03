@@ -18,7 +18,7 @@ export class RestProvider {
         let promise: Promise<Array<any>>
 
         promise = new Promise((resolve, reject) => {
-            this.http.get(this.baseUrl + '/user?user_id=' + userId)
+            this.http.get(this.baseUrl + '/users?user_id=' + userId)
                 .subscribe(data => {
                     resolve(<Array<any>>data)
                 }, err => {
