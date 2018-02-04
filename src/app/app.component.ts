@@ -8,7 +8,6 @@ import { AssetsViewPage } from "../pages/assets-view/assets-view"
 import { ArticlesViewPage } from "../pages/articles-view/articles-view"
 import { AboutPage } from "../pages/about/about"
 import { UserDetailPage } from "../pages/user-detail/user-detail"
-import { SignUpPage } from "../pages/sign-up/sign-up"
 import { UserArticlesViewPage } from "../pages/user-articles-view/user-articles-view"
 
 @Component({
@@ -16,7 +15,7 @@ import { UserArticlesViewPage } from "../pages/user-articles-view/user-articles-
 })
 export class MyApp {
     @ViewChild(Nav) nav: Nav
-    rootPage: any = SignUpPage
+    rootPage: any = HomePage
     userPages: Array<{ title: string, component: any }>
     mainPages: Array<{ title: string, component: any }>
     aboutPages: Array<{ title: string, component: any }>

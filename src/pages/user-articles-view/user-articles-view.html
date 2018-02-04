@@ -15,7 +15,7 @@
 
 
 <ion-content padding>
-    <ion-list *ngIf="!isNetworkError">
+    <ion-list *ngIf="!isNetworkError || articles.length != 0">
         <ion-card *ngFor="let article of articles">
             <ion-item>
                 <ion-card-header> {{ article.user_name }}</ion-card-header>
@@ -51,6 +51,12 @@
     <ion-card color="danger" *ngIf="isNetworkError">
         <ion-card-header text-center>
             ネットワークに接続できませんでした
+        </ion-card-header>
+    </ion-card>
+
+    <ion-card color="light" *ngIf="articles.length == 0">
+        <ion-card-header text-center>
+            あなたの投稿は一つもありませんでした
         </ion-card-header>
     </ion-card>
 </ion-content>

@@ -17,7 +17,7 @@ import { Storage } from "@ionic/storage"
 })
 export class UserArticlesViewPage {
     private userId: string
-    private articles: Array<any>
+    private articles: Array<any> = []
     private isNetworkError: boolean
 
     constructor(public navCtrl: NavController, public navParams: NavParams,
