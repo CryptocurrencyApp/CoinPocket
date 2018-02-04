@@ -59,11 +59,11 @@ export class HomePage {
     }
 
     goAssetsView() {
-        this.navCtrl.push(AssetsViewPage)
+        this.navCtrl.setRoot(AssetsViewPage)
     }
 
     goCatchUp() {
-        this.navCtrl.push(ArticlesViewPage)
+        this.navCtrl.setRoot(ArticlesViewPage)
     }
 
     private formatUserHasCoins(userHasCoins: Array<any>) {
