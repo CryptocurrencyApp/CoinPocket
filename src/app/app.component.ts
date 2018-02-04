@@ -21,9 +21,9 @@ export class MyApp {
     mainPages: Array<{ title: string, component: any }>
     aboutPages: Array<{ title: string, component: any }>
 
-    constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+    constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public storage: Storage) {
         this.initializeApp()
-
+        this.storage.set('userId', '123456')
         // used for an example of ngFor and navigation
         this.mainPages = [
             {title: 'Home', component: HomePage},

@@ -22,7 +22,6 @@ export class UserArticlesViewPage {
 
     constructor(public navCtrl: NavController, public navParams: NavParams,
                 private restProvider: RestProvider, private storage: Storage) {
-        this.storage.set('userId', 'gatcha1') // TODO: いらなくなったら消す
         this.storage.get('userId').then(data => {
             this.userId = data
         }).then(() => {
