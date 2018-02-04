@@ -25,6 +25,7 @@ export class UserEditPage {
     errorList: string[] = []
 
     constructor(public navCtrl: NavController, private restProvider: RestProvider, private toastCtrl: ToastController, private toHashProvider: ToHashProvider, private storage: Storage) {
+        this.storage.set('userId', '123456') // TODO: いらなくなったら消す
         this.storage.get('userId').then(data => {
             this.user_id = data
         }).then(() => {

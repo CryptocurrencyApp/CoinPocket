@@ -33,14 +33,13 @@ export class UserDetailPage {
     }
 
     ionViewDidLoad() {
+        this.storage.set('userId', '123456') // TODO: いらなくなったら消す
         this.storage.get('userId').then(data => {
             this.userId = data
         }).then(() => {
             this.restProvider.getUserData(this.userId)
                 .then((data) => {
                     this.userData = <UserData>data[0]
-                    console.dir(this.userData)
-                    console.log(this.userId)
                     this.userData.sex = this.userData.sex == 'man' ? '男性' : '女性'
                 })
         })
