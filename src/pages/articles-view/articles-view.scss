@@ -29,21 +29,25 @@ page-articles-view {
 
   .reaction-button {
     background-color: lightgray;
+    &:hover {
+      background-color: lightgray;
+    }
   }
 
   .good {
-    color:gray;
+    color: gray;
   }
   .bad {
-    color:gray;
+    color: gray;
   }
 
   .pushed-good {
-    background-color: color($colors, good);
+    background-color: color($colors, good) !important;
     color: #ffffff;
   }
+
   .pushed-bad {
-    background-color: color($colors, bad);
+    background-color: color($colors, bad) !important;
     color: #ffffff;
   }
 }

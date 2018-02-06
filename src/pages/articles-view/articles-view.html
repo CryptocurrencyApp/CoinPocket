@@ -50,7 +50,7 @@
             <ion-grid>
                 <ion-row>
                     <ion-col>
-                        <button *ngIf="!article.didGoodPush" class="reaction-button good" ion-button icon-left full (click)="toggleGood(article)">
+                        <button *ngIf="!article.didGoodPush" class="reaction-button good disable-hover" ion-button icon-left full (click)="toggleGood(article)">
                             <ion-icon name="thumbs-up"></ion-icon>
                             <div> Good: {{ article.good }}</div>
                         </button>
@@ -60,7 +60,7 @@
                         </button>
                     </ion-col>
                     <ion-col>
-                        <button *ngIf="!article.didBadPush" class="reaction-button bad" ion-button icon-left full (click)="toggleBad(article)">
+                        <button *ngIf="!article.didBadPush" class="reaction-button bad disable-hover" ion-button icon-left full (click)="toggleBad(article)">
                             <ion-icon name="thumbs-down"></ion-icon>
                             <div> Bad: {{article.bad}}</div>
                         </button>
