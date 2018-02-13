@@ -31,6 +31,8 @@ export class UserArticlesViewPage {
                     this.articles = this.articles.map(element => {
                         element.didGoodPush = false
                         element.didBadPush = false
+                        let date = new Date(element.created_at)
+                        element.created_at = date.toLocaleString()
 
                         // 表示される時間を加工 TODO: メソッドに詰めたい
                         let now = new Date().getTime()
@@ -48,8 +50,12 @@ export class UserArticlesViewPage {
                         }
 
                         // Good/Bad比率の計算
-                        element.reliability = Math.round(element.good / (element.good + element.bad) * 100)
-
+                        // 0除算防止
+                        if (element.good + element.bad == 0) {
+                            element.reliability = 50
+                        } else {
+                            element.reliability = Math.round(element.good / (element.good + element.bad) * 100)
+                        }
                         return element
                     })
                 })

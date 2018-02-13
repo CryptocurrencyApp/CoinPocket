@@ -214,11 +214,12 @@ export class RestProvider {
 
     // PostArticlePage
 
-    postArticle(url: string, comment: string) {
+    postArticle(url: string, comment: string, userId: string) {
         return new Promise((resolve, reject) => {
             this.http.post(this.baseUrl + '/articles', {
                 url: url,
                 comment: comment,
+                user_id: userId
             })
                 .subscribe(data => {
                     resolve(data)

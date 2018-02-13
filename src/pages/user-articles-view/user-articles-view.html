@@ -18,7 +18,7 @@
     <ion-list *ngIf="!isNetworkError || articles.length != 0">
         <ion-card *ngFor="let article of articles">
             <ion-item>
-                <ion-card-header> {{ article.user_name }}</ion-card-header>
+                <h2> {{ article.user_name }}</h2>
                 <p item-end> {{ article.created_at }} </p>
             </ion-item>
 

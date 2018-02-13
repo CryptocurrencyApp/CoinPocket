@@ -22,7 +22,6 @@ export class HomePage {
 
     constructor(public navCtrl: NavController, private storage: Storage, private restProvider: RestProvider) {
         this.storage.get('isLogin').then(data => {
-            console.log(data)
             if (!data) {
                 this.navCtrl.push(NotLoggedHomePage)
             }

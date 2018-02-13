@@ -2,6 +2,7 @@ import { Component } from '@angular/core'
 import { IonicPage, NavController, ToastController } from 'ionic-angular'
 import { RestProvider } from "../../providers/rest/rest"
 import { ArticlesViewPage } from "../articles-view/articles-view"
+import { Storage } from "@ionic/storage"
 
 @IonicPage()
 @Component({
@@ -11,10 +12,14 @@ import { ArticlesViewPage } from "../articles-view/articles-view"
 export class ArticlePostPage {
     url: string = ''
     comment: string = ''
+    userId: string = ''
     count: number = 0
     isError: boolean = false
 
-    constructor(public navCtrl: NavController, private restProvider: RestProvider, private toastCtrl: ToastController) {
+    constructor(public navCtrl: NavController, private restProvider: RestProvider, private toastCtrl: ToastController, private storage: Storage) {
+        this.storage.get('userId').then(data => {
+            this.userId = data
+        })
     }
 
     changeCount() {
@@ -30,7 +35,7 @@ export class ArticlePostPage {
             return
         }
 
-        this.restProvider.postArticle(this.url, this.comment)
+        this.restProvider.postArticle(this.url, this.comment, this.userId)
             .then(() => {
                 let toast = this.toastCtrl.create({
                     message: "投稿に成功しました。",
