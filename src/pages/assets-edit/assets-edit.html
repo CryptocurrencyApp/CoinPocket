@@ -46,11 +46,15 @@
     <ion-card>
         <ion-card-content>
             <ion-list inset>
-                <li ion-item *ngFor="let asset of userAssetsList">
-                    <ion-label>{{asset.id}}</ion-label>
-                    <ion-input item-right [(ngModel)]="asset.amount"
-                               (input)="editAmount(asset.id, asset.amount)"></ion-input>
-                    <ion-icon name="trash" item-end color="danger" (click)="deleteCoinAsset(asset.id)"></ion-icon>
+                <li *ngFor="let asset of userAssetsList">
+                    <ion-item>
+                        <ion-label>{{asset.id}}</ion-label>
+                        <ion-input item-right [(ngModel)]="asset.amount"
+                                   (input)="editAmount(asset.id, asset.amount)"></ion-input>
+                    </ion-item>
+                    <ion-item item-end>
+                        <ion-icon name="trash" item-end color="danger" (click)="deleteCoinAsset(asset.id)"></ion-icon>
+                    </ion-item>
                 </li>
             </ion-list>
         </ion-card-content>

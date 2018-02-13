@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular'
 import { RestProvider } from "../../providers/rest/rest"
+import { Storage } from '@ionic/storage'
 
 /**
  * Generated class for the AssetsEditPage page.
@@ -22,16 +23,22 @@ export class AssetsEditPage {
     private isInput: boolean
     private isNotFound: boolean
     private selectedCoinName: string
+    private userId: string
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, private restProvider: RestProvider, private toastCtrl: ToastController) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, private restProvider: RestProvider, private toastCtrl: ToastController, private storage: Storage) {
+        this.storage.get('userId').then(data => {
+            this.userId = data
+        }).then( () =>
         this.restProvider.getSelectableCoinList()
             .then(data => {
                 this.selectableCoinList = data
             })
-        this.restProvider.getAssets()
+        ).then( () =>
+        this.restProvider.getAssets(this.userId)
             .then(data => {
                 this.userAssetsList = data
             })
+        )
     }
 
     getInputCoinName() {
@@ -44,13 +51,13 @@ export class AssetsEditPage {
         }, timeoutMS)
     }
 
-    addCoin(id: string) {
+    addCoin(coinId: string) {
         this.selectedCoinName = ''
         this.isInput = this.selectedCoinName != ''
 
-        this.restProvider.postAsset(id, 0)
+        this.restProvider.postAsset(this.userId, coinId, "0")
             .then(() => {
-                this.restProvider.getAssets()
+                this.restProvider.getAssets(this.userId)
                     .then(data => {
                         this.userAssetsList = data
                     })
@@ -67,8 +74,8 @@ export class AssetsEditPage {
 
     }
 
-    deleteCoinAsset(id: string) {
-        this.restProvider.deleteAsset(id)
+    deleteCoinAsset(coinId: string) {
+        this.restProvider.deleteAsset(this.userId, coinId)
             .then(() => {
                 let toast = this.toastCtrl.create({
                     message: "削除が完了しました。",
@@ -84,20 +91,20 @@ export class AssetsEditPage {
                 toast.present()
             })
             .then(() => {
-                this.restProvider.getAssets()
+                this.restProvider.getAssets(this.userId)
                     .then(data => {
                         this.userAssetsList = data
                     })
             })
     }
 
-    editAmount(id: string, amount: number) {
+    editAmount(coinId: string, amount: number) {
         const timeoutMS = 1000
         clearTimeout(this.timeoutId)
         this.timeoutId = setTimeout(() => {
             // timeoutMS秒間の入力待機後、編集をAPIに投稿される
             // APIに投稿する
-            this.restProvider.putAsset(id, amount)
+            this.restProvider.putAsset(this.userId, coinId, amount)
                 .then(() => {
                     let toast = this.toastCtrl.create({
                         message: "保存完了しました",

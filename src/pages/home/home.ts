@@ -15,6 +15,7 @@ export class HomePage {
     private isNetworkError: boolean = false
 
     private userHasCoins: Array<any> = []
+    private userId: string
 
     private compareModeList: string[] = ['1h', '24h', '7d']
     private compareModeIndex: number = 0
@@ -26,10 +27,13 @@ export class HomePage {
                 this.navCtrl.push(NotLoggedHomePage)
             }
         })
+        this.storage.get('userId').then(data => {
+            this.userId = data
+        })
     }
 
     ionViewWillEnter() {
-        Promise.all([this.restProvider.getRates(), this.restProvider.getAssets()])
+        Promise.all([this.restProvider.getRates(), this.restProvider.getAssets(this.userId)])
             .then(data => {
                 let rates: Array<any> = data[0]
                 let assets: Array<any> = data[1]

@@ -2,6 +2,7 @@ import { Component } from '@angular/core'
 import { IonicPage, NavController, NavParams } from 'ionic-angular'
 import { AssetsEditPage } from "../assets-edit/assets-edit"
 import { RestProvider } from "../../providers/rest/rest"
+import { Storage } from "@ionic/storage"
 
 /**
  * Generated class for the AssetsViewPage page.
@@ -16,16 +17,20 @@ import { RestProvider } from "../../providers/rest/rest"
     templateUrl: 'assets-view.html',
 })
 export class AssetsViewPage {
+    userId: string
     information: any
     total: number
     viewMode: string
     isNetworkError: boolean = false
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, private restProvider: RestProvider) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, private restProvider: RestProvider, private storage: Storage) {
+        this.storage.get('userId').then(data => {
+            this.userId = data
+        })
     }
 
     ionViewWillEnter() {
-        this.restProvider.getAssets()
+        this.restProvider.getAssets(this.userId)
             .then(data => {
                 this.information = data
             })

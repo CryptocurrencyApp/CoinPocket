@@ -47,11 +47,11 @@ export class RestProvider {
         })
     }
 
-    getAssets() {
+    getAssets(userId: string) {
         let promise: Promise<Array<any>>
 
         promise = new Promise((resolve, reject) => {
-            this.http.get(this.baseUrl + '/assets' + '?_sort=amount&_order=asc') // FIXME: ここのQueryStringはMock用
+            this.http.get(this.baseUrl + '/assets/' + userId)
                 .subscribe(data => {
                     resolve(<Array<any>>data)
                 }, err => {
@@ -62,11 +62,12 @@ export class RestProvider {
         return promise
     }
 
-    postAsset(id: string, amount: number) {
+    postAsset(userId: string, coinId: string, amount: string) {
         return new Promise((resolve, reject) => {
             this.http.post(this.baseUrl + '/assets', {
+                user_id: userId,
+                coin_id: coinId,
                 amount: amount,
-                id: id,
             })
                 .subscribe(data => {
                     resolve(data)
@@ -76,9 +77,9 @@ export class RestProvider {
         })
     }
 
-    deleteAsset(id: string) {
+    deleteAsset(userId: string, coinId: string) {
         return new Promise((resolve, reject) => {
-            this.http.delete(this.baseUrl + '/assets/' + id)
+            this.http.delete(this.baseUrl + '/assets/' + userId + "/" + coinId)
                 .subscribe(data => {
                     resolve(data)
                 }, err => {
@@ -87,11 +88,12 @@ export class RestProvider {
         })
     }
 
-    putAsset(id: string, amount: number) {
+    putAsset(userId: string, coinId: string, amount: number) {
         return new Promise((resolve, reject) => {
-            this.http.put(this.baseUrl + '/assets/' + id, {
+            this.http.put(this.baseUrl + '/assets', {
+                user_id: userId,
+                coin_id: coinId,
                 amount: amount,
-                id: id,
             }).subscribe(() => {
                 resolve()
             }, err => {
