@@ -25,7 +25,6 @@ export class UserEditPage {
     errorList: string[] = []
 
     constructor(public navCtrl: NavController, private restProvider: RestProvider, private toastCtrl: ToastController, private toHashProvider: ToHashProvider, private storage: Storage) {
-        this.storage.set('userId', '123456') // TODO: いらなくなったら消す
         this.storage.get('userId').then(data => {
             this.user_id = data
         }).then(() => {
@@ -33,16 +32,14 @@ export class UserEditPage {
                 .then((data) => {
                     this.userData = <UserData>data[0]
                     // 時差修正
-                    let birthday: Date = new Date(this.userData.birthday)
-                    birthday.setHours(birthday.getHours() + 9)
-                    this.userData.birthday = birthday.toISOString()
+                    this.userData.birthday = new Date(this.userData.birthday)
                 })
         })
     }
 
     putUser() {
         this.errorList = []
-        if(this.userData.name == '' || this.userData.sex == '' || this.userData.birthday == '' || this.userData.mail == '') {
+        if(this.userData.name == '' || this.userData.sex == '' || this.userData.birthday == null || this.userData.mail == '') {
             this.errorList.push('未入力項目があります。')
         }
         if(this.userData.mail.match(/.+@.+\..+/) == null) {

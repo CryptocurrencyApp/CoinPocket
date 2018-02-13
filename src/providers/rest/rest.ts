@@ -10,7 +10,7 @@ import {UserData} from "../../interfaces/UserData";
 */
 @Injectable()
 export class RestProvider {
-    baseUrl = 'http://localhost:3000'
+    baseUrl = 'http://localhost:8080'
 
     constructor(public http: HttpClient) {
     }
@@ -30,7 +30,7 @@ export class RestProvider {
         return promise
     }
 
-    putUser(user_id: string, name: string, sex: string, birthday: string, mail: string, hashedPassword: string) {
+    putUser(user_id: string, name: string, sex: string, birthday: Date, mail: string, hashedPassword: string) {
         return new Promise((resolve, reject) => {
             this.http.put(this.baseUrl + '/users/' + user_id, {
                 name: name,
@@ -169,12 +169,12 @@ export class RestProvider {
         })
     }
 
-    postLogin(email: string, hashedPassword: string) {
+    postLogin(mail: string, hashedPassword: string) {
         let promise: Promise<any>
 
         promise = new Promise((resolve, reject) => {
             this.http.post(this.baseUrl + '/login', {
-                email: email,
+                mail: mail,
                 password: hashedPassword
             }).subscribe(data => {
                 resolve(data)
@@ -189,7 +189,6 @@ export class RestProvider {
     toggleGood(id: string, is_add: boolean) {
         return new Promise((resolve, reject) => {
             this.http.put(this.baseUrl + '/articles/' + id + '/good', {
-                id: id,
                 is_add: is_add,
             })
                 .subscribe(data => {
@@ -203,7 +202,6 @@ export class RestProvider {
     toggleBad(id: string, is_add: boolean) {
         return new Promise((resolve, reject) => {
             this.http.put(this.baseUrl + '/articles/' + id + '/bad', {
-                id: id,
                 is_add: is_add,
             })
                 .subscribe(data => {

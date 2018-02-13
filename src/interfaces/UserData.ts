@@ -3,5 +3,5 @@ export interface UserData {
     user_id: string
     mail: string
     sex: string
-    birthday: string
+    birthday: Date
 }

@@ -5,6 +5,7 @@ import { ToHashProvider } from "../../providers/toHash/toHash"
 import { RestProvider } from "../../providers/rest/rest"
 import { Storage } from "@ionic/storage"
 import { HomePage } from "../home/home"
+import {SignUpPage} from '../sign-up/sign-up'
 
 /**
  * Generated class for the NotLoggedHomePage page.
@@ -30,7 +31,7 @@ export class NotLoggedHomePage {
     }
 
     goSignUpPage() {
-        // this.navCtrl.push(SignUpPage)
+        this.navCtrl.push(SignUpPage)
     }
 
     goHowToUsePage() {

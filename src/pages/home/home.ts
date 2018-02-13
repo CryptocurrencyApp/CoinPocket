@@ -21,7 +21,9 @@ export class HomePage {
     private compareMode: string = this.compareModeList[this.compareModeIndex]
 
     constructor(public navCtrl: NavController, private storage: Storage, private restProvider: RestProvider) {
+        this.storage.set('isLogin', false)
         this.storage.get('isLogin').then(data => {
+            console.log(data)
             if (!data) {
                 this.navCtrl.push(NotLoggedHomePage)
             }

@@ -16,7 +16,7 @@ export class SignUpPage {
         user_id: '',
         mail: '',
         sex: '',
-        birthday: ''
+        birthday: null
     }
     password: string = ''
     confirmationPassword: string = ''
@@ -27,7 +27,7 @@ export class SignUpPage {
 
     signUp() {
         this.errorList = []
-        if (this.userData.name == '' || this.userData.sex == '' || this.userData.birthday == '' || this.userData.mail == '' || this.password == '' || this.confirmationPassword == '') {
+        if (this.userData.name == '' || this.userData.sex == '' || this.userData.birthday == null || this.userData.mail == '' || this.password == '' || this.confirmationPassword == '') {
             this.errorList.push('未入力項目があります。')
         }
         if (this.userData.mail.match(/.+@.+\..+/) == null) {
@@ -40,6 +40,7 @@ export class SignUpPage {
             return
         }
         let hashedPassword = this.toHashProvider.toSHA256(this.password)
+        this.userData.birthday = new Date(this.userData.birthday)
         this.restProvider.signUp(this.userData, hashedPassword)
             .then(() => {
                 let toast = this.toastCtrl.create({
