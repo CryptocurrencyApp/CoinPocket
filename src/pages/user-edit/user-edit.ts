@@ -29,9 +29,8 @@ export class UserEditPage {
             this.user_id = data
         }).then(() => {
             this.restProvider.getUserData(this.user_id)
-                .then((data) => {
-                    this.userData = <UserData>data[0]
-                    // 時差修正
+                .then((data: any) => {
+                    this.userData = data
                     this.userData.birthday = new Date(this.userData.birthday)
                 })
         })
@@ -53,6 +52,7 @@ export class UserEditPage {
         }
         // password更新がない場合はnull
         let hashedPassword = this.password != '' ? this.toHashProvider.toSHA256(this.password) : null
+        this.userData.birthday = new Date(this.userData.birthday)
         this.restProvider.putUser(this.user_id, this.userData.name, this.userData.sex, this.userData.birthday, this.userData.mail, hashedPassword)
             .then(() => {
                 let toast = this.toastCtrl.create({

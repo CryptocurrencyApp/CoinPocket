@@ -25,6 +25,7 @@ export class UserDetailPage {
         sex: null,
         birthday: null
     }
+    private birthday: string
     private userId: string
 
     constructor(public navCtrl: NavController, public navParams: NavParams,
@@ -32,14 +33,15 @@ export class UserDetailPage {
     }
 
     ionViewDidLoad() {
-        this.storage.set('userId', '123456') // TODO: いらなくなったら消す
         this.storage.get('userId').then(data => {
             this.userId = data
         }).then(() => {
             this.restProvider.getUserData(this.userId)
-                .then((data) => {
-                    this.userData = <UserData>data[0]
+                .then((data: any) => {
+                    this.userData = data
                     this.userData.sex = this.userData.sex == 'man' ? '男性' : '女性'
+                    var date = new Date(this.userData.birthday)
+                    this.birthday = date.toLocaleDateString();
                 })
         })
     }

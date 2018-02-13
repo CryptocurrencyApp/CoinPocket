@@ -53,7 +53,7 @@ export class NotLoggedHomePage {
         this.hashedPassword = this.toHashProvider.toSHA256(this.inputPassword)
         this.restProvider.postLogin(this.email, this.hashedPassword)
             .then(data => {
-                this.storage.set('userId', data.userId)
+                this.storage.set('userId', data.id)
                 this.storage.set('isLogin', true)
                 this.navCtrl.setRoot(HomePage)
             })
