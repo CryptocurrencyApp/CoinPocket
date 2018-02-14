@@ -20,7 +20,7 @@ export class UserArticlesViewPage {
     private articles: Array<any> = []
     private isNetworkError: boolean
 
-    constructor(public navCtrl: NavController, public navParams: NavParams,
+    constructor(public navCtrl: NavController,
                 private restProvider: RestProvider, private storage: Storage) {
         this.storage.get('userId').then(data => {
             this.userId = data

@@ -4,6 +4,7 @@ import {ArticlesViewPage} from "../articles-view/articles-view";
 import {ToHashProvider} from "../../providers/toHash/toHash";
 import {RestProvider} from "../../providers/rest/rest";
 import {UserData} from "../../interfaces/UserData";
+import {Storage} from '@ionic/storage'
 
 @IonicPage()
 @Component({
@@ -22,7 +23,7 @@ export class SignUpPage {
     confirmationPassword: string = ''
     errorList: string[] = []
 
-    constructor(public navCtrl: NavController, private restProvider: RestProvider, private toastCtrl: ToastController, private toHashProvider: ToHashProvider) {
+    constructor(public navCtrl: NavController, private restProvider: RestProvider, private toastCtrl: ToastController, private toHashProvider: ToHashProvider, private storage: Storage) {
     }
 
     signUp() {
@@ -43,6 +44,7 @@ export class SignUpPage {
         this.userData.birthday = new Date(this.userData.birthday)
         this.restProvider.signUp(this.userData, hashedPassword)
             .then(() => {
+                this.storage.set('isLogin', true)
                 let toast = this.toastCtrl.create({
                     message: "ユーザ作成に成功しました。",
                     duration: 2000
