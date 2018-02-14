@@ -5,7 +5,6 @@ import {ToHashProvider} from '../../providers/toHash/toHash'
 import {RestProvider} from '../../providers/rest/rest'
 import {UserData} from '../../interfaces/UserData'
 import {Storage} from '@ionic/storage'
-import {HomePage} from '../home/home'
 
 @IonicPage()
 @Component({
