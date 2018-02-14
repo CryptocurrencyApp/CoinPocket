@@ -10,7 +10,7 @@ import {UserData} from "../../interfaces/UserData";
 */
 @Injectable()
 export class RestProvider {
-    baseUrl = 'http://localhost:8080'
+    baseUrl = 'http://133.242.228.20/api'
 
     constructor(public http: HttpClient) {
     }
