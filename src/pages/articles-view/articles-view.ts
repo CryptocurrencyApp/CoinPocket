@@ -19,55 +19,55 @@ export class ArticlesViewPage {
     }
 
     ionViewWillEnter() {
-        // storage['evaluation']がない場合新規作成
-        if (!this.storage.get('evaluation')) {
-            this.storage.set('evaluation', {'good': [], 'bad': []})
-        }
         this.storage.get('evaluation').then(data => {
-            this.evaluation = data
-            console.dir(this.evaluation)
+            // storage['evaluation']がない場合新規作成
+            if (data == null) {
+                this.storage.set('evaluation', {'good': [], 'bad': []})
+            }
         }).then( () => {
-            this.restProvider.getArticles()
-                .then(data => {
-                    this.articles = data
-                })
-                .then(() => {
-                    this.articles = this.articles.map(element => {
-
-                        // element.didGoodPush = false
-                        // element.didBadPush = false
-                        let date = new Date(element.created_at)
-                        element.created_at = date.toLocaleString()
-
-                        // 表示される時間を加工 TODO: メソッドに詰めたい
-                        let now = new Date().getTime()
-                        let postedTime = new Date(element.created_at).getTime()
-                        element.howLongAgo = Math.floor((now - postedTime) / (1000 * 60 * 60))
-                        element.unitOfTime = '時間前'
-
-                        if (element.howLongAgo <= 0) {
-                            element.howLongAgo = 1
-                            element.unitOfTime = '時間以内'
-                        }
-                        else if (element.howLongAgo > 24) {
-                            element.howLongAgo = Math.floor(element.howLongAgo / 24)
-                            element.unitOfTime = '日前'
-                        }
-
-                        // Good/Bad比率の計算
-                        // 0除算防止
-                        if (element.good + element.bad == 0) {
-                            element.reliability = 50
-                        } else {
-                            element.reliability = Math.round(element.good / (element.good + element.bad) * 100)
-                        }
-
-                        return element
+            this.storage.get('evaluation').then(data => {
+                this.evaluation = data
+            }).then( () => {
+                this.restProvider.getArticles()
+                    .then(data => {
+                        console.log(data)
+                        this.articles = data
                     })
-                })
-                .catch(() => {
-                    this.isNetworkError = true
-                })
+                    .then(() => {
+                        this.articles = this.articles.map(element => {
+                            let date = new Date(element.created_at)
+                            element.created_at = date.toLocaleString()
+
+                            // 表示される時間を加工 TODO: メソッドに詰めたい
+                            let now = new Date().getTime()
+                            let postedTime = new Date(element.created_at).getTime()
+                            element.howLongAgo = Math.floor((now - postedTime) / (1000 * 60 * 60))
+                            element.unitOfTime = '時間前'
+
+                            if (element.howLongAgo <= 0) {
+                                element.howLongAgo = 1
+                                element.unitOfTime = '時間以内'
+                            }
+                            else if (element.howLongAgo > 24) {
+                                element.howLongAgo = Math.floor(element.howLongAgo / 24)
+                                element.unitOfTime = '日前'
+                            }
+
+                            // Good/Bad比率の計算
+                            // 0除算防止
+                            if (element.good + element.bad == 0) {
+                                element.reliability = 50
+                            } else {
+                                element.reliability = Math.round(element.good / (element.good + element.bad) * 100)
+                            }
+
+                            return element
+                        })
+                    })
+                    .catch(() => {
+                        this.isNetworkError = true
+                    })
+            })
         })
     }
 
