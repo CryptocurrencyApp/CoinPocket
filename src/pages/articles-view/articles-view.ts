@@ -12,57 +12,66 @@ import { Storage } from "@ionic/storage"
 })
 export class ArticlesViewPage {
     articles: any
+    evaluation: any
     isNetworkError: boolean = false
 
     constructor(public navCtrl: NavController, private storage: Storage, private restProvider: RestProvider, private urlProvider: UrlProvider, private toastCtrl: ToastController) {
-        // storage['evaluation']がない場合新規作成
-        if (!!this.storage.get('evalueation')) {
-            this.storage.set('evaluation', {'good': [], 'bad': []})
-        }
-
-        this.restProvider.getArticles()
-            .then(data => {
-                this.articles = data
-            })
-            .then(() => {
-                this.articles = this.articles.map(element => {
-                    element.didGoodPush = false
-                    element.didBadPush = false
-                    let date = new Date(element.created_at)
-                    element.created_at = date.toLocaleString()
-
-                    // 表示される時間を加工 TODO: メソッドに詰めたい
-                    let now = new Date().getTime()
-                    let postedTime = new Date(element.created_at).getTime()
-                    element.howLongAgo = Math.floor((now - postedTime) / (1000 * 60 * 60))
-                    element.unitOfTime = '時間前'
-
-                    if (element.howLongAgo <= 0) {
-                        element.howLongAgo = 1
-                        element.unitOfTime = '時間以内'
-                    }
-                    else if (element.howLongAgo > 24) {
-                        element.howLongAgo = Math.floor(element.howLongAgo / 24)
-                        element.unitOfTime = '日前'
-                    }
-
-                    // Good/Bad比率の計算
-                    // 0除算防止
-                    if (element.good + element.bad == 0) {
-                        element.reliability = 50
-                    } else {
-                        element.reliability = Math.round(element.good / (element.good + element.bad) * 100)
-                    }
-
-                    return element
-                })
-            })
-            .catch(() => {
-                this.isNetworkError = true
-            })
     }
 
-    goArticlePostPage() {
+    ionViewWillEnter() {
+        // storage['evaluation']がない場合新規作成
+        if (!this.storage.get('evaluation')) {
+            this.storage.set('evaluation', {'good': [], 'bad': []})
+        }
+        this.storage.get('evaluation').then(data => {
+            this.evaluation = data
+            console.dir(this.evaluation)
+        }).then( () => {
+            this.restProvider.getArticles()
+                .then(data => {
+                    this.articles = data
+                })
+                .then(() => {
+                    this.articles = this.articles.map(element => {
+
+                        // element.didGoodPush = false
+                        // element.didBadPush = false
+                        let date = new Date(element.created_at)
+                        element.created_at = date.toLocaleString()
+
+                        // 表示される時間を加工 TODO: メソッドに詰めたい
+                        let now = new Date().getTime()
+                        let postedTime = new Date(element.created_at).getTime()
+                        element.howLongAgo = Math.floor((now - postedTime) / (1000 * 60 * 60))
+                        element.unitOfTime = '時間前'
+
+                        if (element.howLongAgo <= 0) {
+                            element.howLongAgo = 1
+                            element.unitOfTime = '時間以内'
+                        }
+                        else if (element.howLongAgo > 24) {
+                            element.howLongAgo = Math.floor(element.howLongAgo / 24)
+                            element.unitOfTime = '日前'
+                        }
+
+                        // Good/Bad比率の計算
+                        // 0除算防止
+                        if (element.good + element.bad == 0) {
+                            element.reliability = 50
+                        } else {
+                            element.reliability = Math.round(element.good / (element.good + element.bad) * 100)
+                        }
+
+                        return element
+                    })
+                })
+                .catch(() => {
+                    this.isNetworkError = true
+                })
+        })
+    }
+
+        goArticlePostPage() {
         this.navCtrl.push(ArticlePostPage)
     }
 
@@ -74,7 +83,7 @@ export class ArticlesViewPage {
         let id = article.id
         article.didGoodPush = !article.didGoodPush
 
-        this.storage.get('evaluation').then(data => {
+            this.storage.get('evaluation').then(data => {
             // goodの追加か取り消しかを判断
             let is_add = data['good'].indexOf(id) == -1
             this.restProvider.toggleGood(id, is_add)
@@ -93,7 +102,9 @@ export class ArticlesViewPage {
                         })
                         data['good'].splice([data['good'].indexOf(id)], 1)
                     }
+                    article.good += is_add ? 1 : -1
                     this.storage.set('evaluation', data)
+                    this.evaluation = data
                     toast.present()
                 })
                 .catch(() => {
@@ -129,7 +140,9 @@ export class ArticlesViewPage {
                         })
                         data['bad'].splice([data['bad'].indexOf(id)], 1)
                     }
+                    article.bad += is_add ? 1 : -1
                     this.storage.set('evaluation', data)
+                    this.evaluation = data
                     toast.present()
                 })
                 .catch(() => {
