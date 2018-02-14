@@ -1,10 +1,11 @@
-import {Component} from '@angular/core';
-import {IonicPage, NavController, ToastController} from 'ionic-angular';
-import {ArticlesViewPage} from "../articles-view/articles-view";
-import {ToHashProvider} from "../../providers/toHash/toHash";
-import {RestProvider} from "../../providers/rest/rest";
-import {UserData} from "../../interfaces/UserData";
+import {Component} from '@angular/core'
+import {IonicPage, NavController, ToastController} from 'ionic-angular'
+import {ArticlesViewPage} from '../articles-view/articles-view'
+import {ToHashProvider} from '../../providers/toHash/toHash'
+import {RestProvider} from '../../providers/rest/rest'
+import {UserData} from '../../interfaces/UserData'
 import {Storage} from '@ionic/storage'
+import {HomePage} from '../home/home'
 
 @IonicPage()
 @Component({
@@ -44,22 +45,24 @@ export class SignUpPage {
         this.userData.birthday = new Date(this.userData.birthday)
         this.restProvider.signUp(this.userData, hashedPassword)
             .then(() => {
-                this.storage.set('isLogin', true)
-                let toast = this.toastCtrl.create({
-                    message: "ユーザ作成に成功しました。",
-                    duration: 2000
-                })
-                toast.present()
-            })
-            .then(() => {
-                this.navCtrl.setRoot(ArticlesViewPage)
-            })
-            .catch(() => {
-                let toast = this.toastCtrl.create({
-                    message: "ユーザ登録に失敗しました。通信環境をご確認ください",
-                    duration: 2000
-                })
-                toast.present()
+                this.restProvider.postLogin(this.userData.mail, hashedPassword)
+                    .then(data => {
+                        this.storage.set('userId', data.id)
+                        this.storage.set('isLogin', true)
+                        let toast = this.toastCtrl.create({
+                            message: 'ユーザ作成に成功しました。',
+                            duration: 2000
+                        })
+                        toast.present()
+                        this.navCtrl.setRoot(ArticlesViewPage)
+                    })
+                    .catch(() => {
+                        let toast = this.toastCtrl.create({
+                            message: 'ユーザ登録に失敗しました。通信環境をご確認ください',
+                            duration: 2000
+                        })
+                        toast.present()
+                    })
             })
     }
 }

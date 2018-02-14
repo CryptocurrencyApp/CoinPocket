@@ -164,7 +164,7 @@ export class RestProvider {
                 password: hashedPassword
             })
                 .subscribe(() => {
-                    resolve(this.postLogin(userData.mail, hashedPassword))
+                    resolve()
                 }, err => {
                     reject(err)
                 })

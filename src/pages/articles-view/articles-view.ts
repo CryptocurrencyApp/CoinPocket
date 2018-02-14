@@ -30,7 +30,6 @@ export class ArticlesViewPage {
             }).then( () => {
                 this.restProvider.getArticles()
                     .then(data => {
-                        console.log(data)
                         this.articles = data
                     })
                     .then(() => {
