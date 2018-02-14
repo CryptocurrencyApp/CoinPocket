@@ -22,6 +22,9 @@ export class HomePage {
     private compareMode: string = this.compareModeList[this.compareModeIndex]
 
     constructor(public navCtrl: NavController, private storage: Storage, private restProvider: RestProvider) {
+    }
+
+    ionViewWillEnter() {
         this.storage.get('isLogin').then(data => {
             if (!data) {
                 this.navCtrl.push(NotLoggedHomePage)
@@ -29,26 +32,25 @@ export class HomePage {
         })
         this.storage.get('userId').then(data => {
             this.userId = data
-        })
-    }
+            return data
+        }).then(userId => {
+            Promise.all([this.restProvider.getRates(), this.restProvider.getAssets(userId)])
+                .then(data => {
+                    let rates: Array<any> = data[0]
+                    let assets: Array<any> = data[1]
 
-    ionViewWillEnter() {
-        Promise.all([this.restProvider.getRates(), this.restProvider.getAssets(this.userId)])
-            .then(data => {
-                let rates: Array<any> = data[0]
-                let assets: Array<any> = data[1]
-
-                this.userHasCoins = assets.map(element => {
-                    return rates.find(rate => {
-                        return element.id == rate.id
+                    this.userHasCoins = assets.map(element => {
+                        return rates.find(rate => {
+                            return element.id == rate.id
+                        })
                     })
-                })
 
-                this.userHasCoins = this.formatUserHasCoins(this.userHasCoins)
-            })
-            .catch(err => {
-                this.isNetworkError = true
-            })
+                    this.userHasCoins = this.formatUserHasCoins(this.userHasCoins)
+                })
+                .catch(err => {
+                    this.isNetworkError = true
+                })
+        })
     }
 
     changeCompareMode() {
