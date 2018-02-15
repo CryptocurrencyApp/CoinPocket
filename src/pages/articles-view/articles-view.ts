@@ -52,13 +52,7 @@ export class ArticlesViewPage {
                                 element.unitOfTime = '日前'
                             }
 
-                            // Good/Bad比率の計算
-                            // 0除算防止
-                            if (element.good + element.bad == 0) {
-                                element.reliability = 50
-                            } else {
-                                element.reliability = Math.round(element.good / (element.good + element.bad) * 100)
-                            }
+                            this.estimateReliability(element)
 
                             return element
                         })
@@ -68,6 +62,15 @@ export class ArticlesViewPage {
                     })
             })
         })
+    }
+    // Good/Bad比率の計算
+    estimateReliability(element) {
+        // 0除算防止
+        if (element.good + element.bad == 0) {
+            element.reliability = 50
+        } else {
+            element.reliability = Math.round(element.good / (element.good + element.bad) * 100)
+        }
     }
 
         goArticlePostPage() {
@@ -80,8 +83,6 @@ export class ArticlesViewPage {
 
     toggleGood(article: any) {
         let id = article.id
-        article.didGoodPush = !article.didGoodPush
-
             this.storage.get('evaluation').then(data => {
             // goodの追加か取り消しかを判断
             let is_add = data['good'].indexOf(id) == -1
@@ -102,6 +103,7 @@ export class ArticlesViewPage {
                         data['good'].splice([data['good'].indexOf(id)], 1)
                     }
                     article.good += is_add ? 1 : -1
+                    this.estimateReliability(article)
                     this.storage.set('evaluation', data)
                     this.evaluation = data
                     toast.present()
@@ -118,7 +120,6 @@ export class ArticlesViewPage {
 
     toggleBad(article: any) {
         let id = article.id
-        article.didBadPush = !article.didBadPush
 
         this.storage.get('evaluation').then(data => {
             // badの追加か取り消しかを判断
@@ -140,6 +141,7 @@ export class ArticlesViewPage {
                         data['bad'].splice([data['bad'].indexOf(id)], 1)
                     }
                     article.bad += is_add ? 1 : -1
+                    this.estimateReliability(article)
                     this.storage.set('evaluation', data)
                     this.evaluation = data
                     toast.present()
