@@ -27,6 +27,24 @@ page-articles-view {
     }
   }
 
+  a {
+    text-decoration: none !important;
+  }
+
+  .site-info-wrapper {
+    padding: 20px 10px;
+
+    & .site-name {
+      display: block;
+    }
+
+    & .site-title {
+      color: #4e4e4e;
+      font-size: 1.4rem;
+      white-space: normal !important;
+    }
+  }
+
   .reaction-button {
     background-color: lightgray;
     &:hover {
