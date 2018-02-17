@@ -1,9 +1,9 @@
-import { Component } from '@angular/core'
-import { IonicPage, NavController, ToastController } from 'ionic-angular'
-import { ArticlePostPage } from "../article-post/article-post"
-import { RestProvider } from "../../providers/rest/rest"
-import { UrlProvider } from "../../providers/url/url"
-import { Storage } from "@ionic/storage"
+import {Component} from '@angular/core'
+import {IonicPage, NavController, ToastController} from 'ionic-angular'
+import {ArticlePostPage} from '../article-post/article-post'
+import {RestProvider} from '../../providers/rest/rest'
+import {UrlProvider} from '../../providers/url/url'
+import {Storage} from '@ionic/storage'
 
 @IonicPage()
 @Component({
@@ -16,53 +16,48 @@ export class ArticlesViewPage {
     isNetworkError: boolean = false
 
     constructor(public navCtrl: NavController, private storage: Storage, private restProvider: RestProvider, private urlProvider: UrlProvider, private toastCtrl: ToastController) {
-    }
-
-    ionViewWillEnter() {
         this.storage.get('evaluation').then(data => {
             // storage['evaluation']がない場合新規作成
             if (data == null) {
                 this.storage.set('evaluation', {'good': [], 'bad': []})
             }
-        }).then( () => {
-            this.storage.get('evaluation').then(data => {
-                this.evaluation = data
-            }).then( () => {
-                this.restProvider.getArticles()
-                    .then(data => {
-                        this.articles = data
-                    })
-                    .then(() => {
-                        this.articles = this.articles.map(element => {
-                            let date = new Date(element.created_at)
-                            element.created_at = date.toLocaleString()
-
-                            // 表示される時間を加工 TODO: メソッドに詰めたい
-                            let now = new Date().getTime()
-                            let postedTime = new Date(element.created_at).getTime()
-                            element.howLongAgo = Math.floor((now - postedTime) / (1000 * 60 * 60))
-                            element.unitOfTime = '時間前'
-
-                            if (element.howLongAgo <= 0) {
-                                element.howLongAgo = 1
-                                element.unitOfTime = '時間以内'
-                            }
-                            else if (element.howLongAgo > 24) {
-                                element.howLongAgo = Math.floor(element.howLongAgo / 24)
-                                element.unitOfTime = '日前'
-                            }
-
-                            this.estimateReliability(element)
-
-                            return element
-                        })
-                    })
-                    .catch(() => {
-                        this.isNetworkError = true
-                    })
-            })
         })
     }
+
+    ionViewWillEnter() {
+        Promise.all([this.storage.get('evaluation'), this.restProvider.getArticles()])
+            .then((data) => {
+                this.evaluation = data[0]
+                this.articles = data[1]
+                this.articles = this.articles.map(element => {
+                    let date = new Date(element.created_at)
+                    element.created_at = date.toLocaleString()
+
+                    // 表示される時間を加工 TODO: メソッドに詰めたい
+                    let now = new Date().getTime()
+                    let postedTime = new Date(element.created_at).getTime()
+                    element.howLongAgo = Math.floor((now - postedTime) / (1000 * 60 * 60))
+                    element.unitOfTime = '時間前'
+
+                    if (element.howLongAgo <= 0) {
+                        element.howLongAgo = 1
+                        element.unitOfTime = '時間以内'
+                    }
+                    else if (element.howLongAgo > 24) {
+                        element.howLongAgo = Math.floor(element.howLongAgo / 24)
+                        element.unitOfTime = '日前'
+                    }
+
+                    this.estimateReliability(element)
+
+                    return element
+                })
+            })
+            .catch(() => {
+                this.isNetworkError = true
+            })
+    }
+
     // Good/Bad比率の計算
     estimateReliability(element) {
         // 0除算防止
@@ -73,7 +68,7 @@ export class ArticlesViewPage {
         }
     }
 
-        goArticlePostPage() {
+    goArticlePostPage() {
         this.navCtrl.push(ArticlePostPage)
     }
 
@@ -83,7 +78,7 @@ export class ArticlesViewPage {
 
     toggleGood(article: any) {
         let id = article.id
-            this.storage.get('evaluation').then(data => {
+        this.storage.get('evaluation').then(data => {
             // goodの追加か取り消しかを判断
             let is_add = data['good'].indexOf(id) == -1
             this.restProvider.toggleGood(id, is_add)
@@ -91,13 +86,13 @@ export class ArticlesViewPage {
                     let toast
                     if (is_add) {
                         toast = this.toastCtrl.create({
-                            message: "Goodしました",
+                            message: 'Goodしました',
                             duration: 2000
                         })
                         data['good'].push(id)
                     } else {
                         toast = this.toastCtrl.create({
-                            message: "Goodを取り消しました",
+                            message: 'Goodを取り消しました',
                             duration: 2000
                         })
                         data['good'].splice([data['good'].indexOf(id)], 1)
@@ -110,7 +105,7 @@ export class ArticlesViewPage {
                 })
                 .catch(() => {
                     let toast = this.toastCtrl.create({
-                        message: "Goodに失敗しました。通信環境をご確認ください",
+                        message: 'Goodに失敗しました。通信環境をご確認ください',
                         duration: 2000
                     })
                     toast.present()
@@ -129,13 +124,13 @@ export class ArticlesViewPage {
                     let toast
                     if (is_add) {
                         toast = this.toastCtrl.create({
-                            message: "Badしました",
+                            message: 'Badしました',
                             duration: 2000
                         })
                         data['bad'].push(id)
                     } else {
                         toast = this.toastCtrl.create({
-                            message: "Badを取り消しました",
+                            message: 'Badを取り消しました',
                             duration: 2000
                         })
                         data['bad'].splice([data['bad'].indexOf(id)], 1)
@@ -148,7 +143,7 @@ export class ArticlesViewPage {
                 })
                 .catch(() => {
                     let toast = this.toastCtrl.create({
-                        message: "Badに失敗しました。通信環境をご確認ください",
+                        message: 'Badに失敗しました。通信環境をご確認ください',
                         duration: 2000
                     })
                     toast.present()
